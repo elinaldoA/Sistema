@@ -38,7 +38,7 @@ class Planos extends Model
 
     public function Planos()
     {
-        return $this->hasMany('App\Models\Planos', 'id', 'name');
+        return $this->belongsTo(Planos::class);
     }
 }
 

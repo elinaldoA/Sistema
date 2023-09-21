@@ -38,7 +38,7 @@ class Categorias extends Model
 
     public function Categorias()
     {
-        return $this->hasMany('App\Models\Categorias', 'id', 'name');
+        return $this->belongsTo(Categorias::class);
     }
 }
 

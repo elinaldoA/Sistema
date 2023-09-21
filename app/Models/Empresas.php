@@ -38,7 +38,7 @@ class Empresas extends Model
 
     public function Empresas()
     {
-        return $this->hasMany('App\Models\Empresas', 'id', 'name');
+        return $this->belongsTo(Empresas::class);
     }
 }
 
