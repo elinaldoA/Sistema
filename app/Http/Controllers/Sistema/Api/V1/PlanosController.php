@@ -64,7 +64,7 @@ class PlanosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete(Planos $plano)
+    public function destroy(Planos $plano)
     {
         $plano->delete();
         return response()->json(null, 204);

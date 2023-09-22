@@ -64,7 +64,7 @@ class CategoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete(Categorias $categoria)
+    public function destroy(Categorias $categoria)
     {
         $categoria->delete();
         return response()->json(null, 204);
