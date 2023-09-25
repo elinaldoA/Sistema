@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call(CategoriasSeeder::class);
         $this->call(PlanosSeeder::class);
+        $this->call(GenerosSeeder::class);
     }
 }

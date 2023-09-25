@@ -93,4 +93,13 @@
             $('#sucesso').hide(); // "sucesso" é o id do elemento que seja manipular.
         }, 2500); // O valor é representado em milisegundos.
     });
+
+    $('a[data-target="#confirm-delete"]').on('click', function (e) {
+    e.preventDefault();
+    var name = $(this).data('name'); var id = $(this).data('id');
+    $('span.name').text(name + ' (id = ' + id + ')');
+    $('.delete').attr('href', 'categoria.excluir?id=' + id);
+    $('#confirm-delete').modal('show');
+    return false;
+    });
 </script>

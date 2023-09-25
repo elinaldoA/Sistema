@@ -141,7 +141,7 @@
                     <div class="pl-lg-2">
                         <div class="row">
                             <div class="col">
-                                <button type="submit" class="btn btn-outline-primary"><i class="fas fa-check"></i> Atualiazar</button>
+                                <button type="submit" class="btn btn-outline-primary"><i class="fas fa-check"></i> Atualizar</button>
                             </div>
                         </div>
                     </div>

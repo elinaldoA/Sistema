@@ -100,7 +100,7 @@ class Authenticate
             if($guard && $guard == 'admin'){
             return route('sistema.admin.login');
             }
-            if($guard && $guard == 'clientes'){
+            if($guard && $guard == 'cliente'){
             return route('sistema.clientes.login');
             }
             return route('login');

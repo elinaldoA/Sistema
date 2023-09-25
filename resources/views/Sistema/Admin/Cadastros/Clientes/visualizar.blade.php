@@ -2,7 +2,7 @@
 
 @section('main-content')
 <!-- Page Heading -->
-<h1 class="h3 mb-4 text-gray-800">{{ __('Empresas') }}</h1>
+<h1 class="h3 mb-4 text-gray-800">{{ __('Clientes') }}</h1>
 
 @if (session('success'))
 <div id="sucesso" class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
@@ -36,12 +36,12 @@
                             <th scope="col">Nome</th>
                             <th scope="col">Ações</th>
                         </tr>
-                        @forelse($empresas as $e)
+                        @forelse($clientes as $c)
                         <tr>
-                            <td>{{$e->name}}</td>
+                            <td>{{$c->name}}</td>
                             <td>
-                                <a class="btn btn-outline-primary" href="{{route('empresa.editar', ['empresa' => $e->id])}}"><i class="fa fa-edit"></i></a>
-                                <a class="btn btn-outline-primary" href="{{route('empresa.show', ['empresa' => $e->id])}}"><i class="fa fa-eye"></i></a>
+                                <a class="btn btn-outline-primary" href="{{route('cliente.editar', ['cliente' => $c->id])}}"><i class="fa fa-edit"></i></a>
+                                <a class="btn btn-outline-primary" href="{{route('cliente.show', ['cliente' => $c->id])}}"><i class="fa fa-eye"></i></a>
                                 <a class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></a>
                                 <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -57,7 +57,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Cancelar') }}</button>
-                                                <a class="btn btn-danger btn-ok" href="{{route('empresa.excluir', ['empresa' => $e->id])}}">Delete</a>
+                                                <a class="btn btn-danger btn-ok" href="{{route('cliente.excluir', ['cliente' => $c->id])}}">Delete</a>
                                             </div>
                                         </div>
                                     </div>
@@ -76,7 +76,7 @@
 
                     <nav aria-label="Navegação de página exemplo">
                         <ul class="pagination justify-content-center">
-                            {!! $empresas->links() !!}
+                            {!! $clientes->links() !!}
                         </ul>
                     </nav>
                 </div>
@@ -98,7 +98,7 @@
     e.preventDefault();
     var name = $(this).data('name'); var id = $(this).data('id');
     $('span.name').text(name + ' (id = ' + id + ')');
-    $('.delete').attr('href', 'empresa.excluir?id=' + id);
+    $('.delete').attr('href', 'cliente.excluir?id=' + id);
     $('#confirm-delete').modal('show');
     return false;
     });
