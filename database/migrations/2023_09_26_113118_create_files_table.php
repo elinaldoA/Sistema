@@ -21,6 +21,10 @@ class CreateFilesTable extends Migration
             $table->string('url');
             $table->string('path');
             $table->string('size');
+            $table->unsignedBigInteger('empresa_id')->nullable();
+            $table->foreign('empresa_id')->references('id')->on('empresas');
+            $table->unsignedBigInteger('cliente_id')->nullable();
+            $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->timestamps();
         });
     }

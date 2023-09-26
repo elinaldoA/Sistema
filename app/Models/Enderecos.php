@@ -15,7 +15,7 @@ class Enderecos extends Model
      * @var array
      */
     protected $fillable = [
-        'rua','numero','complemento','cep','bairro','cidade','estado','pais'
+        'rua','numero','complemento','cep','bairro','cidade','estado','pais','empresa_id','cliente_id'
     ];
 
     /**
@@ -38,7 +38,15 @@ class Enderecos extends Model
 
     public function Enderecos()
     {
-        return $this->hasMany('App\Models\Enderecos', 'id', 'rua');
+        return $this->hasOne('App\Models\Enderecos', 'cliente_id');
+    }
+    public function Empresas()
+    {
+        return $this->hasOne('App\Models\Empresas');
+    }
+    public function Clientes()
+    {
+        return $this->hasOne('App\Models\Clientes');
     }
 }
 

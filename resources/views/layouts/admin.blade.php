@@ -89,9 +89,9 @@
                 </a>
                 <!-- Dropdown - Item pagamentos -->
                 <div class="dropdown-menu" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="{{route('despesas')}}">
+                    <a class="dropdown-item" href="{{route('receitas')}}">
                         <i class="fas fa-level-up-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                        {{ __('Despesas') }}
+                        {{ __('Receitas') }}
                     </a>
                     <a class="dropdown-item" href="{{route('receitas')}}">
                         <i class="fas fa-level-down-alt fa-sm fa-fw mr-2 text-gray-400"></i>

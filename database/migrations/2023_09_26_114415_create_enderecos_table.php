@@ -23,6 +23,10 @@ class CreateEnderecosTable extends Migration
             $table->string('cidade');
             $table->string('estado');
             $table->string('pais');
+            $table->unsignedBigInteger('empresa_id')->nullable();
+            $table->foreign('empresa_id')->references('id')->on('empresas');
+            $table->unsignedBigInteger('cliente_id')->nullable();
+            $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->timestamps();
         });
     }

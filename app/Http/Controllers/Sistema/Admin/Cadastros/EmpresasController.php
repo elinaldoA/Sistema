@@ -38,25 +38,27 @@ class EmpresasController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:50',
-            'cnpj' => 'required|string|max:18',
-            'description' => 'required|string|max:50',
-            'email' => 'required|email|unique:users',
-            'active' => 'required|boolean',
-            /* Dados do endereço da empresa */
-            'rua' => 'required|string|min:10|max:100',
-            'complemento' => 'required|string|max:50',
-            'numero' => 'required|int',
-            'cep' => 'required|string|min:10|max:15',
-            'bairro' => 'required|string|min:1|max:100',
-            'cidade' => 'required|string|min:1|max:50',
-            'estado'=> 'required|string|min:2|max:2',
-            'pais' => 'required|string|min:1|max:50',
-        ]);
-
-        Empresas::create($request->all());
-        Enderecos::create($request->all());
+        $empresas = new Empresas();
+        $empresas->name = $request->input('name');
+        $empresas->cnpj = $request->input('cnpj');
+        $empresas->description = $request->input('description');
+        $empresas->email = $request->input('email');
+        $empresas->active = $request->input('active');
+        $empresas->save();
+        $empresas = Empresas::all();
+        /* Endereço empresa */
+        $enderecos = new Enderecos();
+        $enderecos->rua = $request->input('rua');
+        $enderecos->complemento = $request->input('complemento');
+        $enderecos->numero = $request->input('numero');
+        $enderecos->cep = $request->input('cep');
+        $enderecos->bairro = $request->input('bairro');
+        $enderecos->cidade = $request->input('cidade');
+        $enderecos->estado = $request->input('estado');
+        $enderecos->pais = $request->input('pais');
+        $enderecos->empresa_id = $request->input('empresa_id');
+        $enderecos->save();
+        $enderecos = Enderecos::all();
         return redirect()->route('empresas')
         ->with('success','Cadastrado com sucesso!');
     }
@@ -69,7 +71,8 @@ class EmpresasController extends Controller
      */
     public function show(Empresas $empresa)
     {
-        return view('Sistema.Admin.Cadastros.Empresas.show', compact('empresa'));
+        $enderecos = Enderecos::with('enderecos')->get();
+        return view('Sistema.Admin.Cadastros.Empresas.show', compact('empresa','enderecos'));
     }
 
     /**
@@ -80,7 +83,8 @@ class EmpresasController extends Controller
      */
     public function edit(Empresas $empresa)
     {
-        return view('Sistema.Admin.Cadastros.Empresas.editar', compact('empresa'));
+        $enderecos = Enderecos::with('enderecos')->get();
+        return view('Sistema.Admin.Cadastros.Empresas.editar', compact('empresa','enderecos'));
     }
 
     /**

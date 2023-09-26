@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Sistema\Admin\Cadastros;
 use App\Http\Controllers\Controller;
 use App\Models\Clientes;
 use App\Models\Empresas;
+use App\Models\Enderecos;
 use App\Models\Generos;
 use Illuminate\Http\Request;
 
@@ -41,15 +42,28 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'active' => 'required|boolean',
-            'name' => 'required|string|max:100',
-            'cpf' => 'required|string',
-            'email' => 'required|string|unique:users',
-            'genero_id' => 'required|integer',
-            'empresa_id' => 'required|integer',
-        ]);
-        Clientes::create($request->all());
+        $cliente = new Clientes();
+        $cliente->active = $request->input('active');
+        $cliente->name = $request->input('name');
+        $cliente->cpf = $request->input('cpf');
+        $cliente->email = $request->input('email');
+        $cliente->genero_id = $request->input('genero_id');
+        $cliente->empresa_id = $request->input('empresa_id');
+        $cliente->save();
+        $cliente = Clientes::all();
+        /* Endereço empresa */
+        $endereco = new Enderecos();
+        $endereco->rua = $request->input('rua');
+        $endereco->complemento = $request->input('complemento');
+        $endereco->numero = $request->input('numero');
+        $endereco->cep = $request->input('cep');
+        $endereco->bairro = $request->input('bairro');
+        $endereco->cidade = $request->input('cidade');
+        $endereco->estado = $request->input('estado');
+        $endereco->pais = $request->input('pais');
+        $endereco->cliente_id = $request->input('cliente_id');
+        $endereco->save();
+        $endereco = Enderecos::all();
         return redirect()->route('clientes')->with('success', 'Cadastrado com sucesso');
     }
 
@@ -63,7 +77,8 @@ class ClientesController extends Controller
     {
         $generos = Generos::with('generos')->get();
         $empresas = Empresas::with('empresas')->get();
-        return view('Sistema.Admin.Cadastros.Clientes.show', compact('cliente', 'generos','empresas'));
+        $enderecos = Enderecos::with('enderecos')->get();
+        return view('Sistema.Admin.Cadastros.Clientes.show', compact('cliente','enderecos','generos','empresas'));
     }
 
     /**
@@ -76,16 +91,9 @@ class ClientesController extends Controller
     {
         $generos = Generos::with('generos')->get();
         $empresas = Empresas::with('empresas')->get();
-        return view('Sistema.Admin.Cadastros.Clientes.editar', compact('cliente', 'generos','empresas'));
+        $enderecos = Enderecos::with('enderecos')->get();
+        return view('Sistema.Admin.Cadastros.Clientes.editar', compact('cliente','enderecos','generos','empresas'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Clientes $cliente)
     {
         $request->validate([

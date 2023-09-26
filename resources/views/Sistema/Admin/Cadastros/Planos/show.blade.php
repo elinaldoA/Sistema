@@ -48,11 +48,9 @@
                         </div>
                     </div>
                     <!-- Button -->
-                    <div class="pl-lg-2">
-                        <div class="row">
-                            <div class="col">
-                                <a href="{{route('planos')}}" class="btn btn-outline-primary"><i class="fas fa-angle-double-left"></i></a>
-                            </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="{{route('planos')}}" class="btn btn-outline-primary"><i class="fas fa-angle-double-left"></i></a>
                         </div>
                     </div>
                 </form>

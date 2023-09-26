@@ -18,7 +18,7 @@
 
     <div class="row">
         <!-- Receitas -->
-        <div class="col-xl-4 col-md-6 mb-4">
+        <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -34,7 +34,7 @@
             </div>
         </div>
         <!-- Despesas -->
-        <div class="col-xl-4 col-md-6 mb-4">
+        <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-danger shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -50,16 +50,32 @@
             </div>
         </div>
         <!-- Empresas -->
-        <div class="col-xl-4 col-md-6 mb-4">
+        <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-info shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Ativos</div>
+                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Empresas</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $widget['empresas'] }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-database fa-2x text-gray-300"></i>
+                            <i class="fas fa-landmark fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Clientes -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Clientes</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $widget['clientes'] }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-users fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>

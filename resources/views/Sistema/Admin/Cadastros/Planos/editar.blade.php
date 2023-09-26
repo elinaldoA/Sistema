@@ -29,7 +29,7 @@
                 <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-edit"></i> Editar</h6>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{ route('plano.editar', ['plano' => $plano->id]) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('plano.editar', ['plano' => $plano]) }}" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="pl-lg-12">
                         <div class="row">
@@ -42,11 +42,9 @@
                         </div>
                     </div>
                     <!-- Button -->
-                    <div class="pl-lg-2">
-                        <div class="row">
-                            <div class="col">
-                                <button type="submit" class="btn btn-outline-primary"><i class="fas fa-check"></i> Atualizar</button>
-                            </div>
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-outline-primary"><i class="fas fa-check"></i> Atualizar</button>
                         </div>
                     </div>
                 </form>
