@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Sistema\Admin\Financeiro;
 
 use App\Http\Controllers\Controller;
 use App\Models\Despesas;
+use App\Models\Empresas;
 use Illuminate\Http\Request;
 
 class DespesasController extends Controller
@@ -15,73 +16,19 @@ class DespesasController extends Controller
      */
     public function index()
     {
-        $despesas = Despesas::orderby('name','asc')->paginate(5);
-        return view('Sistema.Admin.Financeiro.Despesas.visualizar', compact('despesas'));
+        $despesas = Despesas::orderby('n_doc','asc')->paginate(5);
+        $empresas = Empresas::with('empresas')->paginate(5);
+        return view('Sistema.Admin.Financeiro.Despesas.visualizar',['despesas' => $despesas, 'empresas' => $empresas]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Despesas $despesa)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $empresas = Empresas::with('empresas')->get();
+        return view('Sistema.Admin.Financeiro.Despesas.show', compact('despesa'), ['empresas' => $empresas]);
     }
 }

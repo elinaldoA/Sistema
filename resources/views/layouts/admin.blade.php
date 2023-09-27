@@ -93,7 +93,7 @@
                         <i class="fas fa-level-up-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                         {{ __('Receitas') }}
                     </a>
-                    <a class="dropdown-item" href="{{route('receitas')}}">
+                    <a class="dropdown-item" href="{{route('despesas')}}">
                         <i class="fas fa-level-down-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                         {{ __('Despesas') }}
                     </a>

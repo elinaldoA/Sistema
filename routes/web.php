@@ -83,8 +83,10 @@ Route::group(['prefix' => 'Sistema/Admin', 'middleware' => ['auth']], function (
     Route::post('/cadastros/empresas/{empresa}/excluir','Sistema\Admin\Cadastros\EmpresassController@destroy')->name('empresa.excluir');
     //Despesas
     Route::get('/financeiro/despesas/visualizar','Sistema\Admin\Financeiro\DespesasController@index')->name('despesas');
+    Route::get('/financeiro/despesas/{despesa}/show','Sistema\Admin\Financeiro\DespesasController@show')->name('despesa.show');
     //Receitas
     Route::get('/financeiro/receitas/visualizar','Sistema\Admin\Financeiro\ReceitasController@index')->name('receitas');
+    Route::get('/financeiro/receitas/{receita}/show','Sistema\Admin\Financeiro\ReceitasController@show')->name('receita.show');
 });
 
 //Auth Clientes

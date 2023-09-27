@@ -103,6 +103,15 @@ class ClientesController extends Controller
             'email' => 'required|string|unique:users',
             'genero_id' => 'required|integer',
             'empresa_id' => 'required|integer',
+            // Dados do endereço da empresa
+            'rua' => 'required|string|min:10|max:100',
+            'complemento' => 'string|max:50',
+            'numero' => 'int',
+            'cep' => 'string',
+            'bairro' => 'string|min:1|max:100',
+            'cidade' => 'string|min:1|max:50',
+            'estado'=> 'string|min:2|max:2',
+            'pais' => 'string|min:1|max:50',
         ]);
         $cliente->update($request->all());
         return redirect()->route('clientes')->with('success', 'Atualizado com sucesso');

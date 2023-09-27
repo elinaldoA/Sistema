@@ -99,10 +99,10 @@ class EmpresasController extends Controller
         $request->validate([
             'name' => 'required|string',
             'cnpj' => 'required|string',
-            'description' => 'required|string',
+            'description' => 'string',
             'email' => 'required|email|unique:users',
             'active' => 'required|boolean',
-            /* Dados do endereço da empresa */
+            // Dados do endereço da empresa
             'rua' => 'required|string|min:10|max:100',
             'complemento' => 'string|max:50',
             'numero' => 'int',
