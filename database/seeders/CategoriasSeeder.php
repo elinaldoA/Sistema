@@ -15,16 +15,16 @@ class CategoriasSeeder extends Seeder
     public function run()
     {
         Categorias::create([
-            'name' => 'Alimentos'
+            'name' => 'Alimento'
         ]);
         Categorias::create([
-            'name' => 'Atacados'
+            'name' => 'Atacado'
         ]);
         Categorias::create([
-            'name' => 'Varejos'
+            'name' => 'Varejo'
         ]);
         Categorias::create([
-            'name' => 'Vestuários'
+            'name' => 'Vestuário'
         ]);
         Categorias::create([
             'name' => 'Saúde'
@@ -33,7 +33,7 @@ class CategoriasSeeder extends Seeder
             'name' => 'Beleza'
         ]);
         Categorias::create([
-            'name' => 'Academias'
+            'name' => 'Academia'
         ]);
         Categorias::create([
             'name' => 'Petshop'

@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+
+
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -40,28 +42,62 @@ class LoginController extends Controller
         $this->middleware('guest:clientes')->except('logout');
     }
 
-    public function showclientesLoginForm()
+    /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showLoginForm()
     {
-        return view('auth.login', ['url' => 'clientes']);
-    }
-
-    public function clientesLogin(Request $request)
-    {
-        $this->validate($request, [
-            'email'   => 'required|email',
-            'password' => 'required|min:6'
-        ]);
-
-        if (Auth::guard('clientes')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-
-            return redirect()->intended('/clientes');
-        }
-        return back()->withInput($request->only('email', 'remember'));
+        return view('auth-clientes.login');
     }
 
     protected function redirectTo()
     {
         session()->flash('success', 'Seja bem vindo!');
         return $this->redirectTo;
+    }
+
+    /**
+     * Attempt to log the user into the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
+     */
+    protected function attemptLogin(Request $request)
+    {
+        $credentials = $this->credentials($request);
+        $credentials['active'] = true;
+
+        return $this->guard()->attempt(
+            $credentials, $request->filled('remember')
+        );
+    }
+
+    /**
+     * Log the user out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return $this->loggedOut($request) ?: redirect(route('sistema.clientes.login'));
+    }
+
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     */
+    protected function guard()
+    {
+        return Auth::guard('cliente');
     }
 }

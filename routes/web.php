@@ -112,4 +112,9 @@ Route::prefix('clientes')->group(function () {
     Route::post('email/resend', 'Sistema\Clientes\Auth\VerificationController@resend')->name('sistema.clientes.verification.resend');
 });
 
+Route::group(['prefix' => 'Sistema/Cliente', 'middleware' => ['auth:cliente']], function () {
+    Route::get('dashboard', 'Sistema\Clientes\DashboardController@index')->name('dashboard-cliente');
+    Route::get('/profile', 'Sistema\Clientes\ProfileController@index')->name('profile-cliente');
+    Route::put('/profile', 'Sistema\Clientes\ProfileController@update')->name('profile-cliente.update');
+});
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
