@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Sistema\Clientes;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Clientes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -38,7 +38,7 @@ class ProfileController extends Controller
             'new_password' => 'nullable|required_with:new_password',
         ]);
 
-        $user = User::findOrFail(Auth::user()->id);
+        $user = Clientes::findOrFail(Auth::user()->id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
 

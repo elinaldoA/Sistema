@@ -92,11 +92,8 @@ Route::group(['prefix' => 'Sistema/Admin', 'middleware' => ['auth']], function (
 //Auth Clientes
 Route::prefix('clientes')->group(function () {
     Route::get('login', 'Sistema\Clientes\Auth\LoginController@showLoginForm')->name('sistema.clientes.login');
-    Route::post('login', 'Sistema\Clientes\Auth\LoginController@login')->name('sistema.admin.clientes.submit');
+    Route::post('login', 'Sistema\Clientes\Auth\LoginController@login')->name('sistema.clientes.submit');
     Route::post('logout', 'Sistema\Clientes\Auth\LoginController@logout')->name('sistema.clientes.logout');
-
-    Route::get('register', 'Sistema\Clientes\Auth\RegisterController@showRegistrationForm')->name('sistema.clientes.register');
-    Route::post('register', 'Sistema\Clientes\Auth\RegisterController@register')->name('sistema.clientes.submit');
 
     Route::get('password/confirm', 'Sistema\Clientes\Auth\ConfirmPasswordController@showConfirmForm')->name('sistema.clientes.password.confirm');
     Route::post('password/confirm', 'Sistema\Clientes\Auth\ConfirmPasswordController@confirm')->name('sistema.clientes.confirm.submit');
@@ -112,9 +109,20 @@ Route::prefix('clientes')->group(function () {
     Route::post('email/resend', 'Sistema\Clientes\Auth\VerificationController@resend')->name('sistema.clientes.verification.resend');
 });
 
-Route::group(['prefix' => 'Sistema/Cliente', 'middleware' => ['auth:cliente']], function () {
+Route::group(['prefix' => 'Sistema/Cliente', 'middleware' => ['auth']], function () {
     Route::get('dashboard', 'Sistema\Clientes\DashboardController@index')->name('dashboard-cliente');
     Route::get('/profile', 'Sistema\Clientes\ProfileController@index')->name('profile-cliente');
     Route::put('/profile', 'Sistema\Clientes\ProfileController@update')->name('profile-cliente.update');
+
+    //Produtos
+    
+    Route::get('/Cadastros/Produtos/novo','Sistema\Clientes\Cadastros\ProdutosController@create')->name('produto.create');
+    Route::post('/Cadastros/Produtos/novo','Sistema\Clientes\Cadastros\ProdutosController@store')->name('produto.store');
+    Route::get('/Cadastros/Produtos/visualizar','Sistema\Clientes\Cadastros\ProdutosController@index')->name('produtos');
+    Route::get('/Cadastros/Produtos/{produto}/show','Sistema\Clientes\Cadastros\ProdutosController@show')->name('produto.show');
+    Route::get('/Cadastros/Produtos/{produto}/editar','Sistema\Clientes\Cadastros\ProdutosController@edit');
+    Route::post('/Cadastros/Produtos/{produto}/editar','Sistema\Clientes\Cadastros\ProdutosController@update')->name('produto.editar');
+    Route::get('/Cadastros/Produtos/{produto}/excluir','Sistema\Clientes\Cadastros\ProdutosController@delete');
+    Route::post('/Cadastros/Produtos/{produto}/excluir','Sistema\Clientes\Cadastros\ProdutosController@destroy')->name('produto.excluir');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

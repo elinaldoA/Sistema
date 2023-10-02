@@ -55,12 +55,7 @@
                     </a>
                 </div>
                 @endif
-
-                @if (Route::has('register'))
-                <div class="text-center">
-                    <a class="small" href="{{ route('sistema.clientes.register') }}">{{ __('Criar conta!') }}</a>
-                </div>
-                @endif
+                
             </div>
         </div>
     </div>

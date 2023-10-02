@@ -11,6 +11,10 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
+
+     protected $tables = [
+        'clientes'
+     ];
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
