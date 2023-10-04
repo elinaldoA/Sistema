@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Clientes extends Authenticatable
+class Clientes extends User
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -25,6 +25,7 @@ class Clientes extends Authenticatable
         'file_id',
         'genero_id',
         'empresa_id',
+        'image',
     ];
 
     /**

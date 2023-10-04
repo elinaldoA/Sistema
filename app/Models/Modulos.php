@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Produtos extends Model
+class Modulos extends Model
 {
     use HasFactory;
 
@@ -15,16 +15,7 @@ class Produtos extends Model
      * @var array
      */
     protected $fillable = [
-        'codigo',
-        'nome',
-        'descricao',
-        'preco',
-        'desconto',
-        'preco_com_desconto',
-        'qt',
-        'categoria_id',
-        'active',
-        'image',
+        'name',
     ];
 
     /**
@@ -45,9 +36,9 @@ class Produtos extends Model
         'updated_at' => 'datetime',
     ];
 
-    public function Produtos()
+    public function Modulos()
     {
-        return $this->belongsTo(Produtos::class);
+        return $this->belongsTo(Modulos::class);
     }
 }
 

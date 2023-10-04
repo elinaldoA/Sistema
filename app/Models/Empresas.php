@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-class Empresas extends Model
+class Empresas extends User
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +17,7 @@ class Empresas extends Model
      * @var array
      */
     protected $fillable = [
-        'name','cnpj','email','description','active'
+        'name','cnpj','email','description','active','password','modulo_id','image'
     ];
 
     /**

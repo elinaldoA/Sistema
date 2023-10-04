@@ -20,6 +20,8 @@ class CreateProdutosTable extends Migration
             $table->longtext('descricao');
             $table->double('preco');
             $table->double('desconto')->nullable();
+            $table->double('preco_com_desconto')->nullable();
+            $table->integer('qt');
             $table->unsignedBigInteger('categoria_id');
             $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->boolean('active')->default(false);

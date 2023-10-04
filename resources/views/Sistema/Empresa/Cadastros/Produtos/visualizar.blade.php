@@ -1,4 +1,4 @@
-@extends('layouts.cliente')
+@extends('layouts.empresa')
 
 @section('main-content')
 <!-- Page Heading -->
@@ -33,7 +33,7 @@
 
                     <table class="table table-hover text-center">
                         <tr>
-                            <th scope="col">Foto</th>
+                            <th scope="col">image</th>
                             <th scope="col">Código</th>
                             <th scope="col">Nome</th>
                             <th scope="col">Categoria</th>

@@ -26,6 +26,7 @@ class CreateClientesTable extends Migration
             $table->rememberToken();
             $table->unsignedBigInteger('empresa_id')->nullable();
             $table->foreign('empresa_id')->references('id')->on('empresas');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

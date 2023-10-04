@@ -13,7 +13,7 @@ class CreateUsersTable extends Migration
      */
 
      protected $tables = [
-        'clientes'
+        'clientes','empresas'
      ];
     public function up()
     {

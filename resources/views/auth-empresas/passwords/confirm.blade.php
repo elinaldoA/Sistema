@@ -1,4 +1,4 @@
-@extends('layouts.auth-clientes')
+@extends('layouts.auth-empresas')
 
 @section('main-content')
 <div class="container">
@@ -27,7 +27,7 @@
                 </div>
                 @endif
 
-                <form method="POST" action="{{ route('sistema.clientes.password.confirm') }}" class="user">
+                <form method="POST" action="{{ route('sistema.empresas.password.confirm') }}" class="user">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                     <div class="form-group">
@@ -45,7 +45,7 @@
 
                 @if (Route::has('password.request'))
                 <div class="text-center">
-                    <a class="small" href="{{ route('sistema.clientes.password.request') }}">
+                    <a class="small" href="{{ route('sistema.empresas.password.request') }}">
                         {{ __('Forgot Password?') }}
                     </a>
                 </div>

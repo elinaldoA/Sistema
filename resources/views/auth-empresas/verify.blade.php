@@ -1,4 +1,4 @@
-@extends('layouts.auth-clientes')
+@extends('layouts.auth-empresas')
 
 @section('main-content')
 <div class="container">
@@ -17,7 +17,7 @@
                 @endif
 
                 {{ __('Before proceeding, please check your email for a verification link.') }}
-                {{ __('If you did not receive the email') }}, <a href="{{ route('sistema.clientes.verification.resend') }}">{{ __('click here to request another') }}</a>.
+                {{ __('If you did not receive the email') }}, <a href="{{ route('sistema.empresas.verification.resend') }}">{{ __('click here to request another') }}</a>.
             </div>
         </div>
     </div>

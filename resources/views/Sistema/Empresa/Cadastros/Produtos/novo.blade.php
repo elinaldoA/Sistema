@@ -1,4 +1,4 @@
-@extends('layouts.cliente')
+@extends('layouts.empresa')
 
 @section('main-content')
     <!-- Page Heading -->
@@ -73,7 +73,23 @@
                                             placeholder="%" />
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-2">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="desconto">Pr. com Desconto<span
+                                                class="small text-danger"> * </span></label>
+                                        <input type="text" class="form-control" name="preco_com_desconto" id="preco_comn_desconto"
+                                            placeholder="R$ 0,00" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="qt">Quantidade<span
+                                                class="small text-danger"> * </span></label>
+                                        <input type="text" class="form-control" name="qt" id="qt"
+                                            />
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="categoria_id">Categoria<span
                                                 class="small text-danger"> * </span></label>
@@ -85,7 +101,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-4">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="file">Imagem<span
                                                 class="small text-danger">

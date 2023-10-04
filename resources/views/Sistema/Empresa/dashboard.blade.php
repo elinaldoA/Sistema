@@ -1,4 +1,4 @@
-@extends('layouts.cliente')
+@extends('layouts.empresa')
 
 @section('main-content')
     @if (session('success'))
@@ -115,7 +115,7 @@
             <!-- Bar Chart -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Visão geral de ganhos</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Vendas</h6>
                 </div>
                 <div class="card-body">
                     <div class="chart-bar">

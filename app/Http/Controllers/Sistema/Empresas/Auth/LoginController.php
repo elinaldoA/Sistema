@@ -1,14 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Sistema\Empresas\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+
+
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -27,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::DASHBOARD_EMPRESAS;
 
     /**
      * Create a new controller instance.
@@ -36,12 +39,23 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:admin')->except('logout');
+        $this->middleware('guest:empresa')->except('logout');
     }
 
-    public function redirectTo()
+    /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showLoginForm()
     {
-        return app()->getLocale()  . $this->redirectTo;
+        return view('auth-empresas.login');
+    }
+
+    protected function redirectTo()
+    {
+        session()->flash('success', 'Seja bem vindo!');
+        return $this->redirectTo;
     }
 
     /**
@@ -74,7 +88,16 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return $this->loggedOut($request) ?: redirect(route('sistema.admin.login'));
+        return $this->loggedOut($request) ?: redirect(route('sistema.empresas.login'));
+    }
+
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     */
+    protected function guard()
+    {
+        return Auth::guard('empresa');
     }
 }
-

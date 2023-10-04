@@ -1,4 +1,4 @@
-@extends('layouts.cliente')
+@extends('layouts.empresa')
 
 @section('main-content')
 <!-- Page Heading -->

@@ -41,4 +41,11 @@ Route::prefix('v1')->group(function () {
     Route::get('empresas/{empresa}', 'Sistema\Api\V1\EmpresasController@show');
     Route::put('empresas/{empresa}', 'Sistema\Api\V1\EmpresasController@update');
     Route::delete('empresas/{empresa}', 'Sistema\Api\V1\EmpresasController@destroy');
+    # Clientes...
+    Route::apiResource('clientes', 'Sistema\Api\V1\ClientesController');
+    Route::get('clientes', 'Sistema\Api\V1\ClientesController@index');
+    Route::post('clientes/{cliente}', 'Sistema\Api\V1\ClientesController@store');
+    Route::get('clientes/{cliente}', 'Sistema\Api\V1\ClientesController@show');
+    Route::put('clientes/{cliente}', 'Sistema\Api\V1\ClientesController@update');
+    Route::delete('clientes/{cliente}', 'Sistema\Api\V1\ClientesController@destroy');
 });

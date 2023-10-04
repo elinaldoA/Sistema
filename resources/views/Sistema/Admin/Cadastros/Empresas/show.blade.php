@@ -85,6 +85,28 @@
                                                     value="{{ $empresa->email }}" />
                                             </div>
                                         </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group focused">
+                                                <label class="form-control-label" for="empresa_id">Módulo<span
+                                                        class="small text-danger"> * </span></label>
+                                                <select class="form-control" name="modulo_id" id="modulo_id">
+                                                    <option>Selecione</option>
+                                                    @foreach ($modulos as $m)
+                                                        <option {{ $empresa->modulo_id == $m->id ? 'selected' : '' }}
+                                                            value="{{ $m->id }}">{{ $m->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group focused">
+                                                <label class="form-control-label" for="desconto">Imagem<span
+                                                        class="small text-danger">
+                                                        * </span></label>
+                                                <input type="file" class="form-control roudend" name="imagem" id="imagem"><br/>
+                                                <img src="/storage/image/{{ $empresa->image }}" width="150px" class="rounded">
+                                            </div>
+                                        </div>
                                         <div class="col">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="description">Descrição<span

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Sistema\Clientes;
+namespace App\Http\Controllers\Sistema\Empresas;
 
 use App\Http\Controllers\Controller;
-use App\Models\Clientes;
+use App\Models\Empresas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -12,7 +12,7 @@ class ProfileController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:cliente');
+        $this->middleware('auth:empresa');
     }
     /**
      * Display a listing of the resource.
@@ -21,7 +21,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-       return view('sistema.cliente.profile');
+       return view('sistema.empresa.profile');
     }
     /**
      * Update the specified resource in storage.
@@ -38,7 +38,7 @@ class ProfileController extends Controller
             'new_password' => 'nullable|required_with:new_password',
         ]);
 
-        $user = Clientes::findOrFail(Auth::user()->id);
+        $user = Empresas::findOrFail(Auth::user()->id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
 

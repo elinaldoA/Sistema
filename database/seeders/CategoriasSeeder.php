@@ -18,19 +18,19 @@ class CategoriasSeeder extends Seeder
             'name' => 'Alimento'
         ]);
         Categorias::create([
-            'name' => 'Atacado'
+            'name' => 'Atacadista'
         ]);
         Categorias::create([
-            'name' => 'Varejo'
+            'name' => 'Varejista'
         ]);
         Categorias::create([
-            'name' => 'Vestuário'
+            'name' => 'Vestiário'
         ]);
         Categorias::create([
-            'name' => 'Saúde'
+            'name' => 'Móveis'
         ]);
         Categorias::create([
-            'name' => 'Beleza'
+            'name' => 'Médicamentos'
         ]);
         Categorias::create([
             'name' => 'Academia'

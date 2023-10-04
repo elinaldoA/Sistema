@@ -32,7 +32,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard-cliente') }}">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard-empresa') }}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-spinner"></i>
                 </div>
@@ -44,7 +44,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('dashboard-cliente') }}">
+                <a class="nav-link" href="{{ route('dashboard-empresa') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>{{ __('Dashboard') }}</span></a>
             </li>
@@ -53,7 +53,7 @@
             <!--Cadastros-->
             <li class="nav-item dropdown arrow">
                 <a class="nav-link dropdown-toggle" href="{{route('produtos')}}" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-boxs"></i>
+                    <i class="fas fa-folder"></i>
                     {{ __('Cadastros') }}
                 </a>
                 <!-- Dropdown - User Information -->
@@ -66,6 +66,21 @@
                 </div>
             </li>
             <!--Gestão-->
+            <li class="nav-item dropdown arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-folder"></i>
+                    {{ __('Gestão') }}
+                </a>
+                <!-- Dropdown - User Information -->
+                <div class="dropdown-menu" aria-labelledby="userDropdown">
+                    <!---Produtos--->
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-book fa-sm fa-fw mr-2 text-gray-400"></i>
+                        {{ __('Estoque') }}
+                    </a>
+                </div>
+            </li>
+            <!--Financeiro-->
             <hr class="sidebar-divider">
             <li class="nav-item dropdown arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -123,7 +138,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="{{route('profile-cliente')}}">
+                                <a class="dropdown-item" href="{{route('profile-empresa')}}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Perfil
                                 </a>
@@ -182,8 +197,8 @@
                 <div class="modal-body">Deseja sair agora ?</div>
                 <div class="modal-footer">
                     <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Cancel') }}</button>
-                    <a class="btn btn-danger" href="{{ route('sistema.clientes.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                    <form id="logout-form" action="{{ route('sistema.clientes.logout') }}" method="POST" style="display: none;">
+                    <a class="btn btn-danger" href="{{ route('sistema.empresas.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                    <form id="logout-form" action="{{ route('sistema.empresas.logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
                 </div>

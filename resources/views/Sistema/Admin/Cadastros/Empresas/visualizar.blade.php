@@ -33,12 +33,20 @@
 
                     <table class="table table-hover text-center">
                         <tr>
+                            <th scope="col">image</th>
                             <th scope="col">Nome</th>
+                            <th scope="col">Segmento</th>
                             <th scope="col">Ações</th>
                         </tr>
                         @forelse($empresas as $e)
                         <tr>
+                            <td><img src="/storage/image/{{$e->image}}" height="50px" width="50px"></td>
                             <td>{{$e->name}}</td>
+                            @foreach ($modulos as $m)
+                                @if ($e->modulo_id == $m->id)
+                                    <td>{{$m->name}}</td>
+                                @endif
+                            @endforeach
                             <td>
                                 <a class="btn btn-outline-primary" href="{{route('empresa.editar', ['empresa' => $e->id])}}"><i class="fa fa-edit"></i></a>
                                 <a class="btn btn-outline-primary" href="{{route('empresa.show', ['empresa' => $e->id])}}"><i class="fa fa-eye"></i></a>

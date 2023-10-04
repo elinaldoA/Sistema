@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Sistema\Clientes;
+namespace App\Http\Controllers\Sistema\Empresas;
 
 use App\Http\Controllers\Controller;
 use App\Models\Clientes;
@@ -12,7 +12,7 @@ class DashboardController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:cliente');
+        $this->middleware('auth:empresa');
     }
     public function index()
     {
@@ -25,7 +25,7 @@ class DashboardController extends Controller
             'produtos' => $produtos,
             'clientes' => $clientes,
         ];
-        return view('sistema.cliente.dashboard', compact('widget'),
+        return view('sistema.empresa.dashboard', compact('widget'),
         ['produtos' => $produtos,'clientes' => $clientes,
          'receitas' => $receitas,'despesas' => $despesas]);
     }
