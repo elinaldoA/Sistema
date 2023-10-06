@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Sistema\Empresas\Cadastros;
 
 use App\Http\Controllers\Controller;
 use App\Models\Categorias;
+use App\Models\Empresas;
 use App\Models\Produtos;
 use Illuminate\Http\Request;
 
@@ -33,7 +34,8 @@ class ProdutosController extends Controller
     public function create()
     {
         $categorias = Categorias::with('categorias')->get();
-        return view('Sistema.Empresa.Cadastros.Produtos.novo', compact('categorias'));
+        $empresas = Empresas::with('empresas')->get();
+        return view('Sistema.Empresa.Cadastros.Produtos.novo', compact('categorias','empresas'));
     }
 
     /**
@@ -52,6 +54,7 @@ class ProdutosController extends Controller
             'desconto' => 'string',
             'preco_com_desconto' => 'string',
             'qt' => 'required|integer',
+            'empresa_id' => 'required|string',
             'categoria_id' => 'required|string',
             'active' => 'required|boolean',
             'image' => 'required',
@@ -80,7 +83,8 @@ class ProdutosController extends Controller
     public function show(Produtos $produto)
     {
         $categorias = Categorias::with('categorias')->get();
-        return view('Sistema.Empresa.Cadastros.Produtos.show', compact('produto', 'categorias'));
+        $empresas = Empresas::with('empresas')->get();
+        return view('Sistema.Empresa.Cadastros.Produtos.show', compact('produto','categorias','empresas'));
     }
 
     /**
@@ -92,7 +96,8 @@ class ProdutosController extends Controller
     public function edit(Produtos $produto)
     {
         $categorias = Categorias::with('categorias')->get();
-        return view('Sistema.Empresa.Cadastros.Produtos.editar', compact('produto','categorias'));
+        $empresas = Empresas::with('empresas')->get();
+        return view('Sistema.Empresa.Cadastros.Produtos.editar', compact('produto','categorias','empresas'));
     }
 
     /**

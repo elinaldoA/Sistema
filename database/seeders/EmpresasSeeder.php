@@ -16,10 +16,10 @@ class EmpresasSeeder extends Seeder
     public function run()
     {
         Empresas::create([
-            'name' => 'Vicente e Patrícia Locações de Automóveis Ltda',
+            'name' => 'Empresa 01',
             'description' => 'Teste',
             'cnpj' => '41.555.740/0001-71',
-            'email' => 'orcamento@vicenteepatricialocacoesdeautomoveisltda.com.br',
+            'email' => 'empresa@empresa.com',
             'password' => Hash::make('empresa'),
             'modulo_id' => '3',
             'active' => true,

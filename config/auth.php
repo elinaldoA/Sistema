@@ -57,7 +57,7 @@ return [
         'empresa' => [
             'driver' => 'session',
             'provider' => 'empresas',
-        ],
+        ]
     ],
 
     /*
@@ -131,13 +131,13 @@ return [
         ],
         'clientes' => [
             'provider' => 'clientes',
-            'table' => 'password_resets',
+            'table' => 'password_resets_clientes',
             'expire' => 60,
             'throttle' => 60,
         ],
         'empresas' => [
             'provider' => 'empresas',
-            'table' => 'password_resets',
+            'table' => 'password_resets_empresas',
             'expire' => 60,
             'throttle' => 60,
         ],

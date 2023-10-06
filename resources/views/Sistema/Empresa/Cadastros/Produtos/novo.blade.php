@@ -40,7 +40,7 @@
                                         @if (old('active')) checked="checked" @endif required>
                                     </div>
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-2">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="codigo">Código<span
                                                 class="small text-danger">
@@ -48,7 +48,7 @@
                                         <input type="text" class="form-control" name="codigo" id="codigo" />
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="nome">Nome<span
                                                 class="small text-danger"> *
@@ -89,7 +89,19 @@
                                             />
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="empresa_id">Empresa<span
+                                                class="small text-danger"> * </span></label>
+                                        <select class="form-control" name="empresa_id" id="empresa_id">
+                                            <option>Selecione</option>
+                                            @foreach ($empresas as $e)
+                                                <option value="{{ $e->id }}">{{ $e->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="categoria_id">Categoria<span
                                                 class="small text-danger"> * </span></label>

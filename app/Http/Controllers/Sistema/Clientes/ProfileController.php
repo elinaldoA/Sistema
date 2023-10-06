@@ -21,7 +21,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-       return view('sistema.cliente.profile');
+       return view('Sistema.Cliente.profile');
     }
     /**
      * Update the specified resource in storage.

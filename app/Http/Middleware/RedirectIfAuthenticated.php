@@ -4,8 +4,8 @@ namespace App\Http\Middleware;
 
 use App\Providers\RouteServiceProvider;
 use Closure;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 class RedirectIfAuthenticated
 {
@@ -13,23 +13,23 @@ class RedirectIfAuthenticated
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
-     * @param  string|null  ...$guards
-     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
+     * @param  \Closure  $next
+     * @param  string|null  $guard
+     * @return mixed
      */
-    public function handle(Request $request, Closure $next, ...$guards)
+    public function handle($request, Closure $next, $guard = null)
     {
-        $guards = empty($guards) ? [null] : $guards;
-
-        foreach ($guards as $guard) {
-            if ($guard == "admin" && Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
-            }
-            elseif ($guard == "cliente" && Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::DASHBOARD);
-            }
-            elseif ($guard == "empresa" && Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::DASHBOARD_EMPRESAS);
+        if (Auth::guard($guard)->check()) {
+            switch ($guard) {
+                case 'admin':
+                    return redirect(RouteServiceProvider::HOME);
+                    break;
+                case 'cliente':
+                    return redirect(RouteServiceProvider::DASHBOARD);
+                    break;
+                case 'empresa':
+                    return redirect(RouteServiceProvider::DASHBOARD_EMPRESAS);
+                    break;
             }
         }
 

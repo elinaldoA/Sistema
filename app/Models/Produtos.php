@@ -22,6 +22,7 @@ class Produtos extends Model
         'desconto',
         'preco_com_desconto',
         'qt',
+        'empresa_id',
         'categoria_id',
         'active',
         'image',

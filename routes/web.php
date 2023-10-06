@@ -91,7 +91,7 @@ Route::group(['prefix' => 'Sistema/Admin', 'middleware' => ['auth']], function (
 
 //Auth Empresas
 Route::prefix('empresas')->group(function () {
-    Route::get('login', 'Sistema\Empresas\Auth\LoginController@showLoginForm')->name('sistema.empresas.login');
+    Route::get('login', 'Sistema\Empresas\Auth\LoginController@showLoginForm')->name('sistema.empresa.login');
     Route::post('login', 'Sistema\Empresas\Auth\LoginController@login')->name('sistema.empresas.submit');
     Route::post('logout', 'Sistema\Empresas\Auth\LoginController@logout')->name('sistema.empresas.logout');
 
@@ -113,9 +113,7 @@ Route::group(['prefix' => 'Sistema/Empresa', 'middleware' => ['auth']], function
     Route::get('dashboard', 'Sistema\Empresas\DashboardController@index')->name('dashboard-empresa');
     Route::get('/profile', 'Sistema\Empresas\ProfileController@index')->name('profile-empresa');
     Route::put('/profile', 'Sistema\Empresas\ProfileController@update')->name('profile-empresa.update');
-
     //Produtos
-
     Route::get('/Cadastros/Produtos/novo','Sistema\Empresas\Cadastros\ProdutosController@create')->name('produto.create');
     Route::post('/Cadastros/Produtos/novo','Sistema\Empresas\Cadastros\ProdutosController@store')->name('produto.store');
     Route::get('/Cadastros/Produtos/visualizar','Sistema\Empresas\Cadastros\ProdutosController@index')->name('produtos');
@@ -124,5 +122,34 @@ Route::group(['prefix' => 'Sistema/Empresa', 'middleware' => ['auth']], function
     Route::post('/Cadastros/Produtos/{produto}/editar','Sistema\Empresas\Cadastros\ProdutosController@update')->name('produto.editar');
     Route::get('/Cadastros/Produtos/{produto}/excluir','Sistema\Empresas\Cadastros\ProdutosController@delete');
     Route::post('/Cadastros/Produtos/{produto}/excluir','Sistema\Empresas\Cadastros\ProdutosController@destroy')->name('produto.excluir');
+});
+
+//Auth Empresas
+Route::prefix('clientes')->group(function () {
+    Route::get('login', 'Sistema\clientes\Auth\LoginController@showLoginForm')->name('sistema.cliente.login');
+    Route::post('login', 'Sistema\Clientes\Auth\LoginController@login')->name('sistema.clientes.submit');
+    Route::post('logout', 'Sistema\Clientes\Auth\LoginController@logout')->name('sistema.clientes.logout');
+
+    Route::get('password/confirm', 'Sistema\Clientes\Auth\ConfirmPasswordController@showConfirmForm')->name('sistema.clientes.password.confirm');
+    Route::post('password/confirm', 'Sistema\Clientes\Auth\ConfirmPasswordController@confirm')->name('sistema.clientes.confirm.submit');
+
+    Route::get('password/reset', 'Sistema\Clientes\Auth\ForgotPasswordController@showLinkRequestForm')->name('sistema.clientes.password.request');
+    Route::post('password/email', 'Sistema\Clientes\Auth\ForgotPasswordController@sendResetLinkEmail')->name('sistema.clientes.password.email');
+
+    Route::get('password/reset/{token}', 'Sistema\Clientes\Auth\ResetPasswordController@showResetForm')->name('sistema.clientes.password.reset');
+    Route::post('password/reset', 'Sistema\Clientes\Auth\ResetPasswordController@reset')->name('sistema.clientes.password.update');
+
+    Route::get('email/verify', 'Sistema\Clientes\Auth\VerificationController@show')->name('sistema.clientes.verification.notice');
+    Route::get('email/verify/{id}/{hash}', 'Sistema\Clientes\Auth\VerificationController@verify')->name('sistema.clientes.verification.verify');
+    Route::post('email/resend', 'Sistema\Clientes\Auth\VerificationController@resend')->name('sistema.clientes.verification.resend');
+});
+
+Route::group(['prefix' => 'Sistema/Cliente', 'middleware' => ['auth']], function () {
+    Route::get('dashboard', 'Sistema\Clientes\DashboardController@index')->name('dashboard-cliente');
+    Route::get('/profile', 'Sistema\Clientes\ProfileController@index')->name('profile-cliente');
+    Route::put('/profile', 'Sistema\Clientes\ProfileController@update')->name('profile-cliente.update');
+
+    //Loja
+    Route::get('/Loja', 'Sistema\Clientes\Loja\LojaController@index')->name('loja');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

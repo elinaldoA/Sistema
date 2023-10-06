@@ -89,7 +89,7 @@ class Authenticate
     /**
      * Get the path the user should be redirected to when they are not authenticated.
      *
-     * @param \Illuminate\Http\Request $request\credits\consumer\administrator
+     * @param \Illuminate\Http\Request $request
      * @param null $guard
      * @return string|null
      */
@@ -98,14 +98,17 @@ class Authenticate
         if (! $request->expectsJson()) {
 
             if($guard && $guard == 'admin'){
-            return route('sistema.admin.login');
+                return route('sistema.admin.login');
             }
-            elseif($guard && $guard == 'cliente'){
-            return route('sistema.empresas.login');
+
+            if($guard && $guard == 'cliente'){
+                return route('sistema.cliente.login');
             }
-            elseif($guard && $guard == 'empresa'){
-            return route('sistema.empresas.login');
+
+            if($guard && $guard == 'empresa'){
+                return route('sistema.empresa.login');
             }
+
             return route('login');
         }
     }

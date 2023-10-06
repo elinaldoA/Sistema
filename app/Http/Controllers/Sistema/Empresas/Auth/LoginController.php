@@ -88,7 +88,7 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return $this->loggedOut($request) ?: redirect(route('sistema.empresas.login'));
+        return $this->loggedOut($request) ?: redirect(route('sistema.empresa.login'));
     }
 
     /**

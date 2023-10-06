@@ -24,6 +24,8 @@ class CreateProdutosTable extends Migration
             $table->integer('qt');
             $table->unsignedBigInteger('categoria_id');
             $table->foreign('categoria_id')->references('id')->on('categorias');
+            $table->unsignedBigInteger('empresa_id');
+            $table->foreign('empresa_id')->references('id')->on('empresas');
             $table->boolean('active')->default(false);
             $table->string('image');
             $table->timestamps();

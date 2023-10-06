@@ -76,7 +76,8 @@
 
             <div class="links">
                 <a href="{{route('sistema.admin.login')}}">Administrador</a>
-                <a href="{{route('sistema.empresas.login')}}">Empresas</a>
+                <a href="{{route('sistema.empresa.login')}}">Empresas</a>
+                <a href="{{route('sistema.cliente.login')}}">Clientes</a>
             </div>
         </div>
     </div>

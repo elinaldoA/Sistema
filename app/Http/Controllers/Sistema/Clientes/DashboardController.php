@@ -3,10 +3,6 @@
 namespace App\Http\Controllers\Sistema\Clientes;
 
 use App\Http\Controllers\Controller;
-use App\Models\Clientes;
-use App\Models\Despesas;
-use App\Models\Produtos;
-use App\Models\Receitas;
 
 class DashboardController extends Controller
 {
@@ -16,17 +12,6 @@ class DashboardController extends Controller
     }
     public function index()
     {
-        //contadores
-        $produtos = Produtos::count();
-        $clientes = Clientes::count();
-        $despesas = Despesas::with('despesas')->get();
-        $receitas = Receitas::with('receitas')->get();
-        $widget = [
-            'produtos' => $produtos,
-            'clientes' => $clientes,
-        ];
-        return view('sistema.cliente.dashboard', compact('widget'),
-        ['produtos' => $produtos,'clientes' => $clientes,
-         'receitas' => $receitas,'despesas' => $despesas]);
+        return view('Sistema.Cliente.dashboard');
     }
 }
