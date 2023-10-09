@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.empresa')
 
 @section('main-content')
     <!-- Page Heading -->
@@ -38,7 +38,7 @@
                     <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-edit"></i> Editar</h6>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('cliente.editar', ['cliente' => $cliente]) }}" class="empresas">
+                    <form method="POST" action="{{ route('cliente.editar', ['cliente' => $cliente]) }}" class="empresas" enctype="multipart/form-data">
                         @csrf
                         <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand"
                             role="tablist">
@@ -57,6 +57,16 @@
                             <div class="tab-pane active" id="tab_informacoes" role="tabpanel"><br />
                                 <div class="pl-lg-12">
                                     <div class="row">
+                                        <div class="col-lg-1">
+                                            <div class="form-group focused">
+                                                <label class="form-control-label" for="active">Status<span
+                                                    class="small text-danger"> * </span></label>
+                                                <input type="checkbox" name="active" value="1" class="form-control"
+                                                    @if (($cliente->active == 0 && old('active') && old('first_time')) ||
+                                                    ($cliente->active && old('active') == null && old('first_time') == null) ||
+                                                    ($cliente->active && old('active') && old('first_time'))) checked="checked" @endif>
+                                            </div>
+                                        </div>
                                         <div class="col-lg-4">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="name">Nome<span
@@ -74,7 +84,7 @@
                                                     value="{{ $cliente->cpf }}" />
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-3">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="email">E-mail<span
                                                         class="small text-danger"> * </span></label>
@@ -108,16 +118,13 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-lg-1">
+                                        <div class="col-lg-4">
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="active">Status<span
-                                                        class="small text-danger"> * </span></label>
-                                                <input type="checkbox" name="active" value="1"
-                                                    class="form-control"
-                                                    @if (
-                                                        ($cliente->active == 0 && old('active') && old('first_time')) ||
-                                                            ($cliente->active && old('active') == null && old('first_time') == null) ||
-                                                            ($cliente->active && old('active') && old('first_time'))) checked="checked" @endif>
+                                                <label class="form-control-label" for="desconto">Imagem<span
+                                                        class="small text-danger">
+                                                        * </span></label>
+                                                <input type="file" class="form-control roudend" name="image" id="image"><br/>
+                                                <img src="/storage/image/{{ $cliente->image }}" width="150px" class="rounded">
                                             </div>
                                         </div>
                                     </div>
@@ -210,6 +217,26 @@
                             <div class="col">
                                 <button type="submit" class="btn btn-outline-primary"><i class="fas fa-check"></i>
                                     Atualizar</button>
+                                <a class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i> Remover</a>
+                                <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">{{ __('Confirmar exclusão') }}</h5>
+                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Deseja realmente excluir esse registro ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Cancelar') }}</button>
+                                                <a class="btn btn-danger btn-ok" href="{{route('cliente.excluir', ['cliente' => $cliente->id])}}">Confirmar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </form>

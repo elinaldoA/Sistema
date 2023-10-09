@@ -54,15 +54,6 @@ Route::group(['prefix' => 'Sistema/Admin', 'middleware' => ['auth']], function (
     Route::post('/cadastros/categorias/{categoria}/editar','Sistema\Admin\Cadastros\CategoriasController@update')->name('categoria.editar');
     Route::get('/cadastros/categorias/{categoria}/excluir','Sistema\Admin\Cadastros\CategoriasController@delete');
     Route::post('/cadastros/categorias/{categoria}/excluir','Sistema\Admin\Cadastros\CategoriasController@destroy')->name('categoria.excluir');
-    //Clientes
-    Route::get('/cadastros/clientes/novo','Sistema\Admin\Cadastros\ClientesController@create')->name('cliente.create');
-    Route::post('/cadastros/clientes/novo','Sistema\Admin\Cadastros\ClientesController@store')->name('cliente.store');
-    Route::get('/cadastros/clientes/visualizar','Sistema\Admin\Cadastros\ClientesController@index')->name('clientes');
-    Route::get('/cadastros/clientes/{cliente}/show','Sistema\Admin\Cadastros\ClientesController@show')->name('cliente.show');
-    Route::get('/cadastros/clientes/{cliente}/editar','Sistema\Admin\Cadastros\ClientesController@edit');
-    Route::post('/cadastros/clientes/{cliente}/editar','Sistema\Admin\Cadastros\ClientesController@update')->name('cliente.editar');
-    Route::get('/cadastros/clientes/{cliente}/excluir','Sistema\Admin\Cadastros\ClientesController@delete');
-    Route::post('/cadastros/clientes/{cliente}/excluir','Sistema\Admin\Cadastros\ClientesController@destroy')->name('cliente.excluir');
     //Planos
     Route::get('/cadastros/planos/novo','Sistema\Admin\Cadastros\PlanosController@create')->name('plano.create');
     Route::post('/cadastros/planos/novo','Sistema\Admin\Cadastros\PlanosController@store')->name('plano.store');
@@ -113,6 +104,15 @@ Route::group(['prefix' => 'Sistema/Empresa', 'middleware' => ['auth']], function
     Route::get('dashboard', 'Sistema\Empresas\DashboardController@index')->name('dashboard-empresa');
     Route::get('/profile', 'Sistema\Empresas\ProfileController@index')->name('profile-empresa');
     Route::put('/profile', 'Sistema\Empresas\ProfileController@update')->name('profile-empresa.update');
+    //Clientes
+    Route::get('/Cadastros/Clientes/novo','Sistema\Empresas\Cadastros\ClientesController@create')->name('cliente.create');
+    Route::post('/Cadastros/Clientes/novo','Sistema\Empresas\Cadastros\ClientesController@store')->name('cliente.store');
+    Route::get('/Cadastros/Clientes/visualizar','Sistema\Empresas\Cadastros\ClientesController@index')->name('clientes');
+    Route::get('/Cadastros/Clientes/{cliente}/show','Sistema\Empresas\Cadastros\ClientesController@show')->name('cliente.show');
+    Route::get('/Cadastros/Clientes/{cliente}/editar','Sistema\Empresas\Cadastros\ClientesController@edit');
+    Route::post('/Cadastros/Clientes/{cliente}/editar','Sistema\Empresas\Cadastros\ClientesController@update')->name('cliente.editar');
+    Route::get('/Cadastros/Clientes/{cliente}/excluir','Sistema\Empresas\Cadastros\ClientesController@delete');
+    Route::post('/Cadastros/Clientes/{cliente}/excluir','Sistema\Empresas\Cadastros\ClientesController@destroy')->name('cliente.excluir');
     //Produtos
     Route::get('/Cadastros/Produtos/novo','Sistema\Empresas\Cadastros\ProdutosController@create')->name('produto.create');
     Route::post('/Cadastros/Produtos/novo','Sistema\Empresas\Cadastros\ProdutosController@store')->name('produto.store');
@@ -122,6 +122,8 @@ Route::group(['prefix' => 'Sistema/Empresa', 'middleware' => ['auth']], function
     Route::post('/Cadastros/Produtos/{produto}/editar','Sistema\Empresas\Cadastros\ProdutosController@update')->name('produto.editar');
     Route::get('/Cadastros/Produtos/{produto}/excluir','Sistema\Empresas\Cadastros\ProdutosController@delete');
     Route::post('/Cadastros/Produtos/{produto}/excluir','Sistema\Empresas\Cadastros\ProdutosController@destroy')->name('produto.excluir');
+    //Export
+    Route::get('produtos/export/', 'Sistema\Empresas\Cadastros\ProdutosController@export')->name('export');
 });
 
 //Auth Empresas

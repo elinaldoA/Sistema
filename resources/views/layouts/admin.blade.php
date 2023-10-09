@@ -68,11 +68,6 @@
                         <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                         {{ __('Planos') }}
                     </a>
-                    <!---Clientes--->
-                    <a class="dropdown-item" href="{{route('clientes')}}">
-                        <i class="fas fa-users fa-sm fa-fw mr-2 text-gray-400"></i>
-                        {{ __('Clientes') }}
-                    </a>
                     <!---Planos--->
                     <a class="dropdown-item" href="{{route('empresas')}}">
                         <i class="fas fa-landmark fa-sm fa-fw mr-2 text-gray-400"></i>

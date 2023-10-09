@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.empresa')
 
 @section('main-content')
     <!-- Page Heading -->
@@ -38,7 +38,7 @@
                     <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-plus"></i> Novo</h6>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('cliente.create') }}" class="empresas">
+                    <form method="POST" action="{{ route('cliente.create') }}" class="empresas" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand"
                             role="tablist">
@@ -57,28 +57,37 @@
                             <div class="tab-pane active" id="tab_informacoes" role="tabpanel"><br />
                                 <div class="pl-lg-12">
                                     <div class="row">
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-1">
+                                            <div class="form-group focused">
+                                                <label class="form-control-label" for="active">Status<span
+                                                        class="small text-danger"> * </span></label>
+                                                <input type="checkbox" id="active" name="active"
+                                                    class="blue form-control" value="1"
+                                                    @if (old('active')) checked="checked" @endif required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="name">Nome<span
                                                         class="small text-danger"> * </span></label>
                                                 <input type="text" class="form-control" name="name" id="name" />
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-3">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="cpf">Cpf<span
                                                         class="small text-danger"> * </span></label>
                                                 <input type="text" class="form-control" name="cpf" id="cpf" />
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-3">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="email">E-mail<span
                                                         class="small text-danger"> * </span></label>
                                                 <input type="email" class="form-control" name="email" id="email" />
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-2">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="genero_id">Sexo<span
                                                         class="small text-danger"> * </span></label>
@@ -102,13 +111,12 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-lg-1">
+                                        <div class="col-lg-4">
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="active">Status<span
-                                                        class="small text-danger"> * </span></label>
-                                                <input type="checkbox" id="active" name="active"
-                                                    class="blue form-control" value="1"
-                                                    @if (old('active')) checked="checked" @endif required>
+                                                <label class="form-control-label" for="file">Imagem<span
+                                                        class="small text-danger">
+                                                        * </span></label>
+                                                <input class="form-control" type="file" name="image" id="image">
                                             </div>
                                         </div>
                                     </div>

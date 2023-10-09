@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.empresa')
 
 @section('main-content')
     <!-- Page Heading -->
@@ -40,7 +40,17 @@
                             <div class="tab-pane active" id="tab_informacoes" role="tabpanel"><br />
                                 <div class="pl-lg-12">
                                     <div class="row">
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-1">
+                                            <div class="form-group focused">
+                                                <label class="form-control-label" for="active">Status<span
+                                                    class="small text-danger"> * </span></label>
+                                                <input type="checkbox" name="active" value="1" class="form-control"
+                                                    @if (($cliente->active == 0 && old('active') && old('first_time')) ||
+                                                    ($cliente->active && old('active') == null && old('first_time') == null) ||
+                                                    ($cliente->active && old('active') && old('first_time'))) checked="checked" @endif>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="name">Nome<span
                                                         class="small text-danger"> * </span></label>
@@ -48,7 +58,7 @@
                                                     value="{{ $cliente->name }}" />
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-3">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="cpf">Cpf<span
                                                         class="small text-danger">
@@ -57,7 +67,7 @@
                                                     value="{{ $cliente->cpf }}" />
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-3">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="email">E-mail<span
                                                         class="small text-danger"> * </span></label>
@@ -65,7 +75,7 @@
                                                     value="{{ $cliente->email }}" />
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-2">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="genero_id">Sexo<span
                                                         class="small text-danger"> * </span></label>
@@ -78,7 +88,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-3">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="empresa_id">Empresa<span
                                                         class="small text-danger"> * </span></label>
@@ -91,15 +101,13 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-lg-1">
+                                        <div class="col-lg-4">
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="active">Status<span
-                                                        class="small text-danger"> * </span></label>
-                                                <input type="checkbox" name="active" value="1" class="form-control"
-                                                    @if (
-                                                        ($cliente->active == 0 && old('active') && old('first_time')) ||
-                                                            ($cliente->active && old('active') == null && old('first_time') == null) ||
-                                                            ($cliente->active && old('active') && old('first_time'))) checked="checked" @endif>
+                                                <label class="form-control-label" for="desconto">Imagem<span
+                                                        class="small text-danger">
+                                                        * </span></label>
+                                                <input type="file" class="form-control roudend" name="image" id="image"><br/>
+                                                <img src="/storage/image/{{ $cliente->image }}" width="150px" class="rounded">
                                             </div>
                                         </div>
                                     </div>

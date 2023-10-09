@@ -58,6 +58,11 @@
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu" aria-labelledby="userDropdown">
+                    <!---Clientes--->
+                    <a class="dropdown-item" href="{{route('clientes')}}">
+                        <i class="fas fa-users fa-sm fa-fw mr-2 text-gray-400"></i>
+                        {{ __('Clientes') }}
+                    </a>
                     <!---Produtos--->
                     <a class="dropdown-item" href="{{route('produtos')}}">
                         <i class="fas fa-book fa-sm fa-fw mr-2 text-gray-400"></i>

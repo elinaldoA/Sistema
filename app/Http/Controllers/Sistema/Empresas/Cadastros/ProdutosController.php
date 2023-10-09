@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Sistema\Empresas\Cadastros;
 
+use App\Exports\ProdutosExport;
 use App\Http\Controllers\Controller;
 use App\Models\Categorias;
 use App\Models\Empresas;
 use App\Models\Produtos;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProdutosController extends Controller
 {
@@ -145,8 +147,14 @@ class ProdutosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Produtos $produto)
+    public function delete(Produtos $produto)
     {
-        //
+       $produto->delete();
+       return redirect()->route('produtos')->with('success', 'Deletado com sucesso!');
+    }
+
+    public function export()
+    {
+        return Excel::download(new ProdutosExport, 'produtos.xlsx');
     }
 }
