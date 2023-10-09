@@ -118,7 +118,7 @@ class EmpresasController extends Controller
             'name' => 'required|string',
             'cnpj' => 'required|string',
             'description' => 'string',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email',
             // Dados do endereço da empresa
             'rua' => 'required|string|min:10|max:100',
             'complemento' => 'string|max:50',
@@ -128,23 +128,23 @@ class EmpresasController extends Controller
             'cidade' => 'string',
             'estado'=> 'string|min:2|max:2',
             'pais' => 'string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         $input = $request->all();
 
-        if($image = $request->file('image')){
+        if($imagem = $request->file('image')){
             $destinationPath = 'storage/image/';
-                $profileImage = date('YmdHis').".". $image->getClientOriginalExtension();
-                $image->move($destinationPath,$profileImage);
-                $input['image'] = "$profileImage";
+            $profileImage = date('YmdHis').".". $imagem->getClientOriginalExtension();
+            $imagem->move($destinationPath,$profileImage);
+            $input['image'] = "$profileImage";
         }else{
             unset($input['image']);
         }
 
-        $empresa->update($request->all());
+        $empresa->update($input);
         return redirect()->route('empresas')
-        ->with('success','Atualiazado com sucesso!');
+        ->with('success','Atualizado com sucesso!');
     }
 
     /**

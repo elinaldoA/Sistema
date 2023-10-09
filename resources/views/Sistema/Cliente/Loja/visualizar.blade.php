@@ -50,26 +50,26 @@
                                 alt="Card image cap" width="250px" height="250px">
                             <div class="card-body">
                                 <span class="card-text">{{$p->nome}}</span>
-                                <p class="card-text text-left">{{$p->descricao}}</p>
+                                <p class="card-text text-left">{{substr($p->descricao, 0, 150)}} ...</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         @if($p->desconto == '')
                                         <p>R$ {{ number_format($p->preco, 2,",",".") }}</p>
                                         @else
-                                        <p><s> R$ {{number_format($p->preco, 2,",",".")}}</s></p>
-                                        <p> R$ {{number_format($p->preco_com_desconto, 2,",",".")}}</p>
+                                        <h5 class="card-text"><s><small class="text-body-secondary">Preço: R$ {{number_format($p->preco, 2, ",",".")}}</small></s>
+                                            | <small class="text-success">Oferta: R$ {{number_format($p->preco_com_desconto, 2, ",",".")}}</small></h5>
                                         @endif
                                     </div>
-                                </div>
+                                </div><br/>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Ver</button>
+                                        <a href="{{route('show', ['produto' => $p->id])}}" class="btn btn-sm btn-outline-secondary">Saiba mais</a>
                                         <button type="button" class="btn btn-sm btn-outline-secondary">Comprar</button>
                                     </div>
                                     <small class="text-muted">Disponivel: {{$p->qt}}</small>
                                 </div>
                             </div>
-                        </div>        
+                        </div>
                     </div>
                     @empty
                         <div class="row">

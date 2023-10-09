@@ -13,6 +13,15 @@
         </div>
     @endif
 
+    @if (session('danger'))
+        <div id="falha" class="alert alert-danger border-left-danger alert-dismissible fade show" role="alert">
+            {{ session('danger') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
     @if ($errors->any())
         <div class="alert alert-danger border-left-danger" role="alert">
             <ul class="pl-4 my-2">
@@ -29,7 +38,8 @@
                     <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-plus"></i> Novo</h6>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('empresa.create') }}" class="empresas" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('empresa.create') }}" class="empresas"
+                        enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand"
                             role="tablist">
@@ -88,7 +98,7 @@
                                                 <select class="form-control" name="modulo_id" id="modulo_id">
                                                     <option>Selecione</option>
                                                     @foreach ($modulos as $m)
-                                                        <option value="{{$m->id}}">{{$m->name}}</option>
+                                                        <option value="{{ $m->id }}">{{ $m->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -96,8 +106,9 @@
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="image">E-mail<span
-                                                    class="small text-danger"> * </span></label>
-                                                <input class="form-control" type="file" name="image" id="image">
+                                                        class="small text-danger"> * </span></label>
+                                                <input class="form-control" type="file" name="image"
+                                                    id="image">
                                             </div>
                                         </div>
                                         <div class="col">

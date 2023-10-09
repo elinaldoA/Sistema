@@ -13,6 +13,15 @@
 </div>
 @endif
 
+@if (session('danger'))
+<div id="falha" class="alert alert-danger border-left-danger alert-dismissible fade show" role="alert">
+    {{ session('danger') }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@endif
+
 @if ($errors->any())
 <div class="alert alert-danger border-left-danger" role="alert">
     <ul class="pl-4 my-2">
@@ -47,7 +56,7 @@
                                          >
                                 </div>
                             </div>
-                            <div class="col-lg-3">
+                            <div class="col-lg-2">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="codigo">Código<span
                                             class="small text-danger">
@@ -55,7 +64,7 @@
                                     <input type="text" class="form-control" name="codigo" id="codigo" value="{{$produto->codigo}}"/>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="nome">Nome<span
                                             class="small text-danger"> *
@@ -77,7 +86,7 @@
                                     <label class="form-control-label" for="desconto">Desconto<span
                                             class="small text-danger"> * </span></label>
                                     <input type="text" class="form-control" name="desconto" id="desconto"
-                                        placeholder="%" value="{{$produto->desconto}}%"/>
+                                        placeholder="%" value="{{$produto->desconto}}"/>
                                 </div>
                             </div>
                             <div class="col-lg-2">
@@ -86,6 +95,14 @@
                                             class="small text-danger"> * </span></label>
                                     <input type="text" class="form-control" name="preco_com_desconto" id="preco_com_desconto"
                                         value="{{$produto->preco_com_desconto}}"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="form-group focused">
+                                    <label class="form-control-label" for="qt">Quantidade<span
+                                            class="small text-danger"> * </span></label>
+                                    <input type="text" class="form-control" name="qt" id="qt"
+                                        value="{{$produto->qt}}"/>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -117,7 +134,7 @@
                                     <label class="form-control-label" for="desconto">Imagem<span
                                             class="small text-danger">
                                             * </span></label>
-                                    <input type="file" class="form-control roudend" name="imagem" id="imagem"><br/>
+                                    <input type="file" class="form-control roudend" name="image" id="image"><br/>
                                     <img src="/storage/image/{{ $produto->image }}" width="150px" class="rounded">
                                 </div>
                             </div>

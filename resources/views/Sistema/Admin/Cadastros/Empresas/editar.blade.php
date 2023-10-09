@@ -13,6 +13,15 @@
         </div>
     @endif
 
+    @if (session('danger'))
+        <div id="falha" class="alert alert-danger border-left-danger alert-dismissible fade show" role="alert">
+            {{ session('danger') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
     @if ($errors->any())
         <div class="alert alert-danger border-left-danger" role="alert">
             <ul class="pl-4 my-2">
@@ -29,7 +38,8 @@
                     <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-edit"></i> Editar</h6>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('empresa.editar', ['empresa' => $empresa]) }}" class="empresas" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('empresa.editar', ['empresa' => $empresa]) }}" class="empresas"
+                        enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand"
                             role="tablist">
@@ -54,9 +64,10 @@
                                                         class="small text-danger"> * </span></label>
                                                 <input type="checkbox" name="active" id="active"
                                                     value="{{ $empresa->active }}" class="blue form-control"
-                                                    @if (($empresa->active == 0 && old('active') && old('first_time')) ||
-                                                    ($empresa->active && old('active') == null && old('first_time') == null) ||
-                                                    ($empresa->active && old('active') && old('first_time'))) checked="checked" @endif>
+                                                    @if (
+                                                        ($empresa->active == 0 && old('active') && old('first_time')) ||
+                                                            ($empresa->active && old('active') == null && old('first_time') == null) ||
+                                                            ($empresa->active && old('active') && old('first_time'))) checked="checked" @endif>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
@@ -101,8 +112,10 @@
                                                 <label class="form-control-label" for="desconto">Imagem<span
                                                         class="small text-danger">
                                                         * </span></label>
-                                                    <input type="file" class="form-control roudend" name="image" id="image"><br/>
-                                                    <img src="/storage/image/{{ $empresa->image }}" width="150px" class="rounded">
+                                                <input type="file" class="form-control roudend" name="image"
+                                                    id="image"><br />
+                                                <img src="/storage/image/{{ $empresa->image }}" width="150px"
+                                                    class="rounded">
                                             </div>
                                         </div>
                                         <div class="col">

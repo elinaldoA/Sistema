@@ -4,15 +4,6 @@
 <!-- Page Heading -->
 <h1 class="h3 mb-4 text-gray-800">{{ __('Empresas') }}</h1>
 
-@if (session('success'))
-<div id="sucesso" class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
-    {{ session('success') }}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-@endif
-
 @if ($errors->any())
 <div class="alert alert-danger border-left-danger" role="alert">
     <ul class="pl-4 my-2">
@@ -94,20 +85,3 @@
 </div>
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script>
-    // Iniciará quando todo o corpo do documento HTML estiver pronto.
-    $().ready(function() {
-        setTimeout(function() {
-            $('#sucesso').hide(); // "sucesso" é o id do elemento que seja manipular.
-        }, 2500); // O valor é representado em milisegundos.
-    });
-
-    $('a[data-target="#confirm-delete"]').on('click', function (e) {
-    e.preventDefault();
-    var name = $(this).data('name'); var id = $(this).data('id');
-    $('span.name').text(name + ' (id = ' + id + ')');
-    $('.delete').attr('href', 'empresa.excluir?id=' + id);
-    $('#confirm-delete').modal('show');
-    return false;
-    });
-</script>

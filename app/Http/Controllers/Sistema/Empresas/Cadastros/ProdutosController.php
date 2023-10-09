@@ -57,7 +57,7 @@ class ProdutosController extends Controller
             'empresa_id' => 'required|string',
             'categoria_id' => 'required|string',
             'active' => 'required|boolean',
-            'image' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         $produto = $request->all();
@@ -109,7 +109,34 @@ class ProdutosController extends Controller
      */
     public function update(Request $request, Produtos $produto)
     {
-        //
+        $request->validate([
+            'codigo' => 'required|string|max:10',
+            'nome' => 'required|string|max:255',
+            'descricao' => 'required|string|max:255',
+            'preco' => 'required|string|max:255',
+            'desconto' => 'string',
+            'preco_com_desconto' => 'string',
+            'qt' => 'required|integer',
+            'empresa_id' => 'required|string',
+            'categoria_id' => 'required|string',
+            'active' => 'required|boolean',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            ]);
+
+        $input = $request->all();
+
+        if($imagem = $request->file('image')){
+            $destinationPath = 'storage/image/';
+            $profileImage = date('YmdHis').".". $imagem->getClientOriginalExtension();
+            $imagem->move($destinationPath,$profileImage);
+            $input['image'] = "$profileImage";
+        }else{
+            unset($input['image']);
+        }
+
+        $produto->update($input);
+        return redirect()->route('produtos')
+        ->with('success','Atualizado com sucesso!');
     }
 
     /**

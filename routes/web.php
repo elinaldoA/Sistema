@@ -151,5 +151,6 @@ Route::group(['prefix' => 'Sistema/Cliente', 'middleware' => ['auth']], function
 
     //Loja
     Route::get('/Loja', 'Sistema\Clientes\Loja\LojaController@index')->name('loja');
+    Route::get('/Loja/show', 'Sistema\Clientes\Loja\LojaController@show')->name('show');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

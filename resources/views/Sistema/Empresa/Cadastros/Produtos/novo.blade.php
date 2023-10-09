@@ -13,6 +13,15 @@
         </div>
     @endif
 
+    @if (session('danger'))
+        <div id="falha" class="alert alert-danger border-left-danger alert-dismissible fade show" role="alert">
+            {{ session('danger') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
     @if ($errors->any())
         <div class="alert alert-danger border-left-danger" role="alert">
             <ul class="pl-4 my-2">
@@ -29,15 +38,18 @@
                     <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-plus"></i> Novo</h6>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('produto.create') }}" class="produtos" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('produto.create') }}" class="produtos"
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="pl-lg-12">
                             <div class="row">
                                 <div class="col-lg-1">
                                     <div class="form-group focused">
-                                        <label class="form-control-label" for="codigo">Ativo<span class="small text-danger"> * </span></label>
-                                        <input type="checkbox" id="active" name="active" class="blue form-control" value="1"
-                                        @if (old('active')) checked="checked" @endif required>
+                                        <label class="form-control-label" for="codigo">Ativo<span
+                                                class="small text-danger"> * </span></label>
+                                        <input type="checkbox" id="active" name="active" class="blue form-control"
+                                            value="1" @if (old('active')) checked="checked" @endif
+                                            required>
                                     </div>
                                 </div>
                                 <div class="col-lg-2">
@@ -77,16 +89,15 @@
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="desconto">Pr. com Desconto<span
                                                 class="small text-danger"> * </span></label>
-                                        <input type="text" class="form-control" name="preco_com_desconto" id="preco_comn_desconto"
-                                            placeholder="R$ 0,00" />
+                                        <input type="text" class="form-control" name="preco_com_desconto"
+                                            id="preco_comn_desconto" placeholder="R$ 0,00" />
                                     </div>
                                 </div>
                                 <div class="col-lg-2">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="qt">Quantidade<span
                                                 class="small text-danger"> * </span></label>
-                                        <input type="text" class="form-control" name="qt" id="qt"
-                                            />
+                                        <input type="text" class="form-control" name="qt" id="qt" />
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
@@ -132,11 +143,10 @@
                             <!-- Button -->
                             <div class="row">
                                 <div class="col">
-                                    <button type="submit" class="btn btn-outline-primary"><i
-                                        class="fas fa-plus"></i>
+                                    <button type="submit" class="btn btn-outline-primary"><i class="fas fa-plus"></i>
                                         Criar</button>
                                     <a href="{{ route('produtos') }}" class="btn btn-outline-primary"><i
-                                    class="fas fa-angle-double-left"></i> Voltar</a>
+                                            class="fas fa-angle-double-left"></i> Voltar</a>
                                 </div>
                             </div>
                         </div>

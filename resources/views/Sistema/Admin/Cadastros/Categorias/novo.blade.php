@@ -1,63 +1,74 @@
 @extends('layouts.admin')
 
 @section('main-content')
-<!-- Page Heading -->
-<h1 class="h3 mb-4 text-gray-800">{{ __('Categorias') }}</h1>
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800">{{ __('Categorias') }}</h1>
 
-@if (session('success'))
-<div id="sucesso" class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
-    {{ session('success') }}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-@endif
+    @if (session('success'))
+        <div id="sucesso" class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
 
-@if ($errors->any())
-<div class="alert alert-danger border-left-danger" role="alert">
-    <ul class="pl-4 my-2">
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
-<div class="col">
-    <div class="col-lg-12 order-lg-1">
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-plus"></i> Novo</h6>
-            </div>
-            <div class="card-body">
-                <form method="POST" action="{{ route('categoria.create') }}" class="categorias">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <div class="pl-lg-12">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group focused">
-                                    <label class="form-control-label" for="name">Nome<span class="small text-danger"> * </span></label>
-                                    <input type="" class="form-control" name="name" id="name" />
+    @if (session('danger'))
+        <div id="falha" class="alert alert-danger border-left-danger alert-dismissible fade show" role="alert">
+            {{ session('danger') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div class="alert alert-danger border-left-danger" role="alert">
+            <ul class="pl-4 my-2">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <div class="col">
+        <div class="col-lg-12 order-lg-1">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-plus"></i> Novo</h6>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('categoria.create') }}" class="categorias">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <div class="pl-lg-12">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="name">Nome<span
+                                                class="small text-danger"> * </span></label>
+                                        <input type="" class="form-control" name="name" id="name" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="row">
-                        <div class="col">
-                            <button type="submit" class="btn btn-outline-primary"><i class="fas fa-plus"></i> Criar</button>
-                            <a href="{{route('categorias')}}" class="btn btn-outline-primary"><i class="fas fa-angle-double-left"></i> Voltar</a>
+                        <!-- Button -->
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" class="btn btn-outline-primary"><i class="fas fa-plus"></i>
+                                    Criar</button>
+                                <a href="{{ route('categorias') }}" class="btn btn-outline-primary"><i
+                                        class="fas fa-angle-double-left"></i> Voltar</a>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+
+                </div>
 
             </div>
 
         </div>
 
     </div>
-
-</div>
-
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>

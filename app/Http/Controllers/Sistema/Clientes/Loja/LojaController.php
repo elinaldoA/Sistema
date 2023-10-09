@@ -50,9 +50,10 @@ class LojaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Produtos $produto)
     {
-        //
+        $produto = Produtos::with('produtos')->get();
+        return view('Sistema.Cliente.Loja.show', compact('produto'));
     }
 
     /**

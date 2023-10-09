@@ -18,6 +18,9 @@ class CategoriasSeeder extends Seeder
             'name' => 'Alimento'
         ]);
         Categorias::create([
+            'name' => 'Bebidas'
+        ]);
+        Categorias::create([
             'name' => 'Atacadista'
         ]);
         Categorias::create([
