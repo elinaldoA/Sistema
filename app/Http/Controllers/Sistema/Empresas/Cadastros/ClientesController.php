@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Sistema\Empresas\Cadastros;
 
+use App\Exports\ClientesExport;
 use App\Http\Controllers\Controller;
 use App\Models\Clientes;
 use App\Models\Empresas;
 use App\Models\Enderecos;
 use App\Models\Generos;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ClientesController extends Controller
 {
@@ -153,5 +155,9 @@ class ClientesController extends Controller
     {
         $cliente->delete();
         return redirect()->route('clientes')->with('success','Excluído com sucesso');
+    }
+    public function export()
+    {
+        return Excel::download(new ClientesExport, 'clientes.xlsx');
     }
 }

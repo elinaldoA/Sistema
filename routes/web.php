@@ -113,6 +113,8 @@ Route::group(['prefix' => 'Sistema/Empresa', 'middleware' => ['auth']], function
     Route::post('/Cadastros/Clientes/{cliente}/editar','Sistema\Empresas\Cadastros\ClientesController@update')->name('cliente.editar');
     Route::get('/Cadastros/Clientes/{cliente}/excluir','Sistema\Empresas\Cadastros\ClientesController@delete');
     Route::post('/Cadastros/Clientes/{cliente}/excluir','Sistema\Empresas\Cadastros\ClientesController@destroy')->name('cliente.excluir');
+    //Export
+    Route::get('clientes/export/', 'Sistema\Empresas\Cadastros\ClientesController@export')->name('export-cliente');
     //Produtos
     Route::get('/Cadastros/Produtos/novo','Sistema\Empresas\Cadastros\ProdutosController@create')->name('produto.create');
     Route::post('/Cadastros/Produtos/novo','Sistema\Empresas\Cadastros\ProdutosController@store')->name('produto.store');
@@ -153,6 +155,7 @@ Route::group(['prefix' => 'Sistema/Cliente', 'middleware' => ['auth']], function
 
     //Loja
     Route::get('/Loja', 'Sistema\Clientes\Loja\LojaController@index')->name('loja');
-    Route::get('/Loja/show', 'Sistema\Clientes\Loja\LojaController@show')->name('show');
+    Route::get('/Loja/Produtos/{produto}/show', 'Sistema\Clientes\Loja\LojaController@show')->name('show');
+    Route::get('/Loja/Produtos/{produto}/cart', 'Sistema\Clientes\Loja\LojaController@cart')->name('cart');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

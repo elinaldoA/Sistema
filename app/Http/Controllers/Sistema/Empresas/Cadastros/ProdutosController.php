@@ -59,6 +59,7 @@ class ProdutosController extends Controller
             'empresa_id' => 'required|string',
             'categoria_id' => 'required|string',
             'active' => 'required|boolean',
+            'destaque' => 'boolean',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
@@ -115,13 +116,23 @@ class ProdutosController extends Controller
             'codigo' => 'required|string|max:10',
             'nome' => 'required|string|max:255',
             'descricao' => 'required|string|max:255',
+            'composicao' => 'string|max:255',
+            'indicado' => 'string|max:255',
+            'funcionamento' => 'string|max:255',
+            'contraindicacoes' => 'string|max:255',
+            'como_usar' => 'string|max:255',
             'preco' => 'required|string|max:255',
             'desconto' => 'string',
             'preco_com_desconto' => 'string',
             'qt' => 'required|integer',
+            'altura' => 'string',
+            'largura' => 'string',
+            'comprimento' => 'string',
+            'peso' => 'string',
             'empresa_id' => 'required|string',
             'categoria_id' => 'required|string',
             'active' => 'required|boolean',
+            'destaque' => 'boolean',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);
 

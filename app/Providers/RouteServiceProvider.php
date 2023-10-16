@@ -22,7 +22,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = 'Sistema/Admin/dashboard';
-    public const DASHBOARD = 'Sistema/Cliente/dashboard';
+    public const DASHBOARD_CLIENTES = 'Sistema/Cliente/dashboard';
     public const DASHBOARD_EMPRESAS = 'Sistema/Empresa/dashboard';
 
     /**

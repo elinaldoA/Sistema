@@ -132,11 +132,86 @@
                                         <input class="form-control" type="file" name="image" id="image">
                                     </div>
                                 </div>
-                                <div class="col">
+                                <div class="col-lg-12">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="descricao">Descrição<span
                                                 class="small text-danger"> * </span></label>
-                                        <textarea class="form-control" name="descricao" id="descricao" cols=""></textarea>
+                                        <textarea class="form-control" name="descricao" id="descricao" cols="5" rows="5"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="composicao">Composição<span
+                                                class="small text-danger"> * </span></label>
+                                        <textarea class="form-control" name="composicao" id="composicao" cols="5"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="indicado">Para quem é indicado ?<span
+                                                class="small text-danger"> * </span></label>
+                                        <textarea class="form-control" name="indicado" id="indicado" cols="5"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="funcionamento">Como funciona ?<span
+                                                class="small text-danger"> * </span></label>
+                                        <textarea class="form-control" name="funcionamento" id="funcionamento" cols="5"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="contraindicacoes">Contraindicacoes ?<span
+                                                class="small text-danger"> * </span></label>
+                                        <textarea class="form-control" name="contraindicacoes" id="contraindicacoes" cols="5"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="como_usar">Como usar ?<span
+                                                class="small text-danger"> * </span></label>
+                                        <textarea class="form-control" name="como_usar" id="como_usar" cols="5"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="altura">Altura<span
+                                            class="small text-danger">
+                                            * </span></label>
+                                        <input type="text" class="form-control" name="altura" id="altura" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="largura">Largura<span
+                                            class="small text-danger">
+                                            * </span></label>
+                                        <input type="text" class="form-control" name="largura" id="largura" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="comprimento">Comprimento<span
+                                            class="small text-danger">
+                                            * </span></label>
+                                        <input type="text" class="form-control" name="comprimento" id="comprimento" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="peso">Peso<span
+                                            class="small text-danger">
+                                            * </span></label>
+                                        <input type="text" class="form-control" name="peso" id="peso" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-1">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="destaque">Destaque<span
+                                                class="small text-danger"> * </span></label>
+                                        <input type="checkbox" id="destaque" name="destaque" class="blue form-control"
+                                            value="1" @if (old('destaque')) checked="checked" @endif>
                                     </div>
                                 </div>
                             </div>
@@ -146,7 +221,7 @@
                                     <button type="submit" class="btn btn-outline-primary"><i class="fas fa-plus"></i>
                                         Criar</button>
                                     <a href="{{ route('produtos') }}" class="btn btn-outline-primary"><i
-                                            class="fas fa-angle-double-left"></i> Voltar</a>
+                                        class="fas fa-angle-double-left"></i> Voltar</a>
                                 </div>
                             </div>
                         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Sistema\Clientes\Loja;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categorias;
 use App\Models\Produtos;
 use Illuminate\Http\Request;
 
@@ -52,8 +53,13 @@ class LojaController extends Controller
      */
     public function show(Produtos $produto)
     {
-        $produto = Produtos::with('produtos')->get();
-        return view('Sistema.Cliente.Loja.show', compact('produto'));
+        $categorias = Categorias::with('categorias')->get();
+        return view('Sistema.Cliente.Loja.show', compact('produto'), ['categorias' => $categorias]);
+    }
+    public function cart(Produtos $produto)
+    {
+        $categorias = Categorias::with('categorias')->get();
+        return view('Sistema.Cliente.Loja.cart', compact('produto'), ['categorias' => $categorias]);
     }
 
     /**

@@ -19,19 +19,24 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <a class="btn btn-outline-success pull-left" href="novo"><i class="fas fa-plus"></i> Adicionar</a>
-                <a class="btn btn-outline-success pull-left" href="#"><i class="fas fa-file-o-excel"></i> Exportar</a>
+                <a class="btn btn-outline-success pull-left" href="{{route('export-cliente')}}"><i class="fas fa-file-csv"></i> Exportar</a>
                 <div class="card-body">
 
                     <table class="table table-hover text-center">
                         <tr>
                             <th scope="col">Foto</th>
                             <th scope="col">Nome</th>
+                            <th scope="col">Ativo</th>
                             <th scope="col">Ações</th>
                         </tr>
                         @forelse($clientes as $c)
                         <tr>
                             <td><img src="/storage/image/{{$c->image}}" width="50px" class="rounded"></td>
                             <td>{{$c->name}}</td>
+                            <td><input type="checkbox" name="active" value="1" class="form-control"
+                                @if (($c->active == 0 && old('active') && old('first_time')) ||
+                                ($c->active && old('active') == null && old('first_time') == null) ||
+                                ($c->active && old('active') && old('first_time'))) checked="checked" @endif></td>
                             <td>
                                 <a class="btn btn-outline-primary" href="{{route('cliente.editar', ['cliente' => $c->id])}}"><i class="fa fa-edit"></i></a>
                                 <a class="btn btn-outline-primary" href="{{route('cliente.show', ['cliente' => $c->id])}}"><i class="fa fa-eye"></i></a>

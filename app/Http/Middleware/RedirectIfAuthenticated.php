@@ -25,7 +25,7 @@ class RedirectIfAuthenticated
                     return redirect(RouteServiceProvider::HOME);
                     break;
                 case 'cliente':
-                    return redirect(RouteServiceProvider::DASHBOARD);
+                    return redirect(RouteServiceProvider::DASHBOARD_CLIENTES);
                     break;
                 case 'empresa':
                     return redirect(RouteServiceProvider::DASHBOARD_EMPRESAS);
