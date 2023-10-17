@@ -29,20 +29,22 @@ class LojaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function create(Produtos $produto)
     {
-        //
+        $categorias = Categorias::with('categorias')->get();
+        return view('Sistema.Cliente.Loja.item', compact('produto'), ['categorias' => $categorias]);
+    }
+    public function cart()
+    {
+        $produtos = Produtos::with('produtos')->get();
+        $categorias = Categorias::with('categorias')->get();
+        return view('Sistema.Cliente.Loja.cart', compact('produtos'), ['categorias' => $categorias]);
+    }
+    public function checkout(Produtos $produto)
+    {
+        $categorias = Categorias::with('categorias')->get();
+        return view('Sistema.Cliente.Loja.checkout', compact('produto'), ['categorias' => $categorias]);
     }
 
     /**
@@ -56,22 +58,6 @@ class LojaController extends Controller
         $categorias = Categorias::with('categorias')->get();
         return view('Sistema.Cliente.Loja.show', compact('produto'), ['categorias' => $categorias]);
     }
-    public function cart(Produtos $produto)
-    {
-        $categorias = Categorias::with('categorias')->get();
-        return view('Sistema.Cliente.Loja.cart', compact('produto'), ['categorias' => $categorias]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -80,9 +66,10 @@ class LojaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Produtos $produto)
     {
-        //
+        $categorias = Categorias::with('categorias')->get();
+        return view('Sistema.Cliente.Loja.item', compact('produto'), ['categorias' => $categorias]);
     }
 
     /**
@@ -91,8 +78,8 @@ class LojaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete(Produtos $produto)
     {
-        //
+
     }
 }

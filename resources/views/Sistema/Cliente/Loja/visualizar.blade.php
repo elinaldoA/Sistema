@@ -218,24 +218,8 @@
             }, custom_dimension_params));
 
         // Send events to Store Owner GA Account
-
-
-
-
-
         let order_items = null;
     </script>
-
-
-
-
-
-
-
-
-
-
-
     <script src="https://files.jumpseller.com/javascripts/dist/jumpseller-2.0.0.js" defer="defer"></script>
 </head>
 
@@ -288,7 +272,7 @@
                             </ul>
                             <ul class="nav navbar-nav float-right nav-top">
                                 <li>
-                                    <a id="cart-link" href="/" class="trsn nav-link" title="View/Edit Cart">
+                                    <a id="cart-link" href="{{route('cart')}}" class="trsn nav-link" title="View/Edit Cart">
                                         <i class="fas fa-shopping-cart"></i>
                                         <span id="nav-bar-cart"><span class="cart-size">0</span> Produto(s)
                                             | R$ 0,00</span>
@@ -326,7 +310,7 @@
                         <div class="collapse navbar-collapse" id="navbarsContainer-2">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item  active">
-                                    <a href="/" title="Inicio" class="level-1 trsn nav-link">Inicio</a>
+                                    <a href="{{route('loja')}}" title="Inicio" class="level-1 trsn nav-link">Inicio</a>
                                 </li>
                                 <li class="nav-item  ">
                                     <a href="/about-us" title="About Us" class="level-1 trsn nav-link">Sobre</a>
@@ -425,13 +409,13 @@
                 $('.component_slider-1408633').owlCarousel({
                     items: 1,
 
-                    loop: false,
+                    loop: true,
                     dots: false,
                     margin: 0,
                     nav: true,
-                    autoplay: false,
+                    autoplay: true,
 
-                    autoplayHoverPause: false,
+                    autoplayHoverPause: true,
                     navText: ["<i class='fas fa-chevron-left'></i>", "<i class='fas fa-chevron-right'></i>"]
                 })
             </script>
@@ -440,7 +424,7 @@
             <div id="featured-products-1408627" class="container">
                 <!-- Products Section -->
                 <div class="row ">
-                    <div class="col-md-12">
+                    <div class="col-12">
                         <h2 class="page-header">Destaques</h2>
                     </div>
                     @forelse($produtos as $produto)
@@ -452,7 +436,7 @@
                                 </a>
                                 <div class="caption text-left">
                                     <h4><a
-                                            href="{{ route('show', ['produto' => $produto->id]) }}">{{ $produto->nome }}</a>
+                                        href="{{ route('show', ['produto' => $produto->id]) }}">{{ $produto->nome }}</a>
                                     </h4>
                                     <div class="d-flex product-list-rating-container">
                                     </div>
@@ -623,21 +607,22 @@
                         <div class="row">
                             <div class="col-12 col-md-6 order-2 order-md-1">
                                 <p class="powered-by">&copy; 2023 Sistema<sup>EA</sup>. Todos os direitos reservados.
-                                    <a href='https://jumpseller.cl/?utm_medium=store&utm_campaign=powered_by&utm_source=bootstrap'
-                                        title='Create Online Store' target='_blank' rel='nofollow'>Por Elinaldo
-                                        Agostinho</a>.</p>
+                                    <a href='# title='Create Online Store' target='_blank' rel='nofollow'>Por Elinaldo
+                                        Agostinho</a>.
+                                </p>
                             </div>
                             <div class="col-12 col-md-6 order-1 order-md-2">
                                 <ul class="payment">
                                     <li><span><img src="//assets.jumpseller.com/public/payment-logos/visa.svg"
-                                                alt="Visa" height="30" width="56"></span></li>
+                                        alt="Visa" height="30" width="56"></span></li>
                                     <li><span><img src="//assets.jumpseller.com/public/payment-logos/mastercard.svg"
-                                                alt="Mastercard" height="30" width="56"></span></li>
-                                    <li><span><img
-                                                src="//assets.jumpseller.com/public/payment-logos/americanexpress.svg"
-                                                alt="American Express" height="30" width="56"></span></li>
+                                        alt="Mastercard" height="30" width="56"></span></li>
+                                    <li><span><img src="//assets.jumpseller.com/public/payment-logos/americanexpress.svg"
+                                        alt="American Express" height="30" width="56"></span></li>
                                     <li><span><img src="//assets.jumpseller.com/public/payment-logos/paypal.svg"
-                                                alt="Paypal" height="30" width="56"></span></li>
+                                        alt="Paypal" height="30" width="56"></span></li>
+                                    <li><span><img src="//assets.jumpseller.com/public/payment-logos/mercadopago.svg"
+                                        alt="MercadoPago" height="30" width="56"></span></li>
                                 </ul>
                             </div>
                         </div>

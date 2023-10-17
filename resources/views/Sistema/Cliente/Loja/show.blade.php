@@ -3,7 +3,7 @@
 <html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml"> <!--<![endif]-->
 
 <head>
-    <title>{{$produto->nome}}</title>
+    <title>{{ $produto->nome }}</title>
     <meta name="description"
         content="Just getting going with your art? Transitioning from paper to computer-based work? The Bamboo Splash is a great way to explore your interests, with a premium feel of the pen tablet and everything you need to get started in the box.Start something fun! Sketch, draw, paint, all on your computer with the new Bamboo Splash. You'll work both digitall..." />
 
@@ -23,8 +23,8 @@
     <!-- Facebook Meta tags for Product -->
     <meta property="fb:app_id" content="283643215104248" />
 
-    <meta property="og:id" content="{{$produto->id}}" />
-    <meta property="og:title" content="{{$produto->nome}}" />
+    <meta property="og:id" content="{{ $produto->id }}" />
+    <meta property="og:title" content="{{ $produto->nome }}" />
     <meta property="og:type" content="product" />
 
 
@@ -91,8 +91,7 @@
 
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet"
-        href="//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
         integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
 
@@ -143,7 +142,7 @@
       "url": "{{route('show', ['produto' => $produto->id])}}",
       "itemCondition": "http://schema.org/NewCondition",
 
-      "image": "https://cdnx.jumpseller.com/bootstrap/image/429444/Wacom_Bamboo2.JPG?1614272621",
+      "image": "{{$produto->image}}",
 
       "description": "{{$produto->descricao}}",
 
@@ -1558,14 +1557,14 @@
         gtag('event', 'view_item', {
             currency: 'CLP',
             items: [{
-                item_id: '{{$produto->id}}',
-                item_name: '{{$produto->nome}}',
+                item_id: '{{ $produto->id }}',
+                item_name: '{{ $produto->nome }}',
                 discount: '0.0',
                 item_brand: '',
-                price: '{{$produto->preco}}',
+                price: '{{ $produto->preco }}',
                 currency: 'CLP'
             }],
-            value: '{{$produto->preco}}',
+            value: '{{ $produto->preco }}',
         });
     </script>
 
@@ -1592,7 +1591,7 @@
             <div class="fixed-top">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="container">
-                        <a href="{{route('loja')}}" title="Bootstrap" class="navbar-brand">
+                        <a href="{{ route('loja') }}" title="Bootstrap" class="navbar-brand">
                             Sistema<sup>EA</sup>
                         </a>
                         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -1617,7 +1616,8 @@
                             <ul id="navbarContainerMobile" class="navbar-nav d-lg-none">
 
                                 <li class="nav-item  ">
-                                    <a href="{{route('loja')}}" title="Inicio" class="level-1 trsn nav-link">Inicio</a>
+                                    <a href="{{ route('loja') }}" title="Inicio"
+                                        class="level-1 trsn nav-link">Inicio</a>
 
                                 </li>
                                 <li class="nav-item  ">
@@ -1641,7 +1641,8 @@
                             </ul>
                             <ul class="nav navbar-nav float-right nav-top">
                                 <li>
-                                    <a id="cart-link" href="{{route('cart', ['produto' => $produto->id])}}" class="trsn nav-link" title="View/Edit Cart">
+                                    <a id="cart-link" href="{{ route('cart.add', ['produto' => $produto->id]) }}"
+                                        class="trsn nav-link" title="View/Edit Cart">
                                         <i class="fas fa-shopping-cart"></i>
                                         <span id="nav-bar-cart"><span class="cart-size">0</span> Produto(s)
                                             | R$ 0,00</span>
@@ -1681,7 +1682,8 @@
                         <div class="collapse navbar-collapse" id="navbarsContainer-2">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item  ">
-                                    <a href="{{route('loja')}}" title="Inicio" class="level-1 trsn nav-link">Inicio</a>
+                                    <a href="{{ route('loja') }}" title="Inicio"
+                                        class="level-1 trsn nav-link">Inicio</a>
                                 </li>
                                 <li class="nav-item  ">
                                     <a href="/about-us" title="About Us" class="level-1 trsn nav-link">Sobre</a>
@@ -1705,17 +1707,17 @@
                     <section class="col-12 d-none d-md-block">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="{{route('loja')}}" class="trsn" title="Go back to Home">Home</a>
+                                <a href="{{ route('loja') }}" class="trsn" title="Go back to Home">Home</a>
                             </li>
                             <li class="breadcrumb-item">
                                 @foreach ($categorias as $c)
                                     @if ($produto->categoria_id == $c->id)
-                                        <a href="#" class="trsn" title="">{{$c->name}}</a>
+                                        <a href="#" class="trsn" title="">{{ $c->name }}</a>
                                     @endif
                                 @endforeach
                             </li>
                             <li class="breadcrumb-item">
-                                <span>{{$produto->nome}}</span>
+                                <span>{{ $produto->nome }}</span>
                             </li>
                         </ol>
                     </section>
@@ -1764,7 +1766,7 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-12">
-                <h1 class="page-header">{{$produto->nome}}</h1>
+                <h1 class="page-header">{{ $produto->nome }}</h1>
             </div>
         </div>
         <!-- /.row -->
@@ -1777,19 +1779,16 @@
                         <div id="product-carousel" class="carousel slide">
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active">
-                                    <img id="first-image"
-                                        src="/storage/image/{{$produto->image}}"
-                                        alt="{{$produto->image}}" class="img-fluid">
+                                    <img id="first-image" src="/storage/image/{{ $produto->image }}"
+                                        alt="{{ $produto->image }}" class="img-fluid">
                                 </div>
 
                                 <div class="carousel-item">
-                                    <img src="/storage/image/{{$produto->image}}"
-                                        alt="{{$produto->image}}">
+                                    <img src="/storage/image/{{ $produto->image }}" alt="{{ $produto->image }}">
                                 </div>
 
                                 <div class="carousel-item">
-                                    <img src="/storage/image/{{$produto->image}}"
-                                        alt="{{$produto->image}}">
+                                    <img src="/storage/image/{{ $produto->image }}" alt="{{ $produto->image }}">
                                 </div>
 
                             </div>
@@ -1807,31 +1806,32 @@
                 <!-- Thumb Images -->
                 <div class="col-sm-12 product-page-thumbs space mt-3">
 
-                    <a class="thumbs" data-image="1" href="{{route('show', ['produto' => $produto->id])}}"><img
-                            src="/storage/image/{{$produto->image}}"
-                            alt="{{$produto->nome}}" width="100px"></a>
+                    <a class="thumbs" data-image="1" href="{{ route('show', ['produto' => $produto->id]) }}"><img
+                            src="/storage/image/{{ $produto->image }}" alt="{{ $produto->nome }}"
+                            width="100px"></a>
 
-                    <a class="thumbs" data-image="2" href="{{route('show', ['produto' => $produto->id])}}"><img
-                            src="/storage/image/{{$produto->image}}"
-                            alt="{{$produto->nome}}" width="100px"></a>
+                    <a class="thumbs" data-image="2" href="{{ route('show', ['produto' => $produto->id]) }}"><img
+                            src="/storage/image/{{ $produto->image }}" alt="{{ $produto->nome }}"
+                            width="100px"></a>
 
-                    <a class="thumbs" data-image="3" href="{{route('show', ['produto' => $produto->id])}}"><img
-                            src="/storage/image/{{$produto->image}}"
-                            alt="{{$produto->nome}}" width="100px"></a>
+                    <a class="thumbs" data-image="3" href="{{ route('show', ['produto' => $produto->id]) }}"><img
+                            src="/storage/image/{{ $produto->image }}" alt="{{ $produto->nome }}"
+                            width="100px"></a>
 
                 </div>
 
             </div>
 
             <div class="col-lg-6">
-                <form class="form-horizontal" action="{{route('cart', ['produto' => $produto])}}" method="GET" enctype="multipart/form-data"
-                    name="buy">
+                <form class="form-horizontal" action="{{ route('cart.add', ['produto' => $produto]) }}" method="POST"
+                    enctype="multipart/form-data" name="buy">
+                    @csrf
                     <!-- Product Price -->
                     <div class="form-group price_elem row">
 
                         <label class="col-sm-3 col-md-3 form-control-label nopaddingtop">Preço:</label>
                         <div class="col-sm-8 col-md-9">
-                            <span class="product-form-price">R$ {{$produto->preco}}</span>
+                            <span class="product-form-price">R$ {{ $produto->preco }}</span>
                         </div>
                         <div class="col-sm-12 col-md-12">
 
@@ -1869,7 +1869,7 @@
                     <div class="form-group product-stock product-available row visible">
                         <label class="col-sm-3 col-md-3 form-control-label"></label>
                         <div class="col-sm-8 col-sm-offset-3 col-md-9 col-md-offset-3">
-                            <input type="submit" class="adc btn btn-primary" value="Adicionar ao carrinho">
+                            <button type="submit" class="adc btn btn-primary">Adcionar ao carrinho</button>
                             <a href="javascript:history.back()" class="btn btn-link btn-sm mt-2"
                                 title="Continue Shopping">&larr; Continuar comprando</a>
                         </div>
@@ -1877,7 +1877,31 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-md-3 form-control-label">Descrição:</label>
                         <div class="col-sm-8 col-md-9 description">
-                            <p>{{$produto->descricao}}</p>
+                            <p>{{ $produto->descricao }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-md-3 form-control-label">Para quem é indicado:</label>
+                        <div class="col-sm-8 col-md-9 description">
+                            <p>{{ $produto->indicado }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-md-3 form-control-label">Como funciona:</label>
+                        <div class="col-sm-8 col-md-9 description">
+                            <p>{{ $produto->funcionamento }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-md-3 form-control-label">Contraindicações:</label>
+                        <div class="col-sm-8 col-md-9 description">
+                            <p>{{ $produto->contraindicacoes }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-md-3 form-control-label">Como usar:</label>
+                        <div class="col-sm-8 col-md-9 description">
+                            <p>{{ $produto->como_usar }}</p>
                         </div>
                     </div>
                     <div class="form-group row product-custom_fields" hidden="true">
@@ -1887,7 +1911,7 @@
                                 <span class="product-custom_field_values">
 
                                     <span id="product-custom_field_value_89747"
-                                        class="product-custom_field_value">{{$produto->nome}}</span>
+                                        class="product-custom_field_value">{{ $produto->nome }}</span>
                                 </span>
                             </p>
                         </div>
@@ -1903,14 +1927,14 @@
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="https://twitter.com/share?url=https://bootstrap.jumpseller.com/wacom-tablet&text=Check this product%20{{$produto->nome}}"
+                                <a href="https://twitter.com/share?url=https://bootstrap.jumpseller.com/wacom-tablet&text=Check this product%20{{ $produto->nome }}"
                                     class="has-tip tip-top radius button tiny button-twitter trsn"
                                     title="Share on Twitter" target="_blank" data-tooltip>
                                     <i class="fab fa-twitter"></i>
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="https://pinterest.com/pin/create/bookmarklet/?media=https://cdnx.jumpseller.com/bootstrap/image/429444/Wacom_Bamboo2.JPG?1614272621&url=https://bootstrap.jumpseller.com/wacom-tablet&is_video=false&description={{$produto->nome}}: Just getting going with your art? Transitioning from paper to computer-based work? The Bamboo Splash is a great way to explore your interests, with a premium feel of the pen tablet and everything you need to get started in the box.Start something fun! Sketch, draw, paint, all on your computer with the new Bamboo Splash. You'll work both digitally and naturally, thanks to the feel of the Bamboo pen in your hand. Whenever your art and your computer come together, a Bamboo pen tablet is a must have!You can replicate pencils, chalks, oils and watercolors as you move the Bamboo pen naturally across the tablet. Create your own effects, experiment, and share your stuff with others digitally. Most of all, have some fun! "
+                                <a href="https://pinterest.com/pin/create/bookmarklet/?media=https://cdnx.jumpseller.com/bootstrap/image/429444/Wacom_Bamboo2.JPG?1614272621&url=https://bootstrap.jumpseller.com/wacom-tablet&is_video=false&description={{ $produto->nome }}: Just getting going with your art? Transitioning from paper to computer-based work? The Bamboo Splash is a great way to explore your interests, with a premium feel of the pen tablet and everything you need to get started in the box.Start something fun! Sketch, draw, paint, all on your computer with the new Bamboo Splash. You'll work both digitally and naturally, thanks to the feel of the Bamboo pen in your hand. Whenever your art and your computer come together, a Bamboo pen tablet is a must have!You can replicate pencils, chalks, oils and watercolors as you move the Bamboo pen naturally across the tablet. Create your own effects, experiment, and share your stuff with others digitally. Most of all, have some fun! "
                                     class="has-tip tip-top radius button tiny button-pinterest trsn"
                                     title="Share on Pinterest" target="_blank" data-tooltip>
                                     <i class="fab fa-pinterest"></i>
@@ -1926,7 +1950,7 @@
                             <script id="tumblr-js" async src="https://assets.tumblr.com/share-button.js"></script>
                             <li class="list-inline-item">
                                 <a id="whatsapp" class="has-tip tip-top radius button tiny button-whats trsn"
-                                    href="https://api.whatsapp.com/send?text=Check this product%20{{$produto->nome}} | https://bootstrap.jumpseller.com/wacom-tablet">
+                                    href="https://api.whatsapp.com/send?text=Check this product%20{{ $produto->nome }} | https://bootstrap.jumpseller.com/wacom-tablet">
                                     <i class="fab fa-whatsapp"></i>
                                 </a>
                             </li>
@@ -1969,24 +1993,24 @@
             });
             const product = [{
                 "variant": {
-                    "id": {{$produto->id}},
-                    "product_id": {{$produto->codigo}},
+                    "id": {{ $produto->id }},
+                    "product_id": {{ $produto->codigo }},
                     "position": 0,
-                    "price": {{$produto->preco}},
+                    "price": {{ $produto->preco }},
                     "sku": "",
                     "barcode": null,
                     "weight": 1.0,
                     "stock": 0,
                     "stock_unlimited": true,
-                    "image_id": {{$produto->id}},
+                    "image_id": {{ $produto->id }},
                     "store_id": 15996
                 },
-                "image": "{{$produto->nome}}",
-                "image_id": {{$produto->id}},
-                "price": {{$produto->preco}},
-                "price_formatted": "{{number_format($produto->preco, 2, ",",".")}}",
+                "image": "{{ $produto->nome }}",
+                "image_id": {{ $produto->id }},
+                "price": {{ $produto->preco }},
+                "price_formatted": "{{ number_format($produto->preco, 2, ',', '.') }}",
                 "status": "available",
-                "price_discount_formatted": "{{number_format($produto->preco_com_desconto,2, ",",".")}}",
+                "price_discount_formatted": "{{ number_format($produto->preco_com_desconto, 2, ',', '.') }}",
                 "discount": 0.0,
                 "attachments": [],
                 "custom_fields": {
@@ -1996,31 +2020,31 @@
                 },
                 "values": [{
                     "value": {
-                        "id": {{$produto->id}},
-                        "name": "{{$produto->nome}}",
+                        "id": {{ $produto->id }},
+                        "name": "{{ $produto->nome }}",
                         "option": 206919
                     }
                 }]
             }, {
                 "variant": {
                     "id": 2478882,
-                    "product_id": {{$produto->id}},
+                    "product_id": {{ $produto->id }},
                     "position": 0,
-                    "price": {{$produto->preco}},
+                    "price": {{ $produto->preco }},
                     "sku": "",
                     "barcode": null,
                     "weight": 1.0,
                     "stock": 100,
                     "stock_unlimited": true,
-                    "image_id": {{$produto->id}},
+                    "image_id": {{ $produto->id }},
                     "store_id": 15996
                 },
-                "image": "{{$produto->image}}",
-                "image_id": {{$produto->id}},
-                "price": {{$produto->preco}},
-                "price_formatted": "{{number_format($produto->preco, 2, ",",".")}}",
+                "image": "{{ $produto->image }}",
+                "image_id": {{ $produto->id }},
+                "price": {{ $produto->preco }},
+                "price_formatted": "{{ number_format($produto->preco, 2, ',', '.') }}",
                 "status": "available",
-                "price_discount_formatted": "{{number_format($produto->preco, 2, ",",".")}}",
+                "price_discount_formatted": "{{ number_format($produto->preco, 2, ',', '.') }}",
                 "discount": 0.0,
                 "attachments": [],
                 "custom_fields": {
@@ -2030,8 +2054,8 @@
                 },
                 "values": [{
                     "value": {
-                        "id": {{$produto->id}},
-                        "name": "{{$produto->nome}}",
+                        "id": {{ $produto->id }},
+                        "name": "{{ $produto->nome }}",
                         "option": 206919
                     }
                 }]
@@ -2117,7 +2141,7 @@
 
         $(document).ready(function() {
             Jumpseller.productVariantListener(".variants select.prod-options, .variants fieldset.prod-options", {
-                product: '[{"variant":{"id":{{$produto->id}},"product_id":{{$produto->id}},"position":0,"price":{{$produto->preco}},"sku":"","barcode":null,"weight":1.0,"stock":0,"stock_unlimited":true,"image_id":14896546,"store_id":15996},"image":"{{$produto->nome}}","image_id":{{$produto->id}},"price":{{$produto->preco}},"price_formatted":"R${{$produto->preco}}","status":"available","price_discount_formatted":"R${{$produto->preco_com_desconto}}","discount":0.0,"attachments":[],"custom_fields":{"89747":{"id":89747}},"values":[{"value":{"id":687718,"name":"Grey","option":206919}}]},{"variant":{"id":2478882,"product_id":{{$produto->id}},"position":0,"price":{{$produto->preco}},"sku":"","barcode":null,"weight":1.0,"stock":100,"stock_unlimited":true,"image_id":429444,"store_id":15996},"image":"{{$produto->image}}","image_id":429444,"price":105015.0,"price_formatted":"R${{$produto->preco}}","status":"available","price_discount_formatted":"R${{$produto->preco}}","discount":0.0,"attachments":[],"custom_fields":{"89747":{"id":89747}},"values":[{"value":{"id":687719,"name":"Black","option":206919}}]}]',
+                product: '[{"variant":{"id":{{ $produto->id }},"product_id":{{ $produto->id }},"position":0,"price":{{ $produto->preco }},"sku":"","barcode":null,"weight":1.0,"stock":0,"stock_unlimited":true,"image_id":{{$produto->id}},"store_id":15996},"image":"{{ $produto->image }}","image_id":{{ $produto->id }},"price":{{ $produto->preco }},"price_formatted":"R${{ $produto->preco }}","status":"available","price_discount_formatted":"R${{ $produto->preco_com_desconto }}","discount":0.0,"attachments":[],"custom_fields":{"89747":{"id":89747}},"values":[{"value":{"id":687718,"name":"Grey","option":206919}}]},{"variant":{"id":2478882,"product_id":{{ $produto->id }},"position":0,"price":{{ $produto->preco }},"sku":"","barcode":null,"weight":1.0,"stock":100,"stock_unlimited":true,"image_id":429444,"store_id":15996},"image":"{{ $produto->image }}","image_id":429444,"price":{{$produto->preco}},"price_formatted":"R${{ $produto->preco }}","status":"available","price_discount_formatted":"R${{ $produto->preco_com_desconto }}","discount":0.0,"attachments":[],"custom_fields":{"89747":{"id":89747}},"values":[{"value":{"id":687719,"name":"Black","option":206919}}]}]',
                 callback: callbackFunction
             });
             selectInitialStock();
@@ -2168,9 +2192,9 @@
             const productInfo = [{
                 "variant": {
                     "id": 2478881,
-                    "product_id": {{$produto->id}},
+                    "product_id": {{ $produto->id }},
                     "position": 0,
-                    "price": {{$produto->preco}},
+                    "price": {{ $produto->preco }},
                     "sku": "",
                     "barcode": null,
                     "weight": 1.0,
@@ -2179,12 +2203,12 @@
                     "image_id": 14896546,
                     "store_id": 15996
                 },
-                "image": "{{$produto->image}}",
+                "image": "{{ $produto->image }}",
                 "image_id": 14896546,
-                "price": {{$produto->preco}},
-                "price_formatted": "R${{$produto->preco}}",
+                "price": {{ $produto->preco }},
+                "price_formatted": "R${{ $produto->preco }}",
                 "status": "available",
-                "price_discount_formatted": "R${{$produto->preco_com_desconto}}",
+                "price_discount_formatted": "R${{ $produto->preco_com_desconto }}",
                 "discount": 0.0,
                 "attachments": [],
                 "custom_fields": {
@@ -2202,9 +2226,9 @@
             }, {
                 "variant": {
                     "id": 2478882,
-                    "product_id": {{$produto->id}},
+                    "product_id": {{ $produto->id }},
                     "position": 0,
-                    "price": {{$produto->preco}},
+                    "price": {{ $produto->preco }},
                     "sku": "",
                     "barcode": null,
                     "weight": 1.0,
@@ -2215,10 +2239,10 @@
                 },
                 "image": "https://cdnx.jumpseller.com/bootstrap/image/429444/Wacom_Bamboo2.JPG?1614272621",
                 "image_id": 429444,
-                "price": {{$produto->preco}},
-                "price_formatted": "R$ {{$produto->preco_com_desconto}}",
+                "price": {{ $produto->preco }},
+                "price_formatted": "R$ {{ $produto->preco_com_desconto }}",
                 "status": "available",
-                "price_discount_formatted": "R${{$produto->preco_com_desconto}}",
+                "price_discount_formatted": "R${{ $produto->preco_com_desconto }}",
                 "discount": 0.0,
                 "attachments": [],
                 "custom_fields": {
@@ -2297,8 +2321,9 @@
                     <div class="row">
                         <div class="col-12 col-md-6 order-2 order-md-1">
                             <p class="powered-by">&copy; 2023 Sistema<sup>EA</sup>. Todos os direitos reservados. <a
-                                    href='https://jumpseller.cl/?utm_medium=store&utm_campaign=powered_by&utm_source=bootstrap'
-                                    title='Create Online Store' target='_blank' rel='nofollow'>Por Elinaldo Agostinho</a>.</p>
+                                    href='#'
+                                    title='Create Online Store' target='_blank' rel='nofollow'>Por Elinaldo
+                                    Agostinho</a>.</p>
                         </div>
                         <div class="col-12 col-md-6 order-1 order-md-2">
                             <ul class="payment">
@@ -2310,6 +2335,8 @@
                                             alt="American Express" height="30" width="56"></span></li>
                                 <li><span><img src="//assets.jumpseller.com/public/payment-logos/paypal.svg"
                                             alt="Paypal" height="30" width="56"></span></li>
+                                <li><span><img src="//assets.jumpseller.com/public/payment-logos/mercadopago.svg"
+                                            alt="MercadoPago" height="30" width="56"></span></li>
                             </ul>
                         </div>
                     </div>

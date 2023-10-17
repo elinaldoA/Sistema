@@ -129,7 +129,8 @@
                                         <label class="form-control-label" for="file">Imagem<span
                                                 class="small text-danger">
                                                 * </span></label>
-                                        <input class="form-control" type="file" name="image" id="image">
+                                            <input class="form-control" type="file" id="image" name="image">
+                                            <div class="galeria"></div>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
@@ -244,3 +245,37 @@
         }, 2500); // O valor é representado em milisegundos.
     });
 </script>
+<script>
+    $(function() {
+    // Pré-visualização de várias imagens no navegador
+    var visualizacaoImagens = function(input, lugarParaInserirVisualizacaoDeImagem) {
+
+        if (input.files) {
+            var quantImagens = input.files.length;
+
+            for (i = 0; i < quantImagens; i++) {
+                var reader = new FileReader();
+
+                reader.onload = function(event) {
+                    $($.parseHTML('<img class="miniatura">')).attr('src', event.target.result).appendTo(lugarParaInserirVisualizacaoDeImagem);
+                }
+
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+
+    };
+
+    $('#image').on('change', function() {
+        visualizacaoImagens(this, 'div.galeria');
+    });
+    });
+    </script>
+    <style>
+        .miniatura {
+        height: 100px;
+        border: 1px solid #f1f1f1;
+        margin: 10px 5px 0 0;
+      }
+    </style>
+

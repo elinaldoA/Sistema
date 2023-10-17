@@ -156,6 +156,11 @@ Route::group(['prefix' => 'Sistema/Cliente', 'middleware' => ['auth']], function
     //Loja
     Route::get('/Loja', 'Sistema\Clientes\Loja\LojaController@index')->name('loja');
     Route::get('/Loja/Produtos/{produto}/show', 'Sistema\Clientes\Loja\LojaController@show')->name('show');
-    Route::get('/Loja/Produtos/{produto}/cart', 'Sistema\Clientes\Loja\LojaController@cart')->name('cart');
+    //Carrinho
+    Route::post('/Loja/Produtos/cart/{produto}', 'Sistema\Clientes\Loja\LojaController@create')->name('cart.add');
+    Route::get('/Loja/Produtos/cart', 'Sistema\Clientes\Loja\LojaController@cart')->name('cart');
+    Route::post('/Loja/Produtos/cart/update/{produto}', 'Sistema\Clientes\Loja\LojaController@update')->name('cart.update');
+    Route::get('/Loja/Produtos/cart/remove/{produto}', 'Sistema\Clientes\Loja\LojaController@delete')->name('cart.remove');
+    Route::get('/Loja/Produtos/checkout/{produto}', 'Sistema\Clientes\Loja\LojaController@checkout')->name('checkout');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
