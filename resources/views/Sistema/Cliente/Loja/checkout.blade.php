@@ -281,12 +281,12 @@
 
         let order_items = [{
             "item_id": "",
-            "item_name": "Wacom Bamboo Tablet",
+            "item_name": "{{$produto->nome}}",
             "discount": 0.0,
             "item_brand": "",
             "item_variant": "Wacom Bamboo Tablet (color: Grey)",
             "price": 100000.0,
-            "currency": "CLP",
+            "currency": "Real",
             "quantity": 1
         }];
 
@@ -312,7 +312,7 @@
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="container">
                         <a href="{{route('loja')}}" title="Bootstrap" class="navbar-brand">
-                            Sistema<sup>EA</sup>
+                            Sistema EA
                         </a>
                         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                             data-target="#navbarContainer" aria-controls="navbarContainer" aria-expanded="false"
@@ -334,18 +334,17 @@
                                 </form>
                             </div>
                             <ul id="navbarContainerMobile" class="navbar-nav d-lg-none">
-
-                                <li class="nav-item  ">
+                                <li class="nav-item">
                                     <a href="{{route('loja')}}" title="Inicio" class="level-1 trsn nav-link">Inicio</a>
                                 </li>
-                                <li class="nav-item  ">
-                                    <a href="/about-us" title="About Us" class="level-1 trsn nav-link">Sobre</a>
+                                <li class="nav-item">
+                                    <a href="/sobre" title="Sobre" class="level-1 trsn nav-link">Sobre</a>
                                 </li>
-                                <li class="nav-item  ">
+                                <li class="nav-item">
                                     <a href="/blog" title="Blog" class="level-1 trsn nav-link">Blog</a>
                                 </li>
-                                <li class="nav-item  ">
-                                    <a href="/contact" title="Contact" class="level-1 trsn nav-link">Contato</a>
+                                <li class="nav-item">
+                                    <a href="/contato" title="Contato" class="level-1 trsn nav-link">Contato</a>
                                 </li>
                             </ul>
                             <ul class="nav navbar-nav float-right nav-top">
@@ -390,17 +389,16 @@
                                     <a href="{{route('loja')}}" title="Inicio" class="level-1 trsn nav-link">Inicio</a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="/about-us" title="About Us" class="level-1 trsn nav-link">Sobre</a>
+                                    <a href="/sobre" title="Sobre" class="level-1 trsn nav-link">Sobre</a>
                                 </li>
                                 <li class="nav-item  ">
                                     <a href="/blog" title="Blog" class="level-1 trsn nav-link">Blog</a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="/contact" title="Contact" class="level-1 trsn nav-link">Contato</a>
+                                    <a href="/contato" title="Contato" class="level-1 trsn nav-link">Contato</a>
                                 </li>
                             </ul>
                             <ul class="social navbar-toggler-right list-inline">
-
 
                             </ul>
                         </div>
@@ -413,10 +411,10 @@
                     <section class="col-12 d-none d-md-block">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="{{route('loja')}}" class="trsn" title="Go back to Home">Home</a>
+                                <a href="{{route('loja')}}" class="trsn" title="Voltar ao inicio">Home</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="/cart" class="trsn" title="Go back to Cart">Carrinho</a>
+                                <a href="{{route('cart')}}" class="trsn" title="Voltar as compras">Carrinho</a>
                             </li>
                             <li class="breadcrumb-item">
                                 <span>Checkout</span>
@@ -474,7 +472,7 @@
 
         <!-- Checkout Container -->
         <div class="checkout-container">
-            <form action="/checkout/revieworder/f231ea0503fbc0ed7cbaf4f1fe62aa8a" accept-charset="UTF-8"
+            <form action="{{route('revisar', ['produto' => $produto])}}" accept-charset="UTF-8"
                 method="get" target="_top" id="checkout"><input type="hidden" name="_method"
                     value="put" />
                 <div id="contacts">
@@ -526,7 +524,6 @@
                             class="select" autocomplete="country">
                             <option value="BR" selected="selected">Brasil</option>
                         </select>
-
                     </div>
 
                     <div id="shipping_address_region" class="field select-field">
@@ -572,7 +569,6 @@
                             class="select" style="" required="required" autocomplete="address-level3">
                             <option value=""></option>
                         </select>
-
                     </div>
 
                     <div id="shipping_address_same_as_shipping" class="field checkbox-field" style=''>
@@ -582,7 +578,6 @@
                             id="shipping_same_as_billing" class="checkbox" checked="checked"
                             onchange="togglebilling(this.checked)" />
                         <label for="shipping_same_as_billing">Endereço para cobrança é o mesmo que o para entrega</label>
-
                     </div>
                 </div>
 
@@ -637,7 +632,7 @@
                     </div>
                 </div>
 
-                <p class="required">* Required Fields</p>
+                <p class="required">* Campos obrigatórios</p>
 
                 <div id="payments">
                     <h2 class="legend">Opções de pagamentos</h2>
@@ -648,13 +643,10 @@
                                     id="order_payment_method_27792" class="radiobox" checked="checked"
                                     onclick="hidePaymentInformation(), document.getElementById('pi27792').style.display = ''" />
                                 <label for="order_payment_method_27792"><span>Transferencia bancaria</span></label>
-
                                 <div id="pi27792" class="payment_information">
-                                    Banco de Chile 123
-
+                                    Banco 123
                                 </div>
                                 <br />
-
                             </li>
                             <li>
                                 <input type="radio" name="order[payment_method]" value="30906"
@@ -667,7 +659,6 @@
                                         src="/images/gateways/paypal.png?1697567217" alt="Paypal" />
                                 </div>
                                 <br />
-
                             </li>
                             <li>
                                 <input type="radio" name="order[payment_method]" value="35043"
@@ -683,7 +674,6 @@
 
                             </li>
                         </ul>
-
                     </div>
                 </div>
 
@@ -692,19 +682,16 @@
                     <div id="shipping_options">
                         <ul>
                             <li>
-
                                 <input type="radio" name="order[shipping_method]" value="25573"
                                     id="order_shipping_method_25573" class="radiobox" checked="checked" />
                                 <label for="order_shipping_method_25573"><span>E-mail</span></label>
                             </li>
                             <li>
-
                                 <input type="radio" name="order[shipping_method]" value="26338"
                                     id="order_shipping_method_26338" class="radiobox" />
                                 <label for="order_shipping_method_26338"><span>Envío Gratis</span></label>
                             </li>
                             <li>
-
                                 <input type="radio" name="order[shipping_method]" value="26339"
                                     id="order_shipping_method_26339" class="radiobox" />
                                 <label for="order_shipping_method_26339"><span>Tabela de tarifas</span></label>

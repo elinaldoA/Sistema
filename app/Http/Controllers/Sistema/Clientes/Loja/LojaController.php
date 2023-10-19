@@ -46,6 +46,11 @@ class LojaController extends Controller
         $categorias = Categorias::with('categorias')->get();
         return view('Sistema.Cliente.Loja.checkout', compact('produto'), ['categorias' => $categorias]);
     }
+    public function revisar(Produtos $produto)
+    {
+        $categorias = Categorias::with('categorias')->get();
+        return view('Sistema.Cliente.Loja.revisar', compact('produto'), ['categorias' => $categorias]);
+    }
 
     /**
      * Display the specified resource.

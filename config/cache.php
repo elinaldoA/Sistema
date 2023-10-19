@@ -39,14 +39,14 @@ return [
 
         'array' => [
             'driver' => 'array',
-            'serialize' => false,
+            //'serialize' => false,
         ],
 
         'database' => [
             'driver' => 'database',
             'table' => 'cache',
             'connection' => null,
-            'lock_connection' => null,
+            //'lock_connection' => null,
         ],
 
         'file' => [
@@ -76,7 +76,7 @@ return [
         'redis' => [
             'driver' => 'redis',
             'connection' => 'cache',
-            'lock_connection' => 'default',
+            //'lock_connection' => 'default',
         ],
 
         'dynamodb' => [
@@ -88,9 +88,9 @@ return [
             'endpoint' => env('DYNAMODB_ENDPOINT'),
         ],
 
-        'octane' => [
+        /*'octane' => [
             'driver' => 'octane',
-        ],
+        ],*/
 
     ],
 

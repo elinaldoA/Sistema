@@ -21,7 +21,7 @@
                 @endif
 
                 <form method="POST" action="{{ route('sistema.admin.register') }}" class="user">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    @csrf
 
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user" name="name" placeholder="{{ __('Nome') }}" value="{{ old('name') }}" required autofocus>

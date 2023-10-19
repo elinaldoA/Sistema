@@ -68,7 +68,7 @@
                 <div class="card-body">
 
                     <form method="POST" action="{{ route('profile.update') }}" autocomplete="off">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        @csrf
 
                         <input type="hidden" name="_method" value="PUT">
 

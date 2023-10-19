@@ -3,7 +3,7 @@
 <html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml"> <!--<![endif]-->
 
 <head>
-    <title>Sistema<sup>EA</sup></title>
+    <title>Sistema EA</title>
     <meta name="description" content="We are a tech oriented store with the best deals and products." />
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -229,9 +229,8 @@
             <div class="fixed-top">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="container">
-                        <a href="https://bootstrap.jumpseller.com" title="Bootstrap" class="navbar-brand">
-                            <img src="https://images.jumpseller.com/store/bootstrap/logo/logo-bootstrap.jpg?1438701518"
-                                class="store-image" alt="Bootstrap">
+                        <a href="{{route('loja')}}" title="Bootstrap" class="navbar-brand">
+                            Sistema<sup>EA</sup>
                         </a>
                         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                             data-target="#navbarContainer" aria-controls="navbarContainer" aria-expanded="false"
@@ -257,13 +256,13 @@
                                     <a href="{{route('loja')}}" title="Inicio" class="level-1 trsn nav-link">Inicio</a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="/about-us" title="About Us" class="level-1 trsn nav-link">Sobre</a>
+                                    <a href="/sobre" title="Sobre" class="level-1 trsn nav-link">Sobre</a>
                                 </li>
                                 <li class="nav-item  ">
                                     <a href="/blog" title="Blog" class="level-1 trsn nav-link">Blog</a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="/contact" title="Contact" class="level-1 trsn nav-link">Contato</a>
+                                    <a href="/contayo" title="Contato" class="level-1 trsn nav-link">Contato</a>
                                 </li>
                             </ul>
                             <ul class="nav navbar-nav float-right nav-top">
@@ -311,13 +310,13 @@
                                         class="level-1 trsn nav-link">Inicio</a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="/about-us" title="About Us" class="level-1 trsn nav-link">Sobre</a>
+                                    <a href="/sobre" title="Sobre" class="level-1 trsn nav-link">Sobre</a>
                                 </li>
                                 <li class="nav-item  ">
                                     <a href="/blog" title="Blog" class="level-1 trsn nav-link">Blog</a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="/contact" title="Contact" class="level-1 trsn nav-link">Contato</a>
+                                    <a href="/contato" title="Contato" class="level-1 trsn nav-link">Contato</a>
                                 </li>
                             </ul>
                             <ul class="social navbar-toggler-right list-inline">
@@ -389,7 +388,7 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-12">
-                <h1 class="page-header">Adcionar ao carrinho</h1>
+                <h1 class="page-header">Adicionar ao carrinho</h1>
             </div>
         </div>
         <!-- /.row -->

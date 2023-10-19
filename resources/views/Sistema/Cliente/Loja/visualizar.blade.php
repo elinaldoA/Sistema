@@ -261,13 +261,13 @@
                                         class="level-1 trsn nav-link">Inicio</a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="/about-us" title="About Us" class="level-1 trsn nav-link">Sobre</a>
+                                    <a href="/sobre" title="Sobre" class="level-1 trsn nav-link">Sobre</a>
                                 </li>
                                 <li class="nav-item  ">
                                     <a href="/blog" title="Blog" class="level-1 trsn nav-link">Blog</a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="/contact" title="Contact" class="level-1 trsn nav-link">Contato</a>
+                                    <a href="/contato" title="Contato" class="level-1 trsn nav-link">Contato</a>
                                 </li>
                             </ul>
                             <ul class="nav navbar-nav float-right nav-top">
@@ -313,13 +313,13 @@
                                     <a href="{{route('loja')}}" title="Inicio" class="level-1 trsn nav-link">Inicio</a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="/about-us" title="About Us" class="level-1 trsn nav-link">Sobre</a>
+                                    <a href="/sobre" title="Sobre" class="level-1 trsn nav-link">Sobre</a>
                                 </li>
                                 <li class="nav-item  ">
                                     <a href="/blog" title="Blog" class="level-1 trsn nav-link">Blog</a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="/contact" title="Contact" class="level-1 trsn nav-link">Contato</a>
+                                    <a href="/contato" title="Contato" class="level-1 trsn nav-link">Contato</a>
                                 </li>
                             </ul>
                             <ul class="social navbar-toggler-right list-inline">
@@ -374,7 +374,7 @@
                 <div class="component_slider" id="component_slider-1408633">
                     <div class="component_slider-1408633 owl-carousel">
                         <div class="item">
-                            <div class="layer" style="background-color: #29123F; opacity: 0.4;"></div>
+                            <div class="layer" style="background-color: #29123F; opacity: 0.2;"></div>
                             <div class="carousel-info">
                                 <div class="carousel-info-inner px-md-0 px-4">
                                     <h2>Titulo</h2>
@@ -387,7 +387,7 @@
                                 alt="Welcome to Bootstrap">
                         </div>
                         <div class="item">
-                            <div class="layer" style="background-color: #29123F; opacity: 0.4;"></div>
+                            <div class="layer" style="background-color: #29123F; opacity: 0.2;"></div>
                             <div class="carousel-info">
                                 <div class="carousel-info-inner px-md-0 px-4">
                                     <h2>Titulo 2</h2>

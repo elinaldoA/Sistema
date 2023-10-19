@@ -40,7 +40,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('empresa.create') }}" class="empresas"
                         enctype="multipart/form-data">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        @csrf
                         <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand"
                             role="tablist">
                             <li class="nav-item">

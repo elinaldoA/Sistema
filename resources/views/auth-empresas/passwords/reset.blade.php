@@ -21,7 +21,7 @@
                 @endif
 
                 <form method="POST" action="{{ route('sistema.empresas.password.update') }}" class="user">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    @csrf
 
                     <input type="hidden" name="token" value="{{ $token }}">
 

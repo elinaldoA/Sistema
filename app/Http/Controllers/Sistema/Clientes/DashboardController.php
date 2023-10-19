@@ -12,6 +12,6 @@ class DashboardController extends Controller
     }
     public function index()
     {
-        return view('Sistema.Cliente.dashboard');
+        return redirect()->route('loja');
     }
 }

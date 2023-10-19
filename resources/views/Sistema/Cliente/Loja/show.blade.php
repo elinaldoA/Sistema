@@ -1633,7 +1633,7 @@
 
 
                                 <li class="nav-item  ">
-                                    <a href="/contact" title="Contact" class="level-1 trsn nav-link">Contact</a>
+                                    <a href="/contato" title="Contato" class="level-1 trsn nav-link">Contato</a>
 
                                 </li>
 
@@ -1686,13 +1686,13 @@
                                         class="level-1 trsn nav-link">Inicio</a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="/about-us" title="About Us" class="level-1 trsn nav-link">Sobre</a>
+                                    <a href="/sobre" title="Sobre" class="level-1 trsn nav-link">Sobre</a>
                                 </li>
                                 <li class="nav-item  ">
                                     <a href="/blog" title="Blog" class="level-1 trsn nav-link">Blog</a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="/contact" title="Contact" class="level-1 trsn nav-link">Contato</a>
+                                    <a href="/contato" title="Contato" class="level-1 trsn nav-link">Contato</a>
                                 </li>
                             </ul>
                             <ul class="social navbar-toggler-right list-inline">

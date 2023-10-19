@@ -162,5 +162,6 @@ Route::group(['prefix' => 'Sistema/Cliente', 'middleware' => ['auth']], function
     Route::post('/Loja/Produtos/cart/update/{produto}', 'Sistema\Clientes\Loja\LojaController@update')->name('cart.update');
     Route::get('/Loja/Produtos/cart/remove/{produto}', 'Sistema\Clientes\Loja\LojaController@delete')->name('cart.remove');
     Route::get('/Loja/Produtos/checkout/{produto}', 'Sistema\Clientes\Loja\LojaController@checkout')->name('checkout');
+    Route::get('/Loja/Produtos/revisar/{produto}', 'Sistema\Clientes\Loja\LojaController@revisar')->name('revisar');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

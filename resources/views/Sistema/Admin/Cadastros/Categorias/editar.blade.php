@@ -40,7 +40,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('categoria.editar', ['categoria' => $categoria]) }}"
                         enctype="multipart/form-data">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        @csrf
                         <div class="pl-lg-12">
                             <div class="row">
                                 <div class="col-lg-6">
