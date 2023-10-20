@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Sistema\Admin\Cadastros;
 
 use App\Http\Controllers\Controller;
 use App\Models\Empresas;
-use App\Models\Enderecos;
+use App\Models\EnderecoEmpresas;
 use App\Models\Modulos;
 use Illuminate\Http\Request;
 
@@ -73,7 +73,7 @@ class EmpresasController extends Controller
                 $input['image'] = "$profileImage";
             }
         Empresas::create($input);
-        Enderecos::create($input);
+        EnderecoEmpresas::create($input);
         return redirect()->route('empresas')
         ->with('success','Cadastrado com sucesso!');
     }
@@ -84,9 +84,10 @@ class EmpresasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Empresas $empresa)
+    public function show($id)
     {
-        $enderecos = Enderecos::with('enderecos')->get();
+        $empresa = Empresas::find($id);
+        $enderecos = EnderecoEmpresas::find($id);
         $modulos = Modulos::with('modulos')->get();
         return view('Sistema.Admin.Cadastros.Empresas.show', compact('empresa','enderecos','modulos'));
     }
@@ -97,11 +98,12 @@ class EmpresasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Empresas $empresa)
+    public function edit($id)
     {
-        $enderecos = Enderecos::with('enderecos')->get();
+        $empresa = Empresas::find($id);
+        $enderecos = EnderecoEmpresas::find($id);
         $modulos = Modulos::with('modulos')->get();
-        return view('Sistema.Admin.Cadastros.Empresas.editar', compact('empresa','enderecos','modulos'));
+        return view('Sistema.Admin.Cadastros.Empresas.editar', ['empresa' => $empresa,'enderecos' => $enderecos, 'modulos' => $modulos]);
     }
 
     /**
@@ -111,8 +113,10 @@ class EmpresasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empresas $empresa)
+    public function update(Request $request, $id)
     {
+        $empresa = Empresas::find($id);
+        $endereco = EnderecoEmpresas::find($id);
         $request->validate([
             'active' => 'required|boolean',
             'name' => 'required|string',
@@ -143,6 +147,7 @@ class EmpresasController extends Controller
         }
 
         $empresa->update($input);
+        $endereco->update($input);
         return redirect()->route('empresas')
         ->with('success','Atualizado com sucesso!');
     }

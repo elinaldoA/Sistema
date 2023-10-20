@@ -38,7 +38,7 @@
                                 ($c->active && old('active') == null && old('first_time') == null) ||
                                 ($c->active && old('active') && old('first_time'))) checked="checked" @endif></td>
                             <td>
-                                <a class="btn btn-outline-primary" href="{{route('cliente.editar', ['cliente' => $c->id])}}"><i class="fa fa-edit"></i></a>
+                                <a class="btn btn-outline-primary" href="{{route('cliente.editar', ['id' => $c->id])}}"><i class="fa fa-edit"></i></a>
                                 <a class="btn btn-outline-primary" href="{{route('cliente.show', ['cliente' => $c->id])}}"><i class="fa fa-eye"></i></a>
                             </td>
                         </tr>

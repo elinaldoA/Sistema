@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Enderecos;
+use App\Models\EnderecoEmpresas;
 use Illuminate\Database\Seeder;
 
-class EnderecosSeeder extends Seeder
+class EnderecoEmpresasSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class EnderecosSeeder extends Seeder
      */
     public function run()
     {
-        Enderecos::create([
+        EnderecoEmpresas::create([
             'rua' => 'Avenida Amadeu da Silva Samelo',
             'complemento' => 'Casa',
             'numero' => '763',
@@ -23,19 +23,6 @@ class EnderecosSeeder extends Seeder
             'cidade' => 'São Paulo',
             'estado' => 'Sp',
             'pais' => 'Brasil',
-            'empresa_id' => '1',
-        ]);
-
-        Enderecos::create([
-            'rua' => 'Avenida Três',
-            'complemento' => 'Apartamento 01',
-            'numero' => '691',
-            'cep' => '65063-040',
-            'bairro' => 'Angelim',
-            'cidade' => 'São Luís',
-            'estado' => 'Ma',
-            'pais' => 'Brasil',
-            'cliente_id' => '1',
         ]);
     }
 }

@@ -38,7 +38,7 @@
                 <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-edit"></i> Editar</h6>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{ route('produto.editar', ['produto' => $produto]) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('produto.editar', ['id' => $produto->id]) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="pl-lg-12">
                         <div class="row">

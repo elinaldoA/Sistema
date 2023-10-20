@@ -1641,7 +1641,7 @@
                             </ul>
                             <ul class="nav navbar-nav float-right nav-top">
                                 <li>
-                                    <a id="cart-link" href="{{ route('adicionar', ['produto' => $produto->id]) }}"
+                                    <a id="cart-link" href="{{ route('cart.add', ['produto' => $produto->id]) }}"
                                         class="trsn nav-link" title="View/Edit Cart">
                                         <i class="fas fa-shopping-cart"></i>
                                         <span id="nav-bar-cart"><span class="cart-size">0</span> Produto(s)

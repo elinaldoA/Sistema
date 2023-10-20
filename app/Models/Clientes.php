@@ -51,4 +51,8 @@ class Clientes extends Authenticatable
     {
         return $this->belongsTo(Clientes::class);
     }
+    public function Enderecos()
+    {
+        return $this->belongsTo(Enderecos::class);
+    }
 }

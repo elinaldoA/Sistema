@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Enderecos extends Model
+class EnderecoEmpresas extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,7 @@ class Enderecos extends Model
      * @var array
      */
     protected $fillable = [
-        'rua','numero','complemento','cep','bairro','cidade','estado','pais','empresa_id','cliente_id'
+        'rua','numero','complemento','cep','bairro','cidade','estado','pais'
     ];
 
     /**
@@ -38,15 +38,11 @@ class Enderecos extends Model
 
     public function Enderecos()
     {
-        return $this->hasOne('App\Models\Enderecos', 'cliente_id');
+        return $this->belongsTo( Enderecos::class);
     }
     public function Empresas()
     {
-        return $this->hasOne('App\Models\Empresas');
-    }
-    public function Clientes()
-    {
-        return $this->hasOne('App\Models\Clientes');
+        return $this->belongsTo(Emmpresa::class);
     }
 }
 

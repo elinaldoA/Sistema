@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 Auth::routes();
 
@@ -67,9 +67,9 @@ Route::group(['prefix' => 'Sistema/Admin', 'middleware' => ['auth']], function (
     Route::get('/cadastros/empresas/novo','Sistema\Admin\Cadastros\EmpresasController@create')->name('empresa.create');
     Route::post('/cadastros/empresas/novo','Sistema\Admin\Cadastros\EmpresasController@store')->name('empresa.store');
     Route::get('/cadastros/empresas/visualizar','Sistema\Admin\Cadastros\EmpresasController@index')->name('empresas');
-    Route::get('/cadastros/empresas/{empresa}/show','Sistema\Admin\Cadastros\EmpresasController@show')->name('empresa.show');
+    Route::get('/cadastros/empresas/{id}/show','Sistema\Admin\Cadastros\EmpresasController@show')->name('empresa.show');
     Route::get('/cadastros/empresas/{empresa}/editar','Sistema\Admin\Cadastros\EmpresasController@edit');
-    Route::post('/cadastros/empresas/{empresa}/editar','Sistema\Admin\Cadastros\EmpresasController@update')->name('empresa.editar');
+    Route::post('/cadastros/empresas/{id}/editar','Sistema\Admin\Cadastros\EmpresasController@update')->name('empresa.editar');
     Route::get('/cadastros/empresas/{empresa}/excluir','Sistema\Admin\Cadastros\EmpresasController@delete');
     Route::post('/cadastros/empresas/{empresa}/excluir','Sistema\Admin\Cadastros\EmpresassController@destroy')->name('empresa.excluir');
     //Despesas
@@ -110,7 +110,7 @@ Route::group(['prefix' => 'Sistema/Empresa', 'middleware' => ['auth']], function
     Route::get('/Cadastros/Clientes/visualizar','Sistema\Empresas\Cadastros\ClientesController@index')->name('clientes');
     Route::get('/Cadastros/Clientes/{cliente}/show','Sistema\Empresas\Cadastros\ClientesController@show')->name('cliente.show');
     Route::get('/Cadastros/Clientes/{cliente}/editar','Sistema\Empresas\Cadastros\ClientesController@edit');
-    Route::post('/Cadastros/Clientes/{cliente}/editar','Sistema\Empresas\Cadastros\ClientesController@update')->name('cliente.editar');
+    Route::post('/Cadastros/Clientes/{id}/editar','Sistema\Empresas\Cadastros\ClientesController@update')->name('cliente.editar');
     Route::get('/Cadastros/Clientes/{cliente}/excluir','Sistema\Empresas\Cadastros\ClientesController@delete');
     Route::post('/Cadastros/Clientes/{cliente}/excluir','Sistema\Empresas\Cadastros\ClientesController@destroy')->name('cliente.excluir');
     //Export
@@ -121,7 +121,7 @@ Route::group(['prefix' => 'Sistema/Empresa', 'middleware' => ['auth']], function
     Route::get('/Cadastros/Produtos/visualizar','Sistema\Empresas\Cadastros\ProdutosController@index')->name('produtos');
     Route::get('/Cadastros/Produtos/{produto}/show','Sistema\Empresas\Cadastros\ProdutosController@show')->name('produto.show');
     Route::get('/Cadastros/Produtos/{produto}/editar','Sistema\Empresas\Cadastros\ProdutosController@edit');
-    Route::post('/Cadastros/Produtos/{produto}/editar','Sistema\Empresas\Cadastros\ProdutosController@update')->name('produto.editar');
+    Route::post('/Cadastros/Produtos/{id}/editar','Sistema\Empresas\Cadastros\ProdutosController@update')->name('produto.editar');
     Route::get('/Cadastros/Produtos/{produto}/excluir','Sistema\Empresas\Cadastros\ProdutosController@delete');
     Route::post('/Cadastros/Produtos/{produto}/excluir','Sistema\Empresas\Cadastros\ProdutosController@destroy')->name('produto.excluir');
     //Export
@@ -154,7 +154,7 @@ Route::group(['prefix' => 'Sistema/Cliente', 'middleware' => ['auth']], function
     Route::put('/profile', 'Sistema\Clientes\ProfileController@update')->name('profile-cliente.update');
 
     //Loja
-    Route::get('/Loja', 'Sistema\Clientes\Loja\LojaController@index')->name('loja');
+    Route::get('/Loja', 'Sistema\Clientes\Loja\LojaController@index')->name('loja-cliente');
     Route::get('/Loja/Produtos/{produto}/show', 'Sistema\Clientes\Loja\LojaController@show')->name('show');
     //Carrinho
     Route::post('/Loja/Produtos/cart/{produto}', 'Sistema\Clientes\Loja\LojaController@create')->name('cart.add');
@@ -164,4 +164,11 @@ Route::group(['prefix' => 'Sistema/Cliente', 'middleware' => ['auth']], function
     Route::get('/Loja/Produtos/checkout/{produto}', 'Sistema\Clientes\Loja\LojaController@checkout')->name('checkout');
     Route::get('/Loja/Produtos/revisar/{produto}', 'Sistema\Clientes\Loja\LojaController@revisar')->name('revisar');
 });
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', 'HomeController@index')->name('loja');
+Route::get('/{produto}/show', 'HomeController@show')->name('detalhes');
+Route::get('/cart', 'HomeController@cart')->name('carrinho');
+Route::post('/update/{produto}', 'HomeController@update')->name('adicionar');
+Route::get('/remove/{produto}', 'HomeController@delete')->name('remover');
+Route::get('/checkout/{produto}', 'HomeController@checkout')->name('checkout-pedido');
+Route::get('/revisar/{produto}', 'HomeController@revisar')->name('revisar-pedido');
+

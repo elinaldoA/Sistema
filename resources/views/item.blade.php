@@ -29,84 +29,11 @@
 
 
     <meta property="og:description" content="We are a tech oriented store with the best deals and products." />
-    <meta property="og:url"
-        content="https://bootstrap.jumpseller.com/checkout/revieworder/3326f2c3deb5a822efb491ccc6e168f8" />
+    <meta property="og:url" content="https://bootstrap.jumpseller.com/cart" />
     <meta property="og:site_name" content="Bootstrap" />
     <meta name="twitter:card" content="summary" />
 
-
-    <meta property="og:locale" content="en" />
-
-    <meta property="og:locale:alternate" content="es_CL" />
-
-    <meta property="og:locale:alternate" content="es_CO" />
-
-    <meta property="og:locale:alternate" content="pt_BR" />
-
-    <meta property="og:locale:alternate" content="pt_PT" />
-
-    <meta property="og:locale:alternate" content="es_MX" />
-
-    <meta property="og:locale:alternate" content="es" />
-
-
-
-
-
-    <link rel="alternate" hreflang="en"
-        href="https://bootstrap.jumpseller.com/checkout/revieworder/3326f2c3deb5a822efb491ccc6e168f8" />
-
-    <link rel="alternate" hreflang="es-CL"
-        href="https://bootstrap.jumpseller.com/cl/checkout/revieworder/3326f2c3deb5a822efb491ccc6e168f8" />
-
-    <link rel="alternate" hreflang="es-CO"
-        href="https://bootstrap.jumpseller.com/co/checkout/revieworder/3326f2c3deb5a822efb491ccc6e168f8" />
-
-    <link rel="alternate" hreflang="pt-BR"
-        href="https://bootstrap.jumpseller.com/br/checkout/revieworder/3326f2c3deb5a822efb491ccc6e168f8" />
-
-    <link rel="alternate" hreflang="pt-PT"
-        href="https://bootstrap.jumpseller.com/pt/checkout/revieworder/3326f2c3deb5a822efb491ccc6e168f8" />
-
-    <link rel="alternate" hreflang="es-MX"
-        href="https://bootstrap.jumpseller.com/mx/checkout/revieworder/3326f2c3deb5a822efb491ccc6e168f8" />
-
-    <link rel="alternate" hreflang="es"
-        href="https://bootstrap.jumpseller.com/es/checkout/revieworder/3326f2c3deb5a822efb491ccc6e168f8" />
-
-
-
-    <link rel="canonical" href="https://bootstrap.jumpseller.com/checkout/revieworder/3326f2c3deb5a822efb491ccc6e168f8">
-
-
-    <link rel="apple-touch-icon" type="image/x-icon"
-        href="https://files.jumpseller.com/admin/images/favicons/apple-touch-icon-57x57.png" sizes="57x57" />
-    <link rel="apple-touch-icon" type="image/x-icon"
-        href="https://files.jumpseller.com/admin/images/favicons/apple-touch-icon-60x60.png" sizes="60x60" />
-    <link rel="apple-touch-icon" type="image/x-icon"
-        href="https://files.jumpseller.com/admin/images/favicons/apple-touch-icon-72x72.png" sizes="72x72" />
-    <link rel="apple-touch-icon" type="image/x-icon"
-        href="https://files.jumpseller.com/admin/images/favicons/apple-touch-icon-76x76.png" sizes="76x76" />
-    <link rel="apple-touch-icon" type="image/x-icon"
-        href="https://files.jumpseller.com/admin/images/favicons/apple-touch-icon-114x114.png" sizes="114x114" />
-    <link rel="apple-touch-icon" type="image/x-icon"
-        href="https://files.jumpseller.com/admin/images/favicons/apple-touch-icon-120x120.png" sizes="120x120" />
-    <link rel="apple-touch-icon" type="image/x-icon"
-        href="https://files.jumpseller.com/admin/images/favicons/apple-touch-icon-144x144.png" sizes="144x144" />
-    <link rel="apple-touch-icon" type="image/x-icon"
-        href="https://files.jumpseller.com/admin/images/favicons/apple-touch-icon-152x152.png" sizes="152x152" />
-
-    <link rel="icon" type="image/png"
-        href="https://files.jumpseller.com/admin/images/favicons/favicon-196x196.png" sizes="196x196" />
-    <link rel="icon" type="image/png"
-        href="https://files.jumpseller.com/admin/images/favicons/favicon-160x160.png" sizes="160x160" />
-    <link rel="icon" type="image/png" href="https://files.jumpseller.com/admin/images/favicons/favicon-96x96.png"
-        sizes="96x96" />
-    <link rel="icon" type="image/png" href="https://files.jumpseller.com/admin/images/favicons/favicon-32x32.png"
-        sizes="32x32" />
-    <link rel="icon" type="image/png" href="https://files.jumpseller.com/admin/images/favicons/favicon-16x16.png"
-        sizes="16x16" />
-
+    <link rel="canonical" href="https://bootstrap.jumpseller.com/cart">
 
     <script src="//assets.jumpseller.com/public/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -140,27 +67,7 @@
         "@type": "ListItem",
         "position": 2,
         "item": {
-        "name": "Cart",
-        "@id": "/cart"
-        }
-        }
-        ,
-
-        {
-        "@type": "ListItem",
-        "position": 3,
-        "item": {
-        "name": "Checkout",
-        "@id": "/checkout?token=3326f2c3deb5a822efb491ccc6e168f8"
-        }
-        }
-        ,
-
-        {
-        "@type": "ListItem",
-        "position": 4,
-        "item": {
-        "name": "Review Order"
+        "name": "Cart"
         }
         }
 
@@ -279,9 +186,6 @@
         custom_dimension_params['theme'] = "bootstrap";
 
 
-        custom_dimension_params['custom_map']['dimension2'] = 'checkout_version';
-        custom_dimension_params['checkout_version'] = "v1";
-
 
         // Send events to Jumpseller GA Account
         gtag('config',
@@ -292,9 +196,32 @@
 
         // Send events to Store Owner GA Account
 
-        let order_items = null;
-    </script>
 
+
+
+
+        let order_items = null;
+
+
+
+
+
+
+        added_items = [{
+            "item_id": {{ $produto->id }},
+            "item_name": "{{ $produto->nome }}",
+            "discount": 0.0,
+            "item_brand": null,
+            "price": {{ $produto->preco }},
+            "quantity": 1
+        }];
+        // add_to_cart - an item was added to a cart for purchase
+        gtag('event', 'add_to_cart', {
+            currency: 'REAL',
+            items: added_items,
+            value: '{{ $produto->id }}'
+        });
+    </script>
     <script src="https://files.jumpseller.com/javascripts/dist/jumpseller-2.0.0.js" defer="defer"></script>
 </head>
 
@@ -309,7 +236,7 @@
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="container">
                         <a href="{{route('loja')}}" title="Bootstrap" class="navbar-brand">
-                            Sistema <sup>EA</sup>
+                            Sistema<sup>EA</sup>
                         </a>
                         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                             data-target="#navbarContainer" aria-controls="navbarContainer" aria-expanded="false"
@@ -324,7 +251,7 @@
                                     <div class="input-group mb-3">
                                         <input type="text" value="" name="q"
                                             class="form-control form-control-sm" onFocus="javascript:this.value=''"
-                                            placeholder="Search for products">
+                                            placeholder="Pesquisar produtos">
                                         <button type="submit" class="btn btn-secondary"><i
                                                 class="fas fa-search"></i></button>
                                     </div>
@@ -338,20 +265,20 @@
                                 <li class="nav-item  ">
                                     <a href="/sobre" title="Sobre" class="level-1 trsn nav-link">Sobre</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item  ">
                                     <a href="/blog" title="Blog" class="level-1 trsn nav-link">Blog</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item  ">
                                     <a href="/contato" title="Contato" class="level-1 trsn nav-link">Contato</a>
-
                                 </li>
                             </ul>
                             <ul class="nav navbar-nav float-right nav-top">
-                                <li>
-                                    <a id="cart-link" href="{{route('carrinho')}}" class="trsn nav-link" title="View/Edit Cart">
+                                <li class="active">
+                                    <a id="cart-link" href="{{ route('show', ['produto' => $produto]) }}"
+                                        class="trsn nav-link" title="View/Edit Cart">
                                         <i class="fas fa-shopping-cart"></i>
                                         <span id="nav-bar-cart"><span class="cart-size">1</span> Produto(s)
-                                            | R$ {{$produto->preco}}</span>
+                                            | R$ {{ $produto->preco }}</span>
                                     </a>
                                 </li>
                                 <li>
@@ -369,7 +296,7 @@
                                     method="get" action="/search">
                                     <input type="text" value="" name="q"
                                         class="form-control form-control-sm" onFocus="javascript:this.value=''"
-                                        placeholder="Search for products">
+                                        placeholder="Pesquisar produtos">
                                     <button type="submit" class="btn btn-secondary btn-sm"><i
                                             class="fas fa-search"></i></button>
                                 </form>
@@ -380,6 +307,7 @@
                         </div>
                     </div>
                 </nav>
+
                 <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block">
                     <div class="container">
                         <div class="collapse navbar-collapse" id="navbarsContainer-2">
@@ -388,13 +316,13 @@
                                     <a href="{{ route('loja') }}" title="Inicio"
                                         class="level-1 trsn nav-link">Inicio</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="/about-us" title="About Us" class="level-1 trsn nav-link">Sobre</a>
+                                <li class="nav-item  ">
+                                    <a href="/sobre-us" title="Sobre" class="level-1 trsn nav-link">Sobre</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item  ">
                                     <a href="/blog" title="Blog" class="level-1 trsn nav-link">Blog</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item  ">
                                     <a href="/contato" title="Contato" class="level-1 trsn nav-link">Contato</a>
                                 </li>
                             </ul>
@@ -412,22 +340,17 @@
                     <section class="col-12 d-none d-md-block">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="{{route('loja')}}" class="trsn" title="Go back to Home">Home</a>
+                                <a href="{{ route('loja') }}" class="trsn" title="Voltar ao inicio">Home</a>
                             </li>
+
                             <li class="breadcrumb-item">
-                                <a href="{{route('carrinho')}}" class="trsn" title="Go back to Cart">Carrinho</a>
-                            </li>
-                            <li class="breadcrumb-item">
-                                <a href="/checkout?token=3326f2c3deb5a822efb491ccc6e168f8" class="trsn"
-                                    title="Go back to Checkout">Checkout</a>
-                            </li>
-                            <li class="breadcrumb-item">
-                                <span>Revisar Pedido</span>
+                                <span>Adicionar ao Carrinho</span>
                             </li>
                         </ol>
                     </section>
                 </div>
             </section>
+
 
             <style>
                 .navbar-dark,
@@ -472,15 +395,17 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-12">
-                <h1 class="page-header">Revisar Pedido</h1>
+                <h1 class="page-header">Adicionar ao Carrinho</h1>
             </div>
         </div>
         <!-- /.row -->
 
-        <!-- Review Order Table -->
+        <!-- Cart Table -->
         <div class="row">
             <div class="col-lg-8 mb-4">
-                <form id="cart-update-form" method="post" action="/cart/update">
+                <form id="cart-update-form" action="{{ route('cart.update', ['produto' => $produto]) }}"
+                    method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -488,84 +413,262 @@
                                     <th>Produto</th>
                                     <th class="mob-hide"></th>
                                     <th class="mob-hide">Preço unitário</th>
-                                    <th>Qt</th>
+                                    <th class="table-qty">Qt</th>
                                     <th>Subtotal</th>
+                                    <th></th>
                                 </tr>
                             </thead>
+
                             <tr>
                                 <td class="text-center mob-hide">
-                                    <img src="/storage/image/{{$produto->image}}"
-                                        alt="{{$produto->nome}}" title="{{$produto->nome}}" width="100px">
+                                    <a href="{{ route('show', ['produto' => $produto]) }}" class="trsn" title="{{ $produto->nome }}">
+                                        <img src="/storage/image/{{ $produto->image }}" width="100px"
+                                            alt="{{ $produto->nome }}" title="{{ $produto->nome }}">
+                                    </a>
                                 </td>
                                 <td>
-                                    <h3>{{$produto->nome}}</h3>
+                                    <h3>{{ $produto->nome }}</h3>
                                 </td>
                                 <td class="mob-hide">
-                                    <span class="order-product-price">R${{$produto->preco}}</span>
+                                    <span class="order-product-price">R${{ $produto->preco }}</span>
                                 </td>
                                 <td>
-                                    <span>1</span>
+                                    <select class="select select-qty form-control" name="149506641" title="Qty"
+                                        onchange="$('#cart-update-form').submit();return false;">
+
+                                        <option value="1" selected="selected">1</option>
+
+                                        <option value="2">2</option>
+
+                                        <option value="3">3</option>
+
+                                        <option value="4">4</option>
+
+                                        <option value="5">5</option>
+
+                                        <option value="6">6</option>
+
+                                        <option value="7">7</option>
+
+                                        <option value="8">8</option>
+
+                                        <option value="9">9</option>
+
+                                        <option value="10">10</option>
+
+                                        <option value="11">11</option>
+
+                                        <option value="12">12</option>
+
+                                        <option value="13">13</option>
+
+                                        <option value="14">14</option>
+
+                                        <option value="15">15</option>
+
+                                        <option value="16">16</option>
+
+                                        <option value="17">17</option>
+
+                                        <option value="18">18</option>
+
+                                        <option value="19">19</option>
+
+                                        <option value="20">20</option>
+
+                                        <option value="21">21</option>
+
+                                        <option value="22">22</option>
+
+                                        <option value="23">23</option>
+
+                                        <option value="24">24</option>
+
+                                        <option value="25">25</option>
+
+                                        <option value="26">26</option>
+
+                                        <option value="27">27</option>
+
+                                        <option value="28">28</option>
+
+                                        <option value="29">29</option>
+
+                                        <option value="30">30</option>
+
+                                        <option value="31">31</option>
+
+                                    </select>
                                 </td>
                                 <td>
-                                    <span class="order-product-subtotal">R${{$produto->preco}}</span>
+                                    <span class="order-product-subtotal">R${{ $produto->preco }}</span>
+                                </td>
+                                <td clas="text-right">
+                                    <a href="{{route('cart.remove', ['produto' => $produto])}}" class="cart-product-remove"
+                                        title="Remove Product">
+                                        <i class="fas fa-times-circle"></i>
+                                    </a>
                                 </td>
                             </tr>
 
                         </table>
                     </div>
                 </form>
-                <div class="row review-order-info">
-                    <div class="col-12 col-md-6">
-                        <div class="border rounded mb-3">
-                            <div class="card-body">
-                                <div id="review_shipping_address">
-                                    <h5 class="card-title">Endereço de entrega</h5>
-                                    <p class="address">Recepcionista Maria <br>Estrada Córrego Joaquim Távora,
-                                        797<br>29716-018 Colatina - Serra<br>Espírito Santo - Brazil</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="border rounded mb-3">
-                            <div class="card-body">
-                                <div id="review_billing_address">
-                                    <h5 class="card-title">Endereço de cobrança</h5>
-                                    <p class="address">Recepcionista Maria <br>Estrada Córrego Joaquim Távora,
-                                        797<br>29716-018 Colatina - Serra<br>Espírito Santo - Brazil</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-            <div class="col-lg-4">
-                <div id="review-cart-totals" class="cart-totals card mb-3">
-                    <div class="card-header">
-                        <h2 class="card-title">Resumo</h2>
+            <!-- Cart Options -->
+            <div class="col-lg-4 mb-4">
+                <div class="row">
+
+                    <div class="col-12 cart-estimate">
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <h2 class="card-title">Custo estimado de envio</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-text">
+                                    <div id="estimate_shipping">
+                                        <form action="/cart/estimate" accept-charset="UTF-8"
+                                            id="estimate_shipping_form" autocomplete="off" method="post">
+                                            <!-- Country -->
+                                            <label for="estimate_shipping_country">País</label>
+                                            <select name="estimate[country]" id="estimate_shipping_country"
+                                                class="select">
+                                                <option value=""></option>
+                                                <option value="BR" selected="selected">Brasil</option>
+                                            </select>
+                                            <!-- Region -->
+                                            <label for="estimate_shipping_region">Região</label>
+                                            <select name="estimate[region]" id="estimate_shipping_region"
+                                                class="select">
+                                                <option value="00">Selecione</option>
+                                                <option value="01">Acre</option>
+                                                <option value="02">Alagoas</option>
+                                                <option value="03">Amapá</option>
+                                                <option value="04">Amazonas</option>
+                                                <option value="05">Bahia</option>
+                                                <option value="06">Ceará</option>
+                                                <option value="08">Espírito Santo</option>
+                                                <option value="07">Federal District</option>
+                                                <option value="29">Goiás</option>
+                                                <option value="13">Maranhão</option>
+                                                <option value="14">Mato Grosso</option>
+                                                <option value="11">Mato Grosso do Sul</option>
+                                                <option value="15">Minas Gerais</option>
+                                                <option value="16">Pará</option>
+                                                <option value="17">Paraíba</option>
+                                                <option value="18">Paraná</option>
+                                                <option value="30">Pernambuco</option>
+                                                <option value="20">Piauí</option>
+                                                <option value="22">Rio Grande do Norte</option>
+                                                <option value="23">Rio Grande do Sul</option>
+                                                <option value="21">Rio de Janeiro</option>
+                                                <option value="24">Rondônia</option>
+                                                <option value="25">Roraima</option>
+                                                <option value="26">Santa Catarina</option>
+                                                <option value="27">São Paulo</option>
+                                                <option value="28">Sergipe</option>
+                                                <option value="31">Tocantins</option>
+                                            </select>
+                                            <!-- Municipality -->
+                                            <label for="estimate_shipping_municipality"
+                                                style="display: none;">Município</label>
+                                            <select name="estimate[municipality]" id="estimate_shipping_municipality"
+                                                class="select" style="display: none;"></select>
+                                            <!-- Postal -->
+
+                                            <!-- Other Fields -->
+                                            <div class="estimate_shipping_buttons">
+                                                <input id="estimate_shipping_button" type="submit"
+                                                    value="Estimar frete e impostos" />
+                                            </div>
+                                        </form>
+
+                                        <!-- Postal JS -->
+
+                                        <!-- Municipality JS -->
+                                        <!-- CSS pseudo elements on selects can't be hidden with Javascript -->
+                                        <style>
+                                            .municipality-hide:after,
+                                            .municipality-hide:before {
+                                                display: none;
+                                            }
+                                        </style>
+                                        <script>
+                                            // define new Rule for Municipality field
+                                            const municipality_rule_source =
+                                                '[{"dependency":"country","value":["AR","CL","CO","PE","MX","IE","GR"],"function":"municipality_change"}]';
+                                            var municipality_rule = municipality_rule_source == 'null' ? {} : JSON.parse(municipality_rule_source)[0];
+
+                                            // define array of functions to be called
+                                            if (rules_functions === undefined) {
+                                                var rules_functions = [];
+                                            }
+                                            rules_functions.push(municipality_rule['function']);
+
+                                            // define Municipality Rule function
+                                            window[municipality_rule['function']] = function() {
+                                                if (municipality_rule['value'].indexOf($("select[name*=" + municipality_rule['dependency'] + "]").val()) > -
+                                                    1) {
+                                                    $('label[for=estimate_shipping_municipality], select#estimate_shipping_municipality').show();
+                                                    $('select#estimate_shipping_municipality').parent('div').show();
+                                                    $("select#estimate_shipping_municipality").removeClass("municipality-hide").parent().removeClass(
+                                                        "municipality-hide");
+
+                                                    if ($('#estimate_shipping_municipality').val() == null) {
+                                                        Jumpseller.getMunicipalities('#estimate_shipping_municipality', $('select#estimate_shipping_region')
+                                                            .val(), $('select#estimate_shipping_country').val(), null);
+                                                    }
+                                                } else {
+                                                    $('label[for=estimate_shipping_municipality], select#estimate_shipping_municipality').hide();
+                                                    $('select#estimate_shipping_municipality').parent('div').hide();
+                                                    $("select#estimate_shipping_municipality").addClass("municipality-hide").parent().addClass(
+                                                        "municipality-hide");
+                                                }
+                                            }
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
+
+                    <div class="cart-discount col-12">
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <h2 class="card-title">Tem um código de desconto?</h2>
+                            </div>
+                            <div class="card-body">
+                                <form action="/cart/coupon" accept-charset="UTF-8" id="coupon_form"
+                                    autocomplete="off" method="post"> <input id="coupon_code" name="code"
+                                        type="text" class="text" />
+                                    <input id="set_coupon_code_button" type="submit" value="Aplicar" />
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 cart-totals">
                         <table class="table table-striped">
                             <tr class="totals">
-                                <td colspan="1" class="text-left">Envio</td>
-                                <td colspan="1" class="text-right">R$ 0,00</td>
+                                <td colspan="1" class="text-left">Frete</td>
+                                <td colspan="1" class="text-right">R$0,00</td>
                             </tr>
                             <tr class="totals key">
-                                <td colspan="1" class="text-left">
-                                    <strong>Total</strong>
-                                </td>
-                                <td colspan="1" class="text-right">
-                                    <strong>R$ {{$produto->preco}}</strong>
-                                </td>
+                                <td colspan="1" class="text-left"><strong>Total</strong></td>
+                                <td colspan="1" class="text-right"><strong>R${{ $produto->preco }}</strong></td>
                             </tr>
                         </table>
+                        <div class="text-center cart-actions">
+                            <a href="{{route('checkout', ['produto' => $produto])}}"
+                                class="btn btn-primary btn-block" title="Seguir para o pagamento">Seguir para o
+                                pagamento</a>
+                            <a href="{{ route('loja') }}" class="btn btn-link btn-block"
+                                title="&larr; Continuar Comprando">&larr;
+                                Continuar comprando</a>
+                        </div>
                     </div>
                 </div>
-                <form id="review_form" class="text-right"
-                    action="/checkout/placeorder/3326f2c3deb5a822efb491ccc6e168f8" method="post">
-                    <input type="submit" id="place_order" class="btn btn-primary btn-block" value="Confirmar pedido"
-                        title="Confirmar pedido" />
-                </form>
             </div>
         </div>
     </div>
@@ -577,7 +680,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12 col-md-6 order-2 order-md-1">
-                            <p class="powered-by">&copy; 2023 Sistema<sup>EA</sup>. Todos os direitos reservados. <a
+                            <p class="powered-by">&copy; 2023 Sistema<sup>EA</sup>. Todos os direitos reservados.
+                                <a
                                     href='#'
                                     title='Create Online Store' target='_blank' rel='nofollow'>Por Elinaldo
                                     Agostinho</a>.</p>
@@ -593,7 +697,7 @@
                                 <li><span><img src="//assets.jumpseller.com/public/payment-logos/paypal.svg"
                                             alt="Paypal" height="30" width="56"></span></li>
                                 <li><span><img src="//assets.jumpseller.com/public/payment-logos/mercadopago.svg"
-                                            alt="Mercadopago" height="30" width="56"></span></li>
+                                            alt="MercadoPago" height="30" width="56"></span></li>
                             </ul>
 
                         </div>

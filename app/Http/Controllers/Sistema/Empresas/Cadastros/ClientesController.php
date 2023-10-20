@@ -6,6 +6,7 @@ use App\Exports\ClientesExport;
 use App\Http\Controllers\Controller;
 use App\Models\Clientes;
 use App\Models\Empresas;
+use App\Models\EnderecoClientes;
 use App\Models\Enderecos;
 use App\Models\Generos;
 use Illuminate\Http\Request;
@@ -77,8 +78,8 @@ class ClientesController extends Controller
                 $input['image'] = "$profileImage";
             }
         Clientes::create($input);
-        Enderecos::create($input);
-        return redirect()->route('empresas')
+        EnderecoClientes::create($input);
+        return redirect()->route('clientes')
         ->with('success','Cadastrado com sucesso!');
     }
 
@@ -92,7 +93,7 @@ class ClientesController extends Controller
     {
         $generos = Generos::with('generos')->get();
         $empresas = Empresas::with('empresas')->get();
-        $enderecos = Enderecos::with('enderecos')->get();
+        $enderecos = EnderecoClientes::with('enderecos')->get();
         return view('Sistema.Empresa.Cadastros.Clientes.show', compact('cliente','enderecos','generos','empresas'));
     }
 
@@ -102,15 +103,18 @@ class ClientesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Clientes $cliente)
+    public function edit($id)
     {
         $generos = Generos::with('generos')->get();
         $empresas = Empresas::with('empresas')->get();
-        $enderecos = Enderecos::with('enderecos')->get();
-        return view('Sistema.Empresa.Cadastros.Clientes.editar', compact('cliente','enderecos','generos','empresas'));
+        $clientes = Clientes::find($id);
+        $enderecos = Enderecoclientes::find($id);
+        return view('Sistema.Empresa.Cadastros.Clientes.editar', ['clientes' => $clientes,'enderecos' => $enderecos,'generos' => $generos,'empresas' => $empresas]);
     }
-    public function update(Request $request, Clientes $cliente)
+    public function update(Request $request, $id)
     {
+        $cliente = Clientes::find($id);
+        $endereco = EnderecoClientes::find($id);
         $request->validate([
             'active' => 'required|boolean',
             'name' => 'required|string',
@@ -142,6 +146,7 @@ class ClientesController extends Controller
         }
 
         $cliente->update($input);
+        $endereco->update($input);
         return redirect()->route('clientes')->with('success', 'Atualizado com sucesso');
     }
 

@@ -39,8 +39,8 @@
                                 @endif
                             @endforeach
                             <td>
-                                <a class="btn btn-outline-primary" href="{{route('empresa.editar', ['empresa' => $e->id])}}"><i class="fa fa-edit"></i></a>
-                                <a class="btn btn-outline-primary" href="{{route('empresa.show', ['empresa' => $e->id])}}"><i class="fa fa-eye"></i></a>
+                                <a class="btn btn-outline-primary" href="{{route('empresa.editar', ['id' => $e->id])}}"><i class="fa fa-edit"></i></a>
+                                <a class="btn btn-outline-primary" href="{{route('empresa.show', ['id' => $e->id])}}"><i class="fa fa-eye"></i></a>
                             </td>
                         </tr>
                         @empty

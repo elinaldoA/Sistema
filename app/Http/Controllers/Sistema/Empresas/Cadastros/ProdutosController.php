@@ -6,6 +6,7 @@ use App\Exports\ProdutosExport;
 use App\Http\Controllers\Controller;
 use App\Models\Categorias;
 use App\Models\Empresas;
+use App\Models\Estoque;
 use App\Models\Produtos;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -73,6 +74,7 @@ class ProdutosController extends Controller
                 $produto['image'] = "$profileImage";
             }
         Produtos::create($produto);
+        Estoque::create($produto);
         return redirect()->route('produtos')
         ->with('success','Cadastrado com sucesso!');
     }
@@ -110,8 +112,10 @@ class ProdutosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Produtos $produto)
+    public function update(Request $request, $id)
     {
+        $produto = Produtos::find($id);
+        $estoque = Estoque::find($id);
         $request->validate([
             'codigo' => 'required|string|max:10',
             'nome' => 'required|string|max:255',
@@ -148,6 +152,7 @@ class ProdutosController extends Controller
         }
 
         $produto->update($input);
+        $estoque->update($input);
         return redirect()->route('produtos')
         ->with('success','Atualizado com sucesso!');
     }

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Estoque extends Model
+class EnderecoClientes extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,7 @@ class Estoque extends Model
      * @var array
      */
     protected $fillable = [
-        'codigo','nome','qt','active','categoria_id'
+        'rua','numero','complemento','cep','bairro','cidade','estado','pais'
     ];
 
     /**
@@ -36,9 +36,13 @@ class Estoque extends Model
         'updated_at' => 'datetime',
     ];
 
-    public function Estoque()
+    public function EnderecoClientes()
     {
-        return $this->belongsTo(Estoque::class);
+        return $this->belongsTo(EnderecoClientes::class);
+    }
+    public function Clientes()
+    {
+        return $this->belongsTo(Clientes::class);
     }
 }
 

@@ -41,7 +41,7 @@
                                 @endif()
                             @endforeach
                             <td>
-                                <a class="btn btn-outline-primary" href="{{route('produto.editar', ['produto' => $p->id])}}"><i class="fa fa-edit"></i></a>
+                                <a class="btn btn-outline-primary" href="{{route('produto.editar', ['id' => $p->id])}}"><i class="fa fa-edit"></i></a>
                                 <a class="btn btn-outline-primary" href="{{route('produto.show', ['produto' => $p->id])}}"><i class="fa fa-eye"></i></a>
                             </td>
                         </tr>

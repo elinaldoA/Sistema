@@ -262,13 +262,13 @@
                                     <a href="/blog" title="Blog" class="level-1 trsn nav-link">Blog</a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="/contayo" title="Contato" class="level-1 trsn nav-link">Contato</a>
+                                    <a href="/contato" title="Contato" class="level-1 trsn nav-link">Contato</a>
                                 </li>
                             </ul>
                             <ul class="nav navbar-nav float-right nav-top">
 
                                 <li class="active">
-                                    <a id="cart-link" href="{{route('carrinho')}}" class="trsn nav-link" title="View/Edit Cart">
+                                    <a id="cart-link" href="}}" class="trsn nav-link" title="View/Edit Cart">
                                         <i class="fas fa-shopping-cart"></i>
                                         <span id="nav-bar-cart"><span class="cart-size">0</span> Produto(s)
                                             | R$ 0,00</span>
