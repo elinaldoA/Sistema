@@ -235,7 +235,7 @@
             <div class="fixed-top">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="container">
-                        <a href="{{route('loja')}}" title="Bootstrap" class="navbar-brand">
+                        <a href="{{ route('loja') }}" title="Bootstrap" class="navbar-brand">
                             Sistema<sup>EA</sup>
                         </a>
                         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -421,7 +421,8 @@
 
                             <tr>
                                 <td class="text-center mob-hide">
-                                    <a href="{{ route('show', ['produto' => $produto]) }}" class="trsn" title="{{ $produto->nome }}">
+                                    <a href="{{ route('show', ['produto' => $produto]) }}" class="trsn"
+                                        title="{{ $produto->nome }}">
                                         <img src="/storage/image/{{ $produto->image }}" width="100px"
                                             alt="{{ $produto->nome }}" title="{{ $produto->nome }}">
                                     </a>
@@ -504,8 +505,8 @@
                                     <span class="order-product-subtotal">R${{ $produto->preco }}</span>
                                 </td>
                                 <td clas="text-right">
-                                    <a href="{{route('cart.remove', ['produto' => $produto])}}" class="cart-product-remove"
-                                        title="Remove Product">
+                                    <a href="{{ route('cart.remove', ['produto' => $produto]) }}"
+                                        class="cart-product-remove" title="Remove Product">
                                         <i class="fas fa-times-circle"></i>
                                     </a>
                                 </td>
@@ -660,7 +661,7 @@
                             </tr>
                         </table>
                         <div class="text-center cart-actions">
-                            <a href="{{route('checkout', ['produto' => $produto])}}"
+                            <a href="{{ route('checkout', ['produto' => $produto]) }}"
                                 class="btn btn-primary btn-block" title="Seguir para o pagamento">Seguir para o
                                 pagamento</a>
                             <a href="{{ route('loja') }}" class="btn btn-link btn-block"
@@ -681,10 +682,10 @@
                     <div class="row">
                         <div class="col-12 col-md-6 order-2 order-md-1">
                             <p class="powered-by">&copy; 2023 Sistema<sup>EA</sup>. Todos os direitos reservados.
-                                <a
-                                    href='#'
-                                    title='Create Online Store' target='_blank' rel='nofollow'>Por Elinaldo
-                                    Agostinho</a>.</p>
+                                <a href='#' title='Create Online Store' target='_blank' rel='nofollow'>Por
+                                    Elinaldo
+                                    Agostinho</a>.
+                            </p>
                         </div>
                         <div class="col-12 col-md-6 order-1 order-md-2">
                             <ul class="payment">

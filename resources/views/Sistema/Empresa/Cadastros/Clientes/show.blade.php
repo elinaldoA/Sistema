@@ -43,11 +43,12 @@
                                         <div class="col-lg-1">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="active">Status<span
-                                                    class="small text-danger"> * </span></label>
+                                                        class="small text-danger"> * </span></label>
                                                 <input type="checkbox" name="active" value="1" class="form-control"
-                                                    @if (($cliente->active == 0 && old('active') && old('first_time')) ||
-                                                    ($cliente->active && old('active') == null && old('first_time') == null) ||
-                                                    ($cliente->active && old('active') && old('first_time'))) checked="checked" @endif>
+                                                    @if (
+                                                        ($cliente->active == 0 && old('active') && old('first_time')) ||
+                                                            ($cliente->active && old('active') == null && old('first_time') == null) ||
+                                                            ($cliente->active && old('active') && old('first_time'))) checked="checked" @endif>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
@@ -106,8 +107,10 @@
                                                 <label class="form-control-label" for="desconto">Imagem<span
                                                         class="small text-danger">
                                                         * </span></label>
-                                                <input type="file" class="form-control roudend" name="image" id="image"><br/>
-                                                <img src="/storage/image/{{ $cliente->image }}" width="150px" class="rounded">
+                                                <input type="file" class="form-control roudend" name="image"
+                                                    id="image"><br />
+                                                <img src="/storage/image/{{ $cliente->image }}" width="150px"
+                                                    class="rounded">
                                             </div>
                                         </div>
                                     </div>

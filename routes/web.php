@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\Auth;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 /*
 Route::get('/', function () {
-    return view('welcome');
+return view('welcome');
 });*/
 
 Auth::routes();
@@ -46,38 +46,38 @@ Route::group(['prefix' => 'Sistema/Admin', 'middleware' => ['auth']], function (
     Route::get('/profile', 'Sistema\Admin\ProfileController@index')->name('profile');
     Route::put('/profile', 'Sistema\Admin\ProfileController@update')->name('profile.update');
     //Categorias
-    Route::get('/cadastros/categorias/novo','Sistema\Admin\Cadastros\CategoriasController@create')->name('categoria.create');
-    Route::post('/cadastros/categorias/novo','Sistema\Admin\Cadastros\CategoriasController@store')->name('categoria.store');
-    Route::get('/cadastros/categorias/visualizar','Sistema\Admin\Cadastros\CategoriasController@index')->name('categorias');
-    Route::get('/cadastros/categorias/{categoria}/show','Sistema\Admin\Cadastros\CategoriasController@show')->name('categoria.show');
-    Route::get('/cadastros/categorias/{categoria}/editar','Sistema\Admin\Cadastros\CategoriasController@edit');
-    Route::post('/cadastros/categorias/{categoria}/editar','Sistema\Admin\Cadastros\CategoriasController@update')->name('categoria.editar');
-    Route::get('/cadastros/categorias/{categoria}/excluir','Sistema\Admin\Cadastros\CategoriasController@delete');
-    Route::post('/cadastros/categorias/{categoria}/excluir','Sistema\Admin\Cadastros\CategoriasController@destroy')->name('categoria.excluir');
+    Route::get('/cadastros/categorias/novo', 'Sistema\Admin\Cadastros\CategoriasController@create')->name('categoria.create');
+    Route::post('/cadastros/categorias/novo', 'Sistema\Admin\Cadastros\CategoriasController@store')->name('categoria.store');
+    Route::get('/cadastros/categorias/visualizar', 'Sistema\Admin\Cadastros\CategoriasController@index')->name('categorias');
+    Route::get('/cadastros/categorias/{categoria}/show', 'Sistema\Admin\Cadastros\CategoriasController@show')->name('categoria.show');
+    Route::get('/cadastros/categorias/{categoria}/editar', 'Sistema\Admin\Cadastros\CategoriasController@edit');
+    Route::post('/cadastros/categorias/{categoria}/editar', 'Sistema\Admin\Cadastros\CategoriasController@update')->name('categoria.editar');
+    Route::get('/cadastros/categorias/{categoria}/excluir', 'Sistema\Admin\Cadastros\CategoriasController@delete');
+    Route::post('/cadastros/categorias/{categoria}/excluir', 'Sistema\Admin\Cadastros\CategoriasController@destroy')->name('categoria.excluir');
     //Planos
-    Route::get('/cadastros/planos/novo','Sistema\Admin\Cadastros\PlanosController@create')->name('plano.create');
-    Route::post('/cadastros/planos/novo','Sistema\Admin\Cadastros\PlanosController@store')->name('plano.store');
-    Route::get('/cadastros/planos/visualizar','Sistema\Admin\Cadastros\PlanosController@index')->name('planos');
-    Route::get('/cadastros/planos/{plano}/show','Sistema\Admin\Cadastros\PlanosController@show')->name('plano.show');
-    Route::get('/cadastros/planos/{plano}/editar','Sistema\Admin\Cadastros\PlanosController@edit');
-    Route::post('/cadastros/planos/{plano}/editar','Sistema\Admin\Cadastros\PlanosController@update')->name('plano.editar');
-    Route::get('/cadastros/planos/{plano}/excluir','Sistema\Admin\Cadastros\PlanosController@delete');
-    Route::post('/cadastros/planos/{plano}/excluir','Sistema\Admin\Cadastros\PlanosController@destroy')->name('plano.excluir');
+    Route::get('/cadastros/planos/novo', 'Sistema\Admin\Cadastros\PlanosController@create')->name('plano.create');
+    Route::post('/cadastros/planos/novo', 'Sistema\Admin\Cadastros\PlanosController@store')->name('plano.store');
+    Route::get('/cadastros/planos/visualizar', 'Sistema\Admin\Cadastros\PlanosController@index')->name('planos');
+    Route::get('/cadastros/planos/{plano}/show', 'Sistema\Admin\Cadastros\PlanosController@show')->name('plano.show');
+    Route::get('/cadastros/planos/{plano}/editar', 'Sistema\Admin\Cadastros\PlanosController@edit');
+    Route::post('/cadastros/planos/{plano}/editar', 'Sistema\Admin\Cadastros\PlanosController@update')->name('plano.editar');
+    Route::get('/cadastros/planos/{plano}/excluir', 'Sistema\Admin\Cadastros\PlanosController@delete');
+    Route::post('/cadastros/planos/{plano}/excluir', 'Sistema\Admin\Cadastros\PlanosController@destroy')->name('plano.excluir');
     //Empresas
-    Route::get('/cadastros/empresas/novo','Sistema\Admin\Cadastros\EmpresasController@create')->name('empresa.create');
-    Route::post('/cadastros/empresas/novo','Sistema\Admin\Cadastros\EmpresasController@store')->name('empresa.store');
-    Route::get('/cadastros/empresas/visualizar','Sistema\Admin\Cadastros\EmpresasController@index')->name('empresas');
-    Route::get('/cadastros/empresas/{id}/show','Sistema\Admin\Cadastros\EmpresasController@show')->name('empresa.show');
-    Route::get('/cadastros/empresas/{empresa}/editar','Sistema\Admin\Cadastros\EmpresasController@edit');
-    Route::post('/cadastros/empresas/{id}/editar','Sistema\Admin\Cadastros\EmpresasController@update')->name('empresa.editar');
-    Route::get('/cadastros/empresas/{empresa}/excluir','Sistema\Admin\Cadastros\EmpresasController@delete');
-    Route::post('/cadastros/empresas/{empresa}/excluir','Sistema\Admin\Cadastros\EmpresassController@destroy')->name('empresa.excluir');
+    Route::get('/cadastros/empresas/novo', 'Sistema\Admin\Cadastros\EmpresasController@create')->name('empresa.create');
+    Route::post('/cadastros/empresas/novo', 'Sistema\Admin\Cadastros\EmpresasController@store')->name('empresa.store');
+    Route::get('/cadastros/empresas/visualizar', 'Sistema\Admin\Cadastros\EmpresasController@index')->name('empresas');
+    Route::get('/cadastros/empresas/{id}/show', 'Sistema\Admin\Cadastros\EmpresasController@show')->name('empresa.show');
+    Route::get('/cadastros/empresas/{empresa}/editar', 'Sistema\Admin\Cadastros\EmpresasController@edit');
+    Route::post('/cadastros/empresas/{id}/editar', 'Sistema\Admin\Cadastros\EmpresasController@update')->name('empresa.editar');
+    Route::get('/cadastros/empresas/{empresa}/excluir', 'Sistema\Admin\Cadastros\EmpresasController@delete');
+    Route::post('/cadastros/empresas/{empresa}/excluir', 'Sistema\Admin\Cadastros\EmpresassController@destroy')->name('empresa.excluir');
     //Despesas
-    Route::get('/financeiro/despesas/visualizar','Sistema\Admin\Financeiro\DespesasController@index')->name('despesas');
-    Route::get('/financeiro/despesas/{despesa}/show','Sistema\Admin\Financeiro\DespesasController@show')->name('despesa.show');
+    Route::get('/financeiro/despesas/visualizar', 'Sistema\Admin\Financeiro\DespesasController@index')->name('despesas');
+    Route::get('/financeiro/despesas/{despesa}/show', 'Sistema\Admin\Financeiro\DespesasController@show')->name('despesa.show');
     //Receitas
-    Route::get('/financeiro/receitas/visualizar','Sistema\Admin\Financeiro\ReceitasController@index')->name('receitas');
-    Route::get('/financeiro/receitas/{receita}/show','Sistema\Admin\Financeiro\ReceitasController@show')->name('receita.show');
+    Route::get('/financeiro/receitas/visualizar', 'Sistema\Admin\Financeiro\ReceitasController@index')->name('receitas');
+    Route::get('/financeiro/receitas/{receita}/show', 'Sistema\Admin\Financeiro\ReceitasController@show')->name('receita.show');
 });
 
 //Auth Empresas
@@ -105,25 +105,25 @@ Route::group(['prefix' => 'Sistema/Empresa', 'middleware' => ['auth']], function
     Route::get('/profile', 'Sistema\Empresas\ProfileController@index')->name('profile-empresa');
     Route::put('/profile', 'Sistema\Empresas\ProfileController@update')->name('profile-empresa.update');
     //Clientes
-    Route::get('/Cadastros/Clientes/novo','Sistema\Empresas\Cadastros\ClientesController@create')->name('cliente.create');
-    Route::post('/Cadastros/Clientes/novo','Sistema\Empresas\Cadastros\ClientesController@store')->name('cliente.store');
-    Route::get('/Cadastros/Clientes/visualizar','Sistema\Empresas\Cadastros\ClientesController@index')->name('clientes');
-    Route::get('/Cadastros/Clientes/{cliente}/show','Sistema\Empresas\Cadastros\ClientesController@show')->name('cliente.show');
-    Route::get('/Cadastros/Clientes/{cliente}/editar','Sistema\Empresas\Cadastros\ClientesController@edit');
-    Route::post('/Cadastros/Clientes/{id}/editar','Sistema\Empresas\Cadastros\ClientesController@update')->name('cliente.editar');
-    Route::get('/Cadastros/Clientes/{cliente}/excluir','Sistema\Empresas\Cadastros\ClientesController@delete');
-    Route::post('/Cadastros/Clientes/{cliente}/excluir','Sistema\Empresas\Cadastros\ClientesController@destroy')->name('cliente.excluir');
+    Route::get('/Cadastros/Clientes/novo', 'Sistema\Empresas\Cadastros\ClientesController@create')->name('cliente.create');
+    Route::post('/Cadastros/Clientes/novo', 'Sistema\Empresas\Cadastros\ClientesController@store')->name('cliente.store');
+    Route::get('/Cadastros/Clientes/visualizar', 'Sistema\Empresas\Cadastros\ClientesController@index')->name('clientes');
+    Route::get('/Cadastros/Clientes/{cliente}/show', 'Sistema\Empresas\Cadastros\ClientesController@show')->name('cliente.show');
+    Route::get('/Cadastros/Clientes/{cliente}/editar', 'Sistema\Empresas\Cadastros\ClientesController@edit');
+    Route::post('/Cadastros/Clientes/{id}/editar', 'Sistema\Empresas\Cadastros\ClientesController@update')->name('cliente.editar');
+    Route::get('/Cadastros/Clientes/{cliente}/excluir', 'Sistema\Empresas\Cadastros\ClientesController@delete');
+    Route::post('/Cadastros/Clientes/{cliente}/excluir', 'Sistema\Empresas\Cadastros\ClientesController@destroy')->name('cliente.excluir');
     //Export
     Route::get('clientes/export/', 'Sistema\Empresas\Cadastros\ClientesController@export')->name('export-cliente');
     //Produtos
-    Route::get('/Cadastros/Produtos/novo','Sistema\Empresas\Cadastros\ProdutosController@create')->name('produto.create');
-    Route::post('/Cadastros/Produtos/novo','Sistema\Empresas\Cadastros\ProdutosController@store')->name('produto.store');
-    Route::get('/Cadastros/Produtos/visualizar','Sistema\Empresas\Cadastros\ProdutosController@index')->name('produtos');
-    Route::get('/Cadastros/Produtos/{produto}/show','Sistema\Empresas\Cadastros\ProdutosController@show')->name('produto.show');
-    Route::get('/Cadastros/Produtos/{produto}/editar','Sistema\Empresas\Cadastros\ProdutosController@edit');
-    Route::post('/Cadastros/Produtos/{id}/editar','Sistema\Empresas\Cadastros\ProdutosController@update')->name('produto.editar');
-    Route::get('/Cadastros/Produtos/{produto}/excluir','Sistema\Empresas\Cadastros\ProdutosController@delete');
-    Route::post('/Cadastros/Produtos/{produto}/excluir','Sistema\Empresas\Cadastros\ProdutosController@destroy')->name('produto.excluir');
+    Route::get('/Cadastros/Produtos/novo', 'Sistema\Empresas\Cadastros\ProdutosController@create')->name('produto.create');
+    Route::post('/Cadastros/Produtos/novo', 'Sistema\Empresas\Cadastros\ProdutosController@store')->name('produto.store');
+    Route::get('/Cadastros/Produtos/visualizar', 'Sistema\Empresas\Cadastros\ProdutosController@index')->name('produtos');
+    Route::get('/Cadastros/Produtos/{produto}/show', 'Sistema\Empresas\Cadastros\ProdutosController@show')->name('produto.show');
+    Route::get('/Cadastros/Produtos/{produto}/editar', 'Sistema\Empresas\Cadastros\ProdutosController@edit');
+    Route::post('/Cadastros/Produtos/{id}/editar', 'Sistema\Empresas\Cadastros\ProdutosController@update')->name('produto.editar');
+    Route::get('/Cadastros/Produtos/{produto}/excluir', 'Sistema\Empresas\Cadastros\ProdutosController@delete');
+    Route::post('/Cadastros/Produtos/{produto}/excluir', 'Sistema\Empresas\Cadastros\ProdutosController@destroy')->name('produto.excluir');
     //Export
     Route::get('produtos/export/', 'Sistema\Empresas\Cadastros\ProdutosController@export')->name('export');
 });
@@ -171,4 +171,3 @@ Route::post('/update/{produto}', 'HomeController@update')->name('adicionar');
 Route::get('/remove/{produto}', 'HomeController@delete')->name('remover');
 Route::get('/checkout/{produto}', 'HomeController@checkout')->name('checkout-pedido');
 Route::get('/revisar/{produto}', 'HomeController@revisar')->name('revisar-pedido');
-

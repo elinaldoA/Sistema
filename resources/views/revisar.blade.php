@@ -308,7 +308,7 @@
             <div class="fixed-top">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="container">
-                        <a href="{{route('loja')}}" title="Bootstrap" class="navbar-brand">
+                        <a href="{{ route('loja') }}" title="Bootstrap" class="navbar-brand">
                             Sistema <sup>EA</sup>
                         </a>
                         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -348,10 +348,11 @@
                             </ul>
                             <ul class="nav navbar-nav float-right nav-top">
                                 <li>
-                                    <a id="cart-link" href="{{route('carrinho')}}" class="trsn nav-link" title="View/Edit Cart">
+                                    <a id="cart-link" href="{{ route('carrinho') }}" class="trsn nav-link"
+                                        title="View/Edit Cart">
                                         <i class="fas fa-shopping-cart"></i>
                                         <span id="nav-bar-cart"><span class="cart-size">1</span> Produto(s)
-                                            | R$ {{$produto->preco}}</span>
+                                            | R$ {{ $produto->preco }}</span>
                                     </a>
                                 </li>
                                 <li>
@@ -412,10 +413,10 @@
                     <section class="col-12 d-none d-md-block">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="{{route('loja')}}" class="trsn" title="Go back to Home">Home</a>
+                                <a href="{{ route('loja') }}" class="trsn" title="Go back to Home">Home</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="{{route('carrinho')}}" class="trsn" title="Go back to Cart">Carrinho</a>
+                                <a href="{{ route('carrinho') }}" class="trsn" title="Go back to Cart">Carrinho</a>
                             </li>
                             <li class="breadcrumb-item">
                                 <a href="/checkout?token=3326f2c3deb5a822efb491ccc6e168f8" class="trsn"
@@ -494,20 +495,20 @@
                             </thead>
                             <tr>
                                 <td class="text-center mob-hide">
-                                    <img src="/storage/image/{{$produto->image}}"
-                                        alt="{{$produto->nome}}" title="{{$produto->nome}}" width="100px">
+                                    <img src="/storage/image/{{ $produto->image }}" alt="{{ $produto->nome }}"
+                                        title="{{ $produto->nome }}" width="100px">
                                 </td>
                                 <td>
-                                    <h3>{{$produto->nome}}</h3>
+                                    <h3>{{ $produto->nome }}</h3>
                                 </td>
                                 <td class="mob-hide">
-                                    <span class="order-product-price">R${{$produto->preco}}</span>
+                                    <span class="order-product-price">R${{ $produto->preco }}</span>
                                 </td>
                                 <td>
                                     <span>1</span>
                                 </td>
                                 <td>
-                                    <span class="order-product-subtotal">R${{$produto->preco}}</span>
+                                    <span class="order-product-subtotal">R${{ $produto->preco }}</span>
                                 </td>
                             </tr>
 
@@ -555,7 +556,7 @@
                                     <strong>Total</strong>
                                 </td>
                                 <td colspan="1" class="text-right">
-                                    <strong>R$ {{$produto->preco}}</strong>
+                                    <strong>R$ {{ $produto->preco }}</strong>
                                 </td>
                             </tr>
                         </table>
@@ -563,8 +564,8 @@
                 </div>
                 <form id="review_form" class="text-right"
                     action="/checkout/placeorder/3326f2c3deb5a822efb491ccc6e168f8" method="post">
-                    <input type="submit" id="place_order" class="btn btn-primary btn-block" value="Confirmar pedido"
-                        title="Confirmar pedido" />
+                    <input type="submit" id="place_order" class="btn btn-primary btn-block"
+                        value="Confirmar pedido" title="Confirmar pedido" />
                 </form>
             </div>
         </div>
@@ -578,8 +579,8 @@
                     <div class="row">
                         <div class="col-12 col-md-6 order-2 order-md-1">
                             <p class="powered-by">&copy; 2023 Sistema<sup>EA</sup>. Todos os direitos reservados. <a
-                                    href='#'
-                                    title='Create Online Store' target='_blank' rel='nofollow'>Por Elinaldo
+                                    href='#' title='Create Online Store' target='_blank' rel='nofollow'>Por
+                                    Elinaldo
                                     Agostinho</a>.</p>
                         </div>
                         <div class="col-12 col-md-6 order-1 order-md-2">

@@ -107,8 +107,9 @@
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="image">Imagem<span
                                                         class="small text-danger"> * </span></label>
-                                                <input class="form-control" type="file" id="image" name="image">
-                                                    <div class="galeria"></div>
+                                                <input class="form-control" type="file" id="image"
+                                                    name="image">
+                                                <div class="galeria"></div>
                                             </div>
                                         </div>
                                         <div class="col">
@@ -229,35 +230,36 @@
     });
 </script>
 <script>
-$(function() {
-// Pré-visualização de várias imagens no navegador
-var visualizacaoImagens = function(input, lugarParaInserirVisualizacaoDeImagem) {
+    $(function() {
+        // Pré-visualização de várias imagens no navegador
+        var visualizacaoImagens = function(input, lugarParaInserirVisualizacaoDeImagem) {
 
-    if (input.files) {
-        var quantImagens = input.files.length;
+            if (input.files) {
+                var quantImagens = input.files.length;
 
-        for (i = 0; i < quantImagens; i++) {
-            var reader = new FileReader();
+                for (i = 0; i < quantImagens; i++) {
+                    var reader = new FileReader();
 
-            reader.onload = function(event) {
-                $($.parseHTML('<img class="miniatura">')).attr('src', event.target.result).appendTo(lugarParaInserirVisualizacaoDeImagem);
+                    reader.onload = function(event) {
+                        $($.parseHTML('<img class="miniatura">')).attr('src', event.target.result)
+                            .appendTo(lugarParaInserirVisualizacaoDeImagem);
+                    }
+
+                    reader.readAsDataURL(input.files[i]);
+                }
             }
 
-            reader.readAsDataURL(input.files[i]);
-        }
-    }
+        };
 
-};
-
-$('#image').on('change', function() {
-    visualizacaoImagens(this, 'div.galeria');
-});
-});
+        $('#image').on('change', function() {
+            visualizacaoImagens(this, 'div.galeria');
+        });
+    });
 </script>
 <style>
     .miniatura {
-    height: 100px;
-    border: 1px solid #000;
-    margin: 10px 5px 0 0;
-  }
+        height: 100px;
+        border: 1px solid #000;
+        margin: 10px 5px 0 0;
+    }
 </style>

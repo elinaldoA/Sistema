@@ -21,30 +21,30 @@
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
-                    <a href="{{route('receitas')}}">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Receitas</div>
-                            @php
-                            $Valortotal = 0;
-                            foreach($receitas as $r){
-                            $Valortotal += $r->valor;
-                            }
-                            @endphp
-                            <!--Exibe valores pagos geral-->
-                            @php
-                            $Despesatotal = 0;
-                            foreach($despesas as $d){
-                            $Despesatotal += $d->valor;
-                            }
-                            @endphp
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                {{ 'R$ ' . number_format($Valortotal - $Despesatotal, 2, ',', '.') }}</div>
+                    <a href="{{ route('receitas') }}">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Receitas</div>
+                                @php
+                                    $Valortotal = 0;
+                                    foreach ($receitas as $r) {
+                                        $Valortotal += $r->valor;
+                                    }
+                                @endphp
+                                <!--Exibe valores pagos geral-->
+                                @php
+                                    $Despesatotal = 0;
+                                    foreach ($despesas as $d) {
+                                        $Despesatotal += $d->valor;
+                                    }
+                                @endphp
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    {{ 'R$ ' . number_format($Valortotal - $Despesatotal, 2, ',', '.') }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-level-up-alt fa-2x text-gray-300"></i>
+                            </div>
                         </div>
-                        <div class="col-auto">
-                            <i class="fas fa-level-up-alt fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
                     </a>
                 </div>
             </div>
@@ -53,24 +53,24 @@
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-danger shadow h-100 py-2">
                 <div class="card-body">
-                    <a href="{{route('despesas')}}">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Despesas</div>
-                            <!--Exibe valores pagos geral-->
-                            @php
-                            $Despesatotal = 0;
-                            foreach($despesas as $d){
-                            $Despesatotal += $d->valor;
-                            }
-                            @endphp
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                {{ 'R$ ' . number_format(- $Despesatotal, 2, ',', '.') }}</div>
+                    <a href="{{ route('despesas') }}">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Despesas</div>
+                                <!--Exibe valores pagos geral-->
+                                @php
+                                    $Despesatotal = 0;
+                                    foreach ($despesas as $d) {
+                                        $Despesatotal += $d->valor;
+                                    }
+                                @endphp
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    {{ 'R$ ' . number_format(-$Despesatotal, 2, ',', '.') }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-level-down-alt fa-2x text-gray-300"></i>
+                            </div>
                         </div>
-                        <div class="col-auto">
-                            <i class="fas fa-level-down-alt fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
                     </a>
                 </div>
             </div>

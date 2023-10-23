@@ -281,7 +281,7 @@
 
         let order_items = [{
             "item_id": "",
-            "item_name": "{{$produto->nome}}",
+            "item_name": "{{ $produto->nome }}",
             "discount": 0.0,
             "item_brand": "",
             "item_variant": "Wacom Bamboo Tablet (color: Grey)",
@@ -311,7 +311,7 @@
             <div class="fixed-top">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="container">
-                        <a href="{{route('loja')}}" title="Bootstrap" class="navbar-brand">
+                        <a href="{{ route('loja') }}" title="Bootstrap" class="navbar-brand">
                             Sistema EA
                         </a>
                         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -335,7 +335,8 @@
                             </div>
                             <ul id="navbarContainerMobile" class="navbar-nav d-lg-none">
                                 <li class="nav-item">
-                                    <a href="{{route('loja')}}" title="Inicio" class="level-1 trsn nav-link">Inicio</a>
+                                    <a href="{{ route('loja') }}" title="Inicio"
+                                        class="level-1 trsn nav-link">Inicio</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="/sobre" title="Sobre" class="level-1 trsn nav-link">Sobre</a>
@@ -349,10 +350,11 @@
                             </ul>
                             <ul class="nav navbar-nav float-right nav-top">
                                 <li>
-                                    <a id="cart-link" href="{{route('carrinho')}}" class="trsn nav-link" title="View/Edit Cart">
+                                    <a id="cart-link" href="{{ route('carrinho') }}" class="trsn nav-link"
+                                        title="View/Edit Cart">
                                         <i class="fas fa-shopping-cart"></i>
                                         <span id="nav-bar-cart"><span class="cart-size">1</span> Produto(s)
-                                        | R$ {{$produto->preco}}</span>
+                                            | R$ {{ $produto->preco }}</span>
                                     </a>
                                 </li>
                                 <li>
@@ -386,7 +388,8 @@
                         <div class="collapse navbar-collapse" id="navbarsContainer-2">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item  ">
-                                    <a href="{{route('loja')}}" title="Inicio" class="level-1 trsn nav-link">Inicio</a>
+                                    <a href="{{ route('loja') }}" title="Inicio"
+                                        class="level-1 trsn nav-link">Inicio</a>
                                 </li>
                                 <li class="nav-item  ">
                                     <a href="/sobre" title="Sobre" class="level-1 trsn nav-link">Sobre</a>
@@ -411,10 +414,11 @@
                     <section class="col-12 d-none d-md-block">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="{{route('loja')}}" class="trsn" title="Voltar ao inicio">Home</a>
+                                <a href="{{ route('loja') }}" class="trsn" title="Voltar ao inicio">Home</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="{{route('carrinho')}}" class="trsn" title="Voltar as compras">Carrinho</a>
+                                <a href="{{ route('carrinho') }}" class="trsn"
+                                    title="Voltar as compras">Carrinho</a>
                             </li>
                             <li class="breadcrumb-item">
                                 <span>Checkout</span>
@@ -472,9 +476,8 @@
 
         <!-- Checkout Container -->
         <div class="checkout-container">
-            <form action="{{route('revisar', ['produto' => $produto])}}" accept-charset="UTF-8"
-                method="get" target="_top" id="checkout"><input type="hidden" name="_method"
-                    value="put" />
+            <form action="{{ route('revisar', ['produto' => $produto]) }}" accept-charset="UTF-8" method="get"
+                target="_top" id="checkout"><input type="hidden" name="_method" value="put" />
                 <div id="contacts">
                     <h2 class="legend">Contato</h2>
                     <div id="contacts_email" class="field text-field">
@@ -577,7 +580,8 @@
                             name="order_shipping_address[shipping_same_as_billing]" value="1"
                             id="shipping_same_as_billing" class="checkbox" checked="checked"
                             onchange="togglebilling(this.checked)" />
-                        <label for="shipping_same_as_billing">Endereço para cobrança é o mesmo que o para entrega</label>
+                        <label for="shipping_same_as_billing">Endereço para cobrança é o mesmo que o para
+                            entrega</label>
                     </div>
                 </div>
 
@@ -617,8 +621,8 @@
                     </div>
                     <div id="billing_address_region" class="field select-field">
                         <label for="order_billing_address_region">Estado <em>*</em></label>
-                        <select name="order_billing_address[region]" id="order_billing_address_region"
-                            class="select" autocomplete="address-level1">
+                        <select name="order_billing_address[region]" id="order_billing_address_region" class="select"
+                            autocomplete="address-level1">
                             <option value=""></option>
                         </select>
                     </div>
@@ -989,8 +993,8 @@
                     <div class="row">
                         <div class="col-12 col-md-6 order-2 order-md-1">
                             <p class="powered-by">&copy; 2023 Sistema<sup>EA</sup>. Todos os direitos reservados. <a
-                                    href='#'
-                                    title='Create Online Store' target='_blank' rel='nofollow'>Por Elinaldo Agostinho</a>.</p>
+                                    href='#' title='Create Online Store' target='_blank' rel='nofollow'>Por
+                                    Elinaldo Agostinho</a>.</p>
                         </div>
                         <div class="col-12 col-md-6 order-1 order-md-2">
                             <ul class="payment">

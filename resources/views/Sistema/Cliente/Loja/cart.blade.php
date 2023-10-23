@@ -229,7 +229,7 @@
             <div class="fixed-top">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="container">
-                        <a href="{{route('loja')}}" title="Bootstrap" class="navbar-brand">
+                        <a href="{{ route('loja') }}" title="Bootstrap" class="navbar-brand">
                             Sistema<sup>EA</sup>
                         </a>
                         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -253,7 +253,8 @@
                             </div>
                             <ul id="navbarContainerMobile" class="navbar-nav d-lg-none">
                                 <li class="nav-item  ">
-                                    <a href="{{route('loja')}}" title="Inicio" class="level-1 trsn nav-link">Inicio</a>
+                                    <a href="{{ route('loja') }}" title="Inicio"
+                                        class="level-1 trsn nav-link">Inicio</a>
                                 </li>
                                 <li class="nav-item  ">
                                     <a href="/sobre" title="Sobre" class="level-1 trsn nav-link">Sobre</a>
@@ -268,7 +269,8 @@
                             <ul class="nav navbar-nav float-right nav-top">
 
                                 <li class="active">
-                                    <a id="cart-link" href="{{route('carrinho')}}" class="trsn nav-link" title="View/Edit Cart">
+                                    <a id="cart-link" href="{{ route('carrinho') }}" class="trsn nav-link"
+                                        title="View/Edit Cart">
                                         <i class="fas fa-shopping-cart"></i>
                                         <span id="nav-bar-cart"><span class="cart-size">0</span> Produto(s)
                                             | R$ 0,00</span>
@@ -396,9 +398,11 @@
 
         <div class="row">
             <section class="col-12">
-                <div class="bg-info alert text-white">O carrinho de compras está vazio no momento. Você pode voltar e começar
+                <div class="bg-info alert text-white">O carrinho de compras está vazio no momento. Você pode voltar e
+                    começar
                     adicionando produtos.</div>
-                <a href="{{route('loja')}}" class="btn btn-link" title="&larr; Go back & Keep Shopping">&larr; Volte as compras</a>
+                <a href="{{ route('loja') }}" class="btn btn-link" title="&larr; Go back & Keep Shopping">&larr;
+                    Volte as compras</a>
             </section>
         </div>
 
@@ -412,8 +416,8 @@
                     <div class="row">
                         <div class="col-12 col-md-6 order-2 order-md-1">
                             <p class="powered-by">&copy; 2023 Sistema<sup>EA</sup>. Todos os direitos reservados. <a
-                                    href='#'
-                                    title='Create Online Store' target='_blank' rel='nofollow'>Por Elinaldo Agostinho</a>.</p>
+                                    href='#' title='Create Online Store' target='_blank' rel='nofollow'>Por
+                                    Elinaldo Agostinho</a>.</p>
                         </div>
                         <div class="col-12 col-md-6 order-1 order-md-2">
                             <ul class="payment">

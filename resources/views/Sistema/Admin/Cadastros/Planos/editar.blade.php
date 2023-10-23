@@ -58,8 +58,8 @@
                             <div class="col">
                                 <button type="submit" class="btn btn-outline-primary"><i class="fas fa-check"></i>
                                     Atualizar</button>
-                                <a class="btn btn-outline-danger" data-toggle="modal"
-                                    data-target="#confirm-delete"><i class="fa fa-trash"></i> Remover</a>
+                                <a class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm-delete"><i
+                                        class="fa fa-trash"></i> Remover</a>
                                 <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">

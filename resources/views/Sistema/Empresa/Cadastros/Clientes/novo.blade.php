@@ -38,7 +38,8 @@
                     <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-plus"></i> Novo</h6>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('cliente.create') }}" class="empresas" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('cliente.create') }}" class="empresas"
+                        enctype="multipart/form-data">
                         @csrf
                         <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand"
                             role="tablist">
@@ -116,7 +117,8 @@
                                                 <label class="form-control-label" for="file">Imagem<span
                                                         class="small text-danger">
                                                         * </span></label>
-                                                <input class="form-control" type="file" name="image" id="image">
+                                                <input class="form-control" type="file" name="image"
+                                                    id="image">
                                                 <div class="galeria"></div>
                                             </div>
                                         </div>
@@ -223,34 +225,35 @@
 </script>
 <script>
     $(function() {
-    // Pré-visualização de várias imagens no navegador
-    var visualizacaoImagens = function(input, lugarParaInserirVisualizacaoDeImagem) {
+        // Pré-visualização de várias imagens no navegador
+        var visualizacaoImagens = function(input, lugarParaInserirVisualizacaoDeImagem) {
 
-        if (input.files) {
-            var quantImagens = input.files.length;
+            if (input.files) {
+                var quantImagens = input.files.length;
 
-            for (i = 0; i < quantImagens; i++) {
-                var reader = new FileReader();
+                for (i = 0; i < quantImagens; i++) {
+                    var reader = new FileReader();
 
-                reader.onload = function(event) {
-                    $($.parseHTML('<img class="miniatura">')).attr('src', event.target.result).appendTo(lugarParaInserirVisualizacaoDeImagem);
+                    reader.onload = function(event) {
+                        $($.parseHTML('<img class="miniatura">')).attr('src', event.target.result)
+                            .appendTo(lugarParaInserirVisualizacaoDeImagem);
+                    }
+
+                    reader.readAsDataURL(input.files[i]);
                 }
-
-                reader.readAsDataURL(input.files[i]);
             }
-        }
 
-    };
+        };
 
-    $('#image').on('change', function() {
-        visualizacaoImagens(this, 'div.galeria');
+        $('#image').on('change', function() {
+            visualizacaoImagens(this, 'div.galeria');
+        });
     });
-    });
-    </script>
-    <style>
-        .miniatura {
+</script>
+<style>
+    .miniatura {
         height: 100px;
         border: 1px solid #000;
         margin: 10px 5px 0 0;
-      }
-    </style>
+    }
+</style>

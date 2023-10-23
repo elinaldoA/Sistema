@@ -1823,8 +1823,8 @@
             </div>
 
             <div class="col-lg-6">
-                <form class="form-horizontal" action="{{ route('adicionar', ['produto' => $produto]) }}" method="POST"
-                    enctype="multipart/form-data" name="buy">
+                <form class="form-horizontal" action="{{ route('adicionar', ['produto' => $produto]) }}"
+                    method="POST" enctype="multipart/form-data" name="buy">
                     @csrf
                     <!-- Product Price -->
                     <div class="form-group price_elem row">
@@ -2141,7 +2141,7 @@
 
         $(document).ready(function() {
             Jumpseller.productVariantListener(".variants select.prod-options, .variants fieldset.prod-options", {
-                product: '[{"variant":{"id":{{ $produto->id }},"product_id":{{ $produto->id }},"position":0,"price":{{ $produto->preco }},"sku":"","barcode":null,"weight":1.0,"stock":0,"stock_unlimited":true,"image_id":{{$produto->id}},"store_id":15996},"image":"{{ $produto->image }}","image_id":{{ $produto->id }},"price":{{ $produto->preco }},"price_formatted":"R${{ $produto->preco }}","status":"available","price_discount_formatted":"R${{ $produto->preco_com_desconto }}","discount":0.0,"attachments":[],"custom_fields":{"89747":{"id":89747}},"values":[{"value":{"id":687718,"name":"Grey","option":206919}}]},{"variant":{"id":2478882,"product_id":{{ $produto->id }},"position":0,"price":{{ $produto->preco }},"sku":"","barcode":null,"weight":1.0,"stock":100,"stock_unlimited":true,"image_id":429444,"store_id":15996},"image":"{{ $produto->image }}","image_id":429444,"price":{{$produto->preco}},"price_formatted":"R${{ $produto->preco }}","status":"available","price_discount_formatted":"R${{ $produto->preco_com_desconto }}","discount":0.0,"attachments":[],"custom_fields":{"89747":{"id":89747}},"values":[{"value":{"id":687719,"name":"Black","option":206919}}]}]',
+                product: '[{"variant":{"id":{{ $produto->id }},"product_id":{{ $produto->id }},"position":0,"price":{{ $produto->preco }},"sku":"","barcode":null,"weight":1.0,"stock":0,"stock_unlimited":true,"image_id":{{ $produto->id }},"store_id":15996},"image":"{{ $produto->image }}","image_id":{{ $produto->id }},"price":{{ $produto->preco }},"price_formatted":"R${{ $produto->preco }}","status":"available","price_discount_formatted":"R${{ $produto->preco_com_desconto }}","discount":0.0,"attachments":[],"custom_fields":{"89747":{"id":89747}},"values":[{"value":{"id":687718,"name":"Grey","option":206919}}]},{"variant":{"id":2478882,"product_id":{{ $produto->id }},"position":0,"price":{{ $produto->preco }},"sku":"","barcode":null,"weight":1.0,"stock":100,"stock_unlimited":true,"image_id":429444,"store_id":15996},"image":"{{ $produto->image }}","image_id":429444,"price":{{ $produto->preco }},"price_formatted":"R${{ $produto->preco }}","status":"available","price_discount_formatted":"R${{ $produto->preco_com_desconto }}","discount":0.0,"attachments":[],"custom_fields":{"89747":{"id":89747}},"values":[{"value":{"id":687719,"name":"Black","option":206919}}]}]',
                 callback: callbackFunction
             });
             selectInitialStock();
@@ -2321,8 +2321,8 @@
                     <div class="row">
                         <div class="col-12 col-md-6 order-2 order-md-1">
                             <p class="powered-by">&copy; 2023 Sistema<sup>EA</sup>. Todos os direitos reservados. <a
-                                    href='#'
-                                    title='Create Online Store' target='_blank' rel='nofollow'>Por Elinaldo
+                                    href='#' title='Create Online Store' target='_blank' rel='nofollow'>Por
+                                    Elinaldo
                                     Agostinho</a>.</p>
                         </div>
                         <div class="col-12 col-md-6 order-1 order-md-2">

@@ -35,9 +35,6 @@
                                         <a class="btn btn-outline-primary"
                                             href="{{ route('plano.editar', ['plano' => $p->id]) }}"><i
                                                 class="fa fa-edit"></i></a>
-                                        <a class="btn btn-outline-primary"
-                                            href="{{ route('plano.show', ['plano' => $p->id]) }}"><i
-                                                class="fa fa-eye"></i></a>
                                     </td>
                                 </tr>
                             @empty

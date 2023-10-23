@@ -22,14 +22,14 @@
             <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                     <a href="#">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">-</div>
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">-</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-level-up-alt fa-2x text-gray-300"></i>
+                            </div>
                         </div>
-                        <div class="col-auto">
-                            <i class="fas fa-level-up-alt fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
                     </a>
                 </div>
             </div>
@@ -39,14 +39,14 @@
             <div class="card border-left-danger shadow h-100 py-2">
                 <div class="card-body">
                     <a href="#">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">-</div>
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">-</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-level-down-alt fa-2x text-gray-300"></i>
+                            </div>
                         </div>
-                        <div class="col-auto">
-                            <i class="fas fa-level-down-alt fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
                     </a>
                 </div>
             </div>
