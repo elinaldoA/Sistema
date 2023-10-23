@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Clientes;
 use App\Models\Empresas;
 use App\Models\EnderecoClientes;
-use App\Models\Enderecos;
 use App\Models\Generos;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;

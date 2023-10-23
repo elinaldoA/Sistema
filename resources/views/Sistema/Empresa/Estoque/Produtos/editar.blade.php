@@ -196,4 +196,11 @@
             $('#sucesso').hide(); // "sucesso" é o id do elemento que seja manipular.
         }, 2500); // O valor é representado em milisegundos.
     });
+
+    // Iniciará quando todo o corpo do documento HTML estiver pronto.
+    $().ready(function() {
+        setTimeout(function() {
+            $('#falha').hide(); // "falha" é o id do elemento que seja manipular.
+        }, 2500); // O valor é representado em milisegundos.
+    });
 </script>

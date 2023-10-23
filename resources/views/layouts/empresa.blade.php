@@ -63,11 +63,6 @@
                         <i class="fas fa-users fa-sm fa-fw mr-2 text-gray-400"></i>
                         {{ __('Clientes') }}
                     </a>
-                    <!---Produtos--->
-                    <a class="dropdown-item" href="{{route('produtos')}}">
-                        <i class="fas fa-book fa-sm fa-fw mr-2 text-gray-400"></i>
-                        {{ __('Produtos') }}
-                    </a>
                 </div>
             </li>
             <!--Gestão-->
@@ -79,9 +74,9 @@
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu" aria-labelledby="userDropdown">
                     <!---Produtos--->
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="{{route('produtos')}}">
                         <i class="fas fa-book fa-sm fa-fw mr-2 text-gray-400"></i>
-                        {{ __('Estoque') }}
+                        {{ __('Produtos') }}
                     </a>
                 </div>
             </li>

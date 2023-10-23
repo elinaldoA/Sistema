@@ -26,7 +26,7 @@ class ProdutosController extends Controller
     {
         $categorias = Categorias::with('categorias')->get();
         $produtos = Produtos::orderby('nome','asc')->paginate(5);
-        return view('Sistema.Empresa.Cadastros.Produtos.visualizar', compact('produtos','categorias'));
+        return view('Sistema.Empresa.Estoque.Produtos.visualizar', compact('produtos','categorias'));
     }
 
     /**
@@ -38,7 +38,7 @@ class ProdutosController extends Controller
     {
         $categorias = Categorias::with('categorias')->get();
         $empresas = Empresas::with('empresas')->get();
-        return view('Sistema.Empresa.Cadastros.Produtos.novo', compact('categorias','empresas'));
+        return view('Sistema.Empresa.Estoque.Produtos.novo', compact('categorias','empresas'));
     }
 
     /**
@@ -89,7 +89,7 @@ class ProdutosController extends Controller
     {
         $categorias = Categorias::with('categorias')->get();
         $empresas = Empresas::with('empresas')->get();
-        return view('Sistema.Empresa.Cadastros.Produtos.show', compact('produto','categorias','empresas'));
+        return view('Sistema.Empresa.Estoque.Produtos.show', compact('produto','categorias','empresas'));
     }
 
     /**
@@ -102,7 +102,7 @@ class ProdutosController extends Controller
     {
         $categorias = Categorias::with('categorias')->get();
         $empresas = Empresas::with('empresas')->get();
-        return view('Sistema.Empresa.Cadastros.Produtos.editar', compact('produto','categorias','empresas'));
+        return view('Sistema.Empresa.Estoque.Produtos.editar', compact('produto','categorias','empresas'));
     }
 
     /**

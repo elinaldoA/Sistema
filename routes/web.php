@@ -116,14 +116,14 @@ Route::group(['prefix' => 'Sistema/Empresa', 'middleware' => ['auth']], function
     //Export
     Route::get('clientes/export/', 'Sistema\Empresas\Cadastros\ClientesController@export')->name('export-cliente');
     //Produtos
-    Route::get('/Cadastros/Produtos/novo', 'Sistema\Empresas\Cadastros\ProdutosController@create')->name('produto.create');
-    Route::post('/Cadastros/Produtos/novo', 'Sistema\Empresas\Cadastros\ProdutosController@store')->name('produto.store');
-    Route::get('/Cadastros/Produtos/visualizar', 'Sistema\Empresas\Cadastros\ProdutosController@index')->name('produtos');
-    Route::get('/Cadastros/Produtos/{produto}/show', 'Sistema\Empresas\Cadastros\ProdutosController@show')->name('produto.show');
-    Route::get('/Cadastros/Produtos/{produto}/editar', 'Sistema\Empresas\Cadastros\ProdutosController@edit');
-    Route::post('/Cadastros/Produtos/{id}/editar', 'Sistema\Empresas\Cadastros\ProdutosController@update')->name('produto.editar');
-    Route::get('/Cadastros/Produtos/{produto}/excluir', 'Sistema\Empresas\Cadastros\ProdutosController@delete');
-    Route::post('/Cadastros/Produtos/{produto}/excluir', 'Sistema\Empresas\Cadastros\ProdutosController@destroy')->name('produto.excluir');
+    Route::get('/Estoque/Produtos/novo', 'Sistema\Empresas\Cadastros\ProdutosController@create')->name('produto.create');
+    Route::post('/Estoque/Produtos/novo', 'Sistema\Empresas\Cadastros\ProdutosController@store')->name('produto.store');
+    Route::get('/Estoque/Produtos/visualizar', 'Sistema\Empresas\Cadastros\ProdutosController@index')->name('produtos');
+    Route::get('/Estoque/Produtos/{produto}/show', 'Sistema\Empresas\Cadastros\ProdutosController@show')->name('produto.show');
+    Route::get('/Estoque/Produtos/{produto}/editar', 'Sistema\Empresas\Cadastros\ProdutosController@edit');
+    Route::post('/Estoque/Produtos/{id}/editar', 'Sistema\Empresas\Cadastros\ProdutosController@update')->name('produto.editar');
+    Route::get('/Estoque/Produtos/{produto}/excluir', 'Sistema\Empresas\Cadastros\ProdutosController@delete');
+    Route::post('/Estoque/Produtos/{produto}/excluir', 'Sistema\Empresas\Cadastros\ProdutosController@destroy')->name('produto.excluir');
     //Export
     Route::get('produtos/export/', 'Sistema\Empresas\Cadastros\ProdutosController@export')->name('export');
 });

@@ -4,13 +4,21 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">{{ __('Planos') }}</h1>
 
-    @if ($errors->any())
-        <div class="alert alert-danger border-left-danger" role="alert">
-            <ul class="pl-4 my-2">
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+    @if (session('success'))
+        <div id="sucesso" class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
+    @if (session('danger'))
+        <div id="falha" class="alert alert-danger border-left-danger alert-dismissible fade show" role="alert">
+            {{ session('danger') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
     @endif
 
@@ -59,3 +67,18 @@
     </div>
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    // Iniciará quando todo o corpo do documento HTML estiver pronto.
+    $().ready(function() {
+        setTimeout(function() {
+            $('#sucesso').hide(); // "sucesso" é o id do elemento que seja manipular.
+        }, 2500); // O valor é representado em milisegundos.
+    });
+
+    // Iniciará quando todo o corpo do documento HTML estiver pronto.
+    $().ready(function() {
+        setTimeout(function() {
+            $('#falha').hide(); // "falha" é o id do elemento que seja manipular.
+        }, 2500); // O valor é representado em milisegundos.
+    });
+</script>
