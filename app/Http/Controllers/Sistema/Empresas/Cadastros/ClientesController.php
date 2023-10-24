@@ -102,18 +102,16 @@ class ClientesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Clientes $cliente)
     {
         $generos = Generos::with('generos')->get();
         $empresas = Empresas::with('empresas')->get();
-        $clientes = Clientes::find($id);
-        $enderecos = Enderecoclientes::find($id);
-        return view('Sistema.Empresa.Cadastros.Clientes.editar', ['clientes' => $clientes,'enderecos' => $enderecos,'generos' => $generos,'empresas' => $empresas]);
+        $enderecos = Enderecoclientes::find($cliente->id);
+        return view('Sistema.Empresa.Cadastros.Clientes.editar', compact('cliente','enderecos','generos','empresas'));
     }
-    public function update(Request $request, $id)
+    public function update(Request $request, Clientes $cliente)
     {
-        $cliente = Clientes::find($id);
-        $endereco = EnderecoClientes::find($id);
+        $endereco = EnderecoClientes::find($cliente->id);
         $request->validate([
             'active' => 'required|boolean',
             'name' => 'required|string',

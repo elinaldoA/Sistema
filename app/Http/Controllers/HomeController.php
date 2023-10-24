@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categorias;
 use App\Models\Produtos;
+use App\Models\ProdutosDetalhes;
 
 class HomeController extends Controller
 {
@@ -15,7 +16,8 @@ class HomeController extends Controller
     public function show(Produtos $produto)
     {
         $categorias = Categorias::with('categorias')->get();
-        return view('show', compact('produto'), ['categorias' => $categorias]);
+        $produto_detalhes = ProdutosDetalhes::find($produto->id);
+        return view('show', compact('produto'), ['categorias' => $categorias, 'produto_detalhes' => $produto_detalhes]);
     }
     public function cart()
     {

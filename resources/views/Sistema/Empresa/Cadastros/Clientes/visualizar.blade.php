@@ -38,18 +38,18 @@
                                 <th scope="col">Ativo</th>
                                 <th scope="col">Ações</th>
                             </tr>
-                            @forelse($clientes as $c)
+                            @forelse($clientes as $cliente)
                                 <tr>
-                                    <td><img src="/storage/image/{{ $c->image }}" width="50px" class="rounded"></td>
-                                    <td>{{ $c->name }}</td>
-                                    <td><input type="checkbox" name="active" value="1" class="form-control"
-                                            @if (
-                                                ($c->active == 0 && old('active') && old('first_time')) ||
-                                                    ($c->active && old('active') == null && old('first_time') == null) ||
-                                                    ($c->active && old('active') && old('first_time'))) checked="checked" @endif></td>
+                                    <td><img src="/storage/image/{{ $cliente->image }}" width="50px" class="rounded"></td>
+                                    <td>{{ $cliente->name }}</td>
+                                    <td>
+                                        <input type="checkbox" name="active" value="1" class="form-control"
+                                        @if (($cliente->active == 0 && old('active') && old('first_time')) ||
+                                            ($cliente->active && old('active') == null && old('first_time') == null) ||
+                                            ($cliente->active && old('active') && old('first_time'))) checked="checked" @endif></td>
                                     <td>
                                         <a class="btn btn-outline-primary"
-                                            href="{{ route('cliente.editar', ['id' => $c->id]) }}"><i
+                                            href="{{ route('cliente.editar', ['cliente' => $cliente]) }}"><i
                                                 class="fa fa-edit"></i></a>
                                     </td>
                                 </tr>

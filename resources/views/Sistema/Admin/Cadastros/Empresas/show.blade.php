@@ -20,7 +20,7 @@
                     <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-eye"></i> Empresas</h6>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('empresa.show', ['id' => $empresa->id]) }}"
+                    <form method="POST" action="{{ route('empresa.show', ['empresa' => $empresa]) }}"
                         enctype="multipart/form-data">
                         @csrf
                         <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand"

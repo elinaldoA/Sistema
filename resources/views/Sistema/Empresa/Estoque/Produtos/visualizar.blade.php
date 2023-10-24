@@ -37,21 +37,23 @@
                                 <th scope="col">Código</th>
                                 <th scope="col">Nome</th>
                                 <th scope="col">Categoria</th>
+                                <th scope="col">Estoque</th>
                                 <th scope="col">Ações</th>
                             </tr>
-                            @forelse($produtos as $p)
+                            @forelse($produtos as $produto)
                                 <tr>
-                                    <td><img src="/storage/image/{{ $p->image }}" width="50px" class="rounded"></td>
-                                    <td>{{ $p->codigo }}</td>
-                                    <td>{{ $p->nome }}</td>
+                                    <td><img src="/storage/image/{{ $produto->image }}" width="50px" class="rounded"></td>
+                                    <td>{{ $produto->codigo }}</td>
+                                    <td>{{ $produto->nome }}</td>
                                     @foreach ($categorias as $c)
-                                        @if ($p->categoria_id == $c->id)
+                                        @if ($produto->categoria_id == $c->id)
                                             <td>{{ $c->name }}</td>
                                         @endif()
                                     @endforeach
+                                    <td>{{ $produto->qt }}</td>
                                     <td>
                                         <a class="btn btn-outline-primary"
-                                            href="{{ route('produto.editar', ['id' => $p->id]) }}"><i
+                                            href="{{ route('produto.editar', ['produto' => $produto]) }}"><i
                                                 class="fa fa-edit"></i></a>
                                     </td>
                                 </tr>

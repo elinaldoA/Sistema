@@ -38,18 +38,18 @@
                                 <th scope="col">Segmento</th>
                                 <th scope="col">Ações</th>
                             </tr>
-                            @forelse($empresas as $e)
+                            @forelse($empresas as $empresa)
                                 <tr>
-                                    <td><img src="/storage/image/{{ $e->image }}" height="50px" width="50px"></td>
-                                    <td>{{ $e->name }}</td>
+                                    <td><img src="/storage/image/{{ $empresa->image }}" height="50px" width="50px"></td>
+                                    <td>{{ $empresa->name }}</td>
                                     @foreach ($modulos as $m)
-                                        @if ($e->modulo_id == $m->id)
+                                        @if ($empresa->modulo_id == $m->id)
                                             <td>{{ $m->name }}</td>
                                         @endif
                                     @endforeach
                                     <td>
                                         <a class="btn btn-outline-primary"
-                                            href="{{ route('empresa.editar', ['id' => $e->id]) }}"><i
+                                            href="{{ route('empresa.editar', ['empresa' => $empresa]) }}"><i
                                                 class="fa fa-edit"></i></a>
                                     </td>
                                 </tr>

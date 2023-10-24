@@ -18,15 +18,12 @@
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
-
     <!-- Facebook Meta tags for Product -->
     <meta property="fb:app_id" content="283643215104248" />
 
     <meta property="og:id" content="{{ $produto->id }}" />
     <meta property="og:title" content="{{ $produto->nome }}" />
     <meta property="og:type" content="product" />
-
 
     <meta property="og:image"
         content="https://cdnx.jumpseller.com/bootstrap/image/429444/resize/1200/1200?1614272621" />
@@ -37,24 +34,15 @@
     <meta property="og:image"
         content="https://cdnx.jumpseller.com/bootstrap/image/14896546/resize/1200/1200?1614272621" />
 
-
-
-
-
     <meta property="product:is_product_shareable" content="1" />
-
 
     <meta property="product:original_price:amount" content="100000.0" />
     <meta property="product:price:amount" content="100000.0" />
 
     <meta property="product:availability" content="instock" />
 
-
-
     <meta property="product:original_price:currency" content="CLP" />
     <meta property="product:price:currency" content="CLP" />
-
-
 
     <meta property="og:description"
         content="Just getting going with your art? Transitioning from paper to computer-based work? The Bamboo Splash is a great way to explore your interests, with a premium feel of the pen tablet and everything you need to get started in the box.Start something fun! Sketch, draw, paint, all on your computer with the new Bamboo Splash. You'll work both digitall..." />
@@ -1430,14 +1418,10 @@
   }]
   </script>
 
-
     <!-- Autocomplete search -->
-
     <script src="//assets.jumpseller.com/public/autocomplete/algolia-autocomplete@1.7.1.js"></script>
     <script src="//assets.jumpseller.com/public/autocomplete/jumpseller-autocomplete@1.0.0.min.js"
         data-suggest-categories="false" defer="defer"></script>
-
-
 
     <script>
         // Listener for swatch clicks when product block swatches are enabled
@@ -1469,8 +1453,6 @@
             });
         }
     </script>
-
-
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1516,7 +1498,6 @@
         }
     </style>
 
-
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JBWEC7QQTS"></script>
     <script type="text/javascript">
         window.dataLayer = window.dataLayer || [];
@@ -1535,8 +1516,6 @@
         custom_dimension_params['custom_map']['dimension1'] = 'theme';
         custom_dimension_params['theme'] = "bootstrap";
 
-
-
         // Send events to Jumpseller GA Account
         gtag('config',
             'G-JBWEC7QQTS',
@@ -1546,12 +1525,7 @@
 
         // Send events to Store Owner GA Account
 
-
-
-
-
         let order_items = null;
-
 
         // view_item - a user follows a link that goes directly to a product page
         gtag('event', 'view_item', {
@@ -1567,16 +1541,6 @@
             value: '{{ $produto->preco }}',
         });
     </script>
-
-
-
-
-
-
-
-
-
-
 
     <script src="https://files.jumpseller.com/javascripts/dist/jumpseller-2.0.0.js" defer="defer"></script>
 </head>
@@ -1880,42 +1844,136 @@
                             <p>{{ $produto->descricao }}</p>
                         </div>
                     </div>
+                    @if ($produto_detalhes->composicao == false)
+                    <div class="form-group row" hidden="true">
+                        <label class="col-sm-3 col-md-3 form-control-label">Composição:</label>
+                        <div class="col-sm-8 col-md-9 description">
+                            <p>{{ $produto_detalhes->composicao }}</p>
+                        </div>
+                    </div>@else
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-md-3 form-control-label">Composição:</label>
+                        <div class="col-sm-8 col-md-9 description">
+                            <p>{{ $produto_detalhes->composicao }}</p>
+                        </div>
+                    </div>
+                    @endif
+                    @if ($produto_detalhes->indicado == false)
+                    <div class="form-group row" hidden="true">
+                        <label class="col-sm-3 col-md-3 form-control-label">Para quem é indicado:</label>
+                        <div class="col-sm-8 col-md-9 description">
+                            <p>{{ $produto_detalhes->indicado }}</p>
+                        </div>
+                    </div>@else
                     <div class="form-group row">
                         <label class="col-sm-3 col-md-3 form-control-label">Para quem é indicado:</label>
                         <div class="col-sm-8 col-md-9 description">
-                            <p>{{ $produto->indicado }}</p>
+                            <p>{{ $produto_detalhes->indicado }}</p>
                         </div>
                     </div>
+                    @endif
+                    @if ($produto_detalhes->funcionamento == false)
+                    <div class="form-group row" hidden="true">
+                        <label class="col-sm-3 col-md-3 form-control-label">Como funciona:</label>
+                        <div class="col-sm-8 col-md-9 description">
+                            <p>{{ $produto_detalhes->funcionamento }}</p>
+                        </div>
+                    </div>@else
                     <div class="form-group row">
                         <label class="col-sm-3 col-md-3 form-control-label">Como funciona:</label>
                         <div class="col-sm-8 col-md-9 description">
-                            <p>{{ $produto->funcionamento }}</p>
+                            <p>{{ $produto_detalhes->funcionamento }}</p>
                         </div>
                     </div>
+                    @endif
+                    @if ($produto_detalhes->contraindicacoes == false)
+                    <div class="form-group row" hidden="true">
+                        <label class="col-sm-3 col-md-3 form-control-label">Contraindicações:</label>
+                        <div class="col-sm-8 col-md-9 description">
+                            <p>{{ $produto_detalhes->contraindicacoes }}</p>
+                        </div>
+                    </div>@else
                     <div class="form-group row">
                         <label class="col-sm-3 col-md-3 form-control-label">Contraindicações:</label>
                         <div class="col-sm-8 col-md-9 description">
-                            <p>{{ $produto->contraindicacoes }}</p>
+                            <p>{{ $produto_detalhes->contraindicacoes }}</p>
                         </div>
                     </div>
+                    @endif
+                    @if ($produto_detalhes->como_usar == false)
+                    <div class="form-group row" hidden="true">
+                        <label class="col-sm-3 col-md-3 form-control-label">Como usar:</label>
+                        <div class="col-sm-8 col-md-9 description">
+                            <p>{{ $produto_detalhes->como_usar }}</p>
+                        </div>
+                    </div>@else
                     <div class="form-group row">
                         <label class="col-sm-3 col-md-3 form-control-label">Como usar:</label>
                         <div class="col-sm-8 col-md-9 description">
-                            <p>{{ $produto->como_usar }}</p>
+                            <p>{{ $produto_detalhes->como_usar }}</p>
                         </div>
                     </div>
+                    @endif
+                    @if ($produto_detalhes->altura == false)
                     <div class="form-group row product-custom_fields" hidden="true">
                         <label class="col-sm-3 col-md-3 form-control-label">Detalhes:</label>
                         <div class="col-sm-9 col-md-9">
-                            <p class="product-custom_field">Marca:
+                            <p class="product-custom_field">Altura:
                                 <span class="product-custom_field_values">
-
                                     <span id="product-custom_field_value_89747"
-                                        class="product-custom_field_value">{{ $produto->nome }}</span>
+                                        class="product-custom_field_value">{{ $produto_detalhes->altura }}</span>
+                                </span>
+                            </p>
+                            <p class="product-custom_field">Largura:
+                                <span class="product-custom_field_values">
+                                    <span id="product-custom_field_value_89747"
+                                        class="product-custom_field_value">{{ $produto_detalhes->largura }}</span>
+                                </span>
+                            </p>
+                            <p class="product-custom_field">Comprimento:
+                                <span class="product-custom_field_values">
+                                    <span id="product-custom_field_value_89747"
+                                        class="product-custom_field_value">{{ $produto_detalhes->comprimento }}</span>
+                                </span>
+                            </p>
+                            <p class="product-custom_field">Peso:
+                                <span class="product-custom_field_values">
+                                    <span id="product-custom_field_value_89747"
+                                        class="product-custom_field_value">{{ $produto_detalhes->peso }}</span>
                                 </span>
                             </p>
                         </div>
                     </div>
+                    @else
+                    <div class="form-group row product-custom_fields">
+                        <label class="col-sm-3 col-md-3 form-control-label">Detalhes:</label>
+                        <div class="col-sm-9 col-md-9">
+                            <p class="product-custom_field">Altura:
+                                <span class="product-custom_field_values">
+                                    <span id="product-custom_field_value_89747"
+                                        class="product-custom_field_value">{{ $produto_detalhes->altura }}</span>
+                                </span>
+                            </p>
+                            <p class="product-custom_field">Largura:
+                                <span class="product-custom_field_values">
+                                    <span id="product-custom_field_value_89747"
+                                        class="product-custom_field_value">{{ $produto_detalhes->largura }}</span>
+                                </span>
+                            </p>
+                            <p class="product-custom_field">Comprimento:
+                                <span class="product-custom_field_values">
+                                    <span id="product-custom_field_value_89747"
+                                        class="product-custom_field_value">{{ $produto_detalhes->comprimento }}</span>
+                                </span>
+                            </p>
+                            <p class="product-custom_field">Peso:
+                                <span class="product-custom_field_values">
+                                    <span id="product-custom_field_value_89747"
+                                        class="product-custom_field_value">{{ $produto_detalhes->peso }}</span>
+                                </span>
+                            </p>
+                        </div>
+                    </div>@endif
                     <div id="product-sharing" class="row">
                         <label class="col-sm-3 col-md-3 ">Compartilhar:</label>
                         <ul class="list-inline social-networks col-sm-9 col-md-9">

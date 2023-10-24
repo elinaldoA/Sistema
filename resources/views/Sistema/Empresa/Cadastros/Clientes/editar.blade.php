@@ -38,7 +38,7 @@
                     <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-edit"></i> Editar</h6>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('cliente.editar', ['id' => $clientes->id]) }}" class="empresas"
+                    <form method="POST" action="{{ route('cliente.editar', ['cliente' => $cliente]) }}" class="empresas"
                         enctype="multipart/form-data">
                         @csrf
                         <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand"
@@ -63,10 +63,9 @@
                                                 <label class="form-control-label" for="active">Status<span
                                                         class="small text-danger"> * </span></label>
                                                 <input type="checkbox" name="active" value="1" class="form-control"
-                                                    @if (
-                                                        ($clientes->active == 0 && old('active') && old('first_time')) ||
-                                                            ($clientes->active && old('active') == null && old('first_time') == null) ||
-                                                            ($clientes->active && old('active') && old('first_time'))) checked="checked" @endif>
+                                                    @if (($cliente->active == 0 && old('active') && old('first_time')) ||
+                                                        ($cliente->active && old('active') == null && old('first_time') == null) ||
+                                                        ($cliente->active && old('active') && old('first_time'))) checked="checked" @endif>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
@@ -74,7 +73,7 @@
                                                 <label class="form-control-label" for="name">Nome<span
                                                         class="small text-danger"> * </span></label>
                                                 <input type="text" class="form-control" name="name" id="name"
-                                                    value="{{ $clientes->name }}" />
+                                                    value="{{ $cliente->name }}" />
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
@@ -83,7 +82,7 @@
                                                         class="small text-danger">
                                                         * </span></label>
                                                 <input type="text" class="form-control" name="cpf" id="cpf"
-                                                    value="{{ $clientes->cpf }}" />
+                                                    value="{{ $cliente->cpf }}" />
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
@@ -91,7 +90,7 @@
                                                 <label class="form-control-label" for="email">E-mail<span
                                                         class="small text-danger"> * </span></label>
                                                 <input type="email" class="form-control" name="email" id="email"
-                                                    value="{{ $clientes->email }}" />
+                                                    value="{{ $cliente->email }}" />
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
@@ -101,7 +100,7 @@
                                                 <select class="form-control" name="genero_id" id="genero_id">
                                                     <option>Selecione</option>
                                                     @foreach ($generos as $g)
-                                                        <option {{ $clientes->genero_id == $g->id ? 'selected' : '' }}
+                                                        <option {{ $cliente->genero_id == $g->id ? 'selected' : '' }}
                                                             value="{{ $g->id }}">{{ $g->name }}</option>
                                                     @endforeach
                                                 </select>
@@ -114,7 +113,7 @@
                                                 <select class="form-control" name="empresa_id" id="empresa_id">
                                                     <option>Selecione</option>
                                                     @foreach ($empresas as $e)
-                                                        <option {{ $clientes->empresa_id == $e->id ? 'selected' : '' }}
+                                                        <option {{ $cliente->empresa_id == $e->id ? 'selected' : '' }}
                                                             value="{{ $e->id }}">{{ $e->name }}</option>
                                                     @endforeach
                                                 </select>
@@ -127,7 +126,7 @@
                                                         * </span></label>
                                                 <input type="file" class="form-control roudend" name="image"
                                                     id="image"><br />
-                                                <img src="/storage/image/{{ $clientes->image }}" width="150px"
+                                                <img src="/storage/image/{{ $cliente->image }}" width="150px"
                                                     class="rounded">
                                             </div>
                                         </div>
@@ -240,7 +239,7 @@
                                                 <button class="btn btn-link" type="button"
                                                     data-dismiss="modal">{{ __('Cancelar') }}</button>
                                                 <a class="btn btn-danger btn-ok"
-                                                    href="{{ route('cliente.excluir', ['cliente' => $clientes->id]) }}">Confirmar</a>
+                                                    href="{{ route('cliente.excluir', ['cliente' => $cliente->id]) }}">Confirmar</a>
                                             </div>
                                         </div>
                                     </div>

@@ -84,10 +84,9 @@ class EmpresasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Empresas $empresa)
     {
-        $empresa = Empresas::find($id);
-        $enderecos = EnderecoEmpresas::find($id);
+        $enderecos = EnderecoEmpresas::find($empresa->id);
         $modulos = Modulos::with('modulos')->get();
         return view('Sistema.Admin.Cadastros.Empresas.show', compact('empresa','enderecos','modulos'));
     }
@@ -98,10 +97,9 @@ class EmpresasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Empresas $empresa)
     {
-        $empresa = Empresas::find($id);
-        $enderecos = EnderecoEmpresas::find($id);
+        $enderecos = EnderecoEmpresas::find($empresa->id);
         $modulos = Modulos::with('modulos')->get();
         return view('Sistema.Admin.Cadastros.Empresas.editar', ['empresa' => $empresa,'enderecos' => $enderecos, 'modulos' => $modulos]);
     }
@@ -113,10 +111,9 @@ class EmpresasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Empresas $empresa)
     {
-        $empresa = Empresas::find($id);
-        $endereco = EnderecoEmpresas::find($id);
+        $endereco = EnderecoEmpresas::find($empresa->id);
         $request->validate([
             'active' => 'required|boolean',
             'name' => 'required|string',

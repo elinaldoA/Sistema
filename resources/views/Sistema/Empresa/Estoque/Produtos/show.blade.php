@@ -31,10 +31,9 @@
                                                 class="small text-danger"> *
                                             </span></label>
                                         <input type="checkbox" name="active" value="1" class="form-control"
-                                            @if (
-                                                ($produto->active == 0 && old('active') && old('first_time')) ||
-                                                    ($produto->active && old('active') == null && old('first_time') == null) ||
-                                                    ($produto->active && old('active') && old('first_time'))) checked="checked" @endif>
+                                            @if (($produto->active == 0 && old('active') && old('first_time')) ||
+                                                ($produto->active && old('active') == null && old('first_time') == null) ||
+                                                ($produto->active && old('active') && old('first_time'))) checked="checked" @endif>
                                     </div>
                                 </div>
                                 <div class="col-lg-3">

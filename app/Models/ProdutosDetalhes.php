@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Produtos extends Model
+class ProdutosDetalhes extends Model
 {
     use HasFactory;
 
@@ -15,17 +15,16 @@ class Produtos extends Model
      * @var array
      */
     protected $fillable = [
-        'active',
-        'codigo',
-        'nome',
-        'descricao',
-        'preco',
-        'desconto',
-        'preco_com_desconto',
-        'qt',
-        'empresa_id',
-        'categoria_id',
-        'image',
+        'destaque',
+        'composicao',
+        'indicado',
+        'funcionamento',
+        'contraindicacoes',
+        'como_usar',
+        'altura',
+        'largura',
+        'comprimento',
+        'peso',
     ];
 
     /**
@@ -46,9 +45,9 @@ class Produtos extends Model
         'updated_at' => 'datetime',
     ];
 
-    public function Produtos()
+    public function Produtos_detalhes()
     {
-        return $this->belongsTo(Produtos::class);
+        return $this->belongsTo(ProdutosDetalhes::class);
     }
 }
 

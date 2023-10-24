@@ -8,6 +8,7 @@ use App\Models\Categorias;
 use App\Models\Empresas;
 use App\Models\Estoque;
 use App\Models\Produtos;
+use App\Models\ProdutosDetalhes;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -52,7 +53,7 @@ class ProdutosController extends Controller
         $this->validate($request,[
             'codigo' => 'required|string|max:10',
             'nome' => 'required|string|max:255',
-            'descricao' => 'required|string|max:255',
+            'descricao' => 'required|string',
             'preco' => 'required|string|max:255',
             'desconto' => 'string',
             'preco_com_desconto' => 'string',
@@ -60,7 +61,6 @@ class ProdutosController extends Controller
             'empresa_id' => 'required|string',
             'categoria_id' => 'required|string',
             'active' => 'required|boolean',
-            'destaque' => 'boolean',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
@@ -74,6 +74,7 @@ class ProdutosController extends Controller
                 $produto['image'] = "$profileImage";
             }
         Produtos::create($produto);
+        ProdutosDetalhes::create($produto);
         Estoque::create($produto);
         return redirect()->route('produtos')
         ->with('success','Cadastrado com sucesso!');
@@ -102,7 +103,8 @@ class ProdutosController extends Controller
     {
         $categorias = Categorias::with('categorias')->get();
         $empresas = Empresas::with('empresas')->get();
-        return view('Sistema.Empresa.Estoque.Produtos.editar', compact('produto','categorias','empresas'));
+        $produto_detalhes = ProdutosDetalhes::find($produto->id);
+        return view('Sistema.Empresa.Estoque.Produtos.editar', compact('produto','categorias','empresas'), ['produto_detalhes' => $produto_detalhes]);
     }
 
     /**
@@ -112,31 +114,21 @@ class ProdutosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Produtos $produto)
     {
-        $produto = Produtos::find($id);
-        $estoque = Estoque::find($id);
+        $produto_detalhes = ProdutosDetalhes::find($produto->id);
+        $estoque = Estoque::find($produto->id);
         $request->validate([
             'codigo' => 'required|string|max:10',
             'nome' => 'required|string|max:255',
             'descricao' => 'required|string|max:255',
-            'composicao' => 'string|max:255',
-            'indicado' => 'string|max:255',
-            'funcionamento' => 'string|max:255',
-            'contraindicacoes' => 'string|max:255',
-            'como_usar' => 'string|max:255',
             'preco' => 'required|string|max:255',
             'desconto' => 'string',
             'preco_com_desconto' => 'string',
             'qt' => 'required|integer',
-            'altura' => 'string',
-            'largura' => 'string',
-            'comprimento' => 'string',
-            'peso' => 'string',
             'empresa_id' => 'required|string',
             'categoria_id' => 'required|string',
             'active' => 'required|boolean',
-            'destaque' => 'boolean',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);
 
@@ -152,6 +144,7 @@ class ProdutosController extends Controller
         }
 
         $produto->update($input);
+        $produto_detalhes->update($input);
         $estoque->update($input);
         return redirect()->route('produtos')
         ->with('success','Atualizado com sucesso!');
